@@ -1,3 +1,13 @@
+---	
+name: Bug Report	
+about: Issue	
+title: ''	
+labels: ''	
+assignees: ''	
+
+
+---
+
 
 ## Describe the bug
 
