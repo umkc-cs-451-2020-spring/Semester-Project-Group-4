@@ -22,8 +22,8 @@ A web application that pulls in transaction details (we will provide sample data
     b.	Ability to pull/compare notification rule different timeframes
     c.	Ability to export to spreadsheet
 
-  5.	Login Page
-    a.	Simple login and passwords fields.  
+  5.	Login Page  
+    a.	Simple login and passwords fields.    
       i.	Mask the password field.  
       ii.	Password requirements:  
         1.	8 characters minimum
@@ -31,8 +31,8 @@ A web application that pulls in transaction details (we will provide sample data
         3.	1 symbol
         4.	1 number
     b.	Login button
-  6.	Dashboard
-    a.	Summary for triggered notification rules
+  6.	Dashboard  
+    a.	Summary for triggered notification rules  
   7.	Transaction Summary
     a.	Transaction list sorted by date
       i.	Don’t need to worry about searching/filtering
