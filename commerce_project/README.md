@@ -2,7 +2,7 @@
 
 In the project directory, you can run:
 
-### 'npm install'
+### `npm install`
 
 Installs the dependencies in the local node_modules folder. You will need to do this first in order to run the app.
 
