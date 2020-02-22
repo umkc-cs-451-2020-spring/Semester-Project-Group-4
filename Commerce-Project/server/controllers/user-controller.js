@@ -1,6 +1,4 @@
-const Login = require('../models/login-model')
-const Register = require('../models/register-model')
-const User = require('../models/user-model')
+const UserModel = require('../models/user-model')
 
 createUser = (req, res) => {
 	const body = req.body
@@ -12,7 +10,7 @@ createUser = (req, res) => {
 		})
 	}
 
-	const user = new Register(body)
+	const user = new UserModel(body)
 	if (!user) {
 		return res.status(400).json({ success: false, error: err })
 	}
@@ -36,7 +34,6 @@ createUser = (req, res) => {
 
 updateUser = async (req, res) => {
 	const body = req.body
-
 	if (!body) {
 		return res.status(400).json({
 			success: false,
@@ -44,7 +41,7 @@ updateUser = async (req, res) => {
 		})
 	}
 
-	User.findOne({ _id: req.params.id }, (err, user) => {
+	UserModel.findOne({ _id: req.params.id }, (err, user) => {
 		if (err) {
 			return res.status(404).json({
 				err,
@@ -74,7 +71,7 @@ updateUser = async (req, res) => {
 }
 
 deleteUser = async (req, res) => {
-	await User.findOneAndDelete({ _id: req.params.id }, (err, user) => {
+	await UserModel.findOneAndDelete({ _id: req.params.id }, (err, user) => {
 		if (err) {
 			return res.status(400).json({ success: false, error: err })
 		}
@@ -90,7 +87,7 @@ deleteUser = async (req, res) => {
 }
 
 getUserById = async (req, res) => {
-	await Login.findOne({ _id: req.params.id }, (err, user) => {
+	await UserModel.findOne({ _id: req.params.id }, (err, user) => {
 		if (err) {
 			return res.status(400).json({ success: false, error: err })
 		}
@@ -105,7 +102,21 @@ getUserById = async (req, res) => {
 }
 
 getUser = async (req, res) => {
-	await Login.find({}, (err, user) => {
+	const body = req.body
+	console.log(body)
+	if (!body) {
+		return res.status(400).json({
+			success: false,
+			error: 'You must provide a user',
+		})
+	}
+
+	const user = new UserModel(body)
+	if (!user) {
+		return res.status(400).json({ success: false, error: err })
+	}
+
+	await UserModel.find({ username: body.username, password: body.password }, (err, user) => {
 		if (err) {
 			return res.status(400).json({ success: false, error: err })
 		}
