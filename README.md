@@ -23,10 +23,10 @@ A web application that pulls in transaction details and allows the user to set t
       This allows us to test the applications queries manually.
 
 ## Running Environment for Development
-  1. cd/commerce_project
+  1. cd/commerce_project/src
   2. npm i
   3. npm start
-      This will allow you develop at http://localhost:3000  
+      This will allow you develop at http://localhost:8000  
       
 ## Starting and Stopping Mongo DB
   1. Open a shell with admin rights or make sure VS Code is ran as Administrator.
@@ -65,7 +65,7 @@ A web application that pulls in transaction details and allows the user to set t
         "id": "5e5173b3a41d040b58c00f45",
         "message": "User created!"
       }
-    6. Look at the routes file to see other api's you can call.
+    6. Look at the routes file to see other api's you can call (POST, GET, DELETE, PUT).
     7. Open Mongo Compass, click connect (leave connection blank) and you will see collections created
 
 ## Running Tests (Jest)
