@@ -14,22 +14,59 @@ A web application that pulls in transaction details and allows the user to set t
 ## Prerequisites
   1. Install node.js globally -- https://nodejs.org/en/
        npm i npm -g
-  2. Install SQL Server 2019, Developer Edition -- https://www.microsoft.com/en-us/sql-server/sql-server-downloads  
-     Do the initial setup. There is no need to change or install any extras. Make sure you can login via Windows/Mac/Linux Authentication.   
-     (If you get stuck here, go ahead and move, it's not critical for now)  
+
+  2. Install Mongo DB -- https://docs.mongodb.com/manual/administration/install-community/  
+      Install for your appropriate OS. Leave all the default options selected.
+      The command interpreter can be found at "C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe"
+
+  3. Install Postman -- https://www.postman.com/downloads/
+      This allows us to test the applications queries manually.
 
 ## Running Environment for Development
   1. cd/commerce_project
   2. npm i
   3. npm start
       This will allow you develop at http://localhost:3000  
+      
+## Starting and Stopping Mongo DB
+  1. Open a shell with admin rights or make sure VS Code is ran as Administrator.
+  2. To start -- net start MongoDB
+  3. To stop -- net stop MongoDB
 
-## Starting the Server
-  1. cd/client/server
+  ## Creating a Mongo DB
+  1. Open a shell with admin rights or make sure VS Code is ran as Administrator.
+  2. run -- Mongo
+  3. You'll see a > -- use commerce-bank
+  4. You've created a DB.
+
+  ## Starting the Server
+  1. cd/server
   2. npm i
-  3. npm i mysql -g
-  4. run `node server.js`
-      This has the server(and MySQL) is running at http://localhost:3306
+  3. run `node index.js`
+      This has the server(and Mongo) is running at http://localhost:3000
+
+  ## Sending a GET/POST request with POSTMAN
+  1. Open Postman and select POST
+  2. Example: lets create a user
+  3. Enter http://localhost:3000/api/user
+  4. Under the body tab, select RAW, change type to JSON and enter: 
+    {
+      "username": "test",
+      "firstName": "harrison",
+      "lastName": "lara",
+      "phone": "555555555",
+      "email": "test@gmail.com",
+      "password": "testPassword",
+      "confirmPassword": "testPassword"
+    }
+    5. Send the request and see that it returns a 200 and the changes were saved to the DB.
+      {
+        "success": true,
+        "id": "5e5173b3a41d040b58c00f45",
+        "message": "User created!"
+      }
+    6. Look at the routes file to see other api's you can call.
+    7. Open Mongo Compass, click connect (leave connection blank) and you will see collections created
 
 ## Running Tests (Jest)
   1. npm test
