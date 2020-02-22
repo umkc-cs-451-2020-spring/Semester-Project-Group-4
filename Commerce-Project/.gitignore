@@ -3,7 +3,7 @@
 
 # dependencies
 /server/node_modules
-/app/node_modules
+/client/node_modules
 /src
 
 # testing
