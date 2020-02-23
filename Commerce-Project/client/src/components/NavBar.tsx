@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -18,14 +18,13 @@ const NavBar = () => {
   const { title } = useStyles();
 
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" color='secondary'>
       <Toolbar>
+        <img alt='commerce bank' src='https://www.commercebank.com/-/media/cb/images/masthead/site-logo/commerce-bank-logo-2x.png?sc=0.5&hash=54EC619B6CADAD3482F8E513AFC8F14010659DEE' />
+        <div className={title}></div>
         <IconButton edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" className={title}>
-          Commerce Bank
-        </Typography>
         <IconButton
           aria-label="home"
           aria-controls="menu-appbar"

@@ -91,7 +91,7 @@ const RegistrationForm = () => {
         <Grid item xs={4} />
         <Grid item xs={4}>
           <FormGroup>
-            <Typography className={title} align='center' variant="h5">Create An Account</Typography>
+            <Typography className={title} align='center' variant="h5">Create Account</Typography>
             <TextField
               className={textFieldMargin}
               label="First Name"
