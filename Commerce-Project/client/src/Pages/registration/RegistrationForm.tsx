@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import { validate } from '../../utils/validators'
 import apis from '../../api';
+import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -21,6 +22,7 @@ const useStyles = makeStyles(() =>
 
 const RegistrationForm = () => {
   const { textFieldMargin, buttonMargin, gridMargin } = useStyles();
+  const [next, setNext] = React.useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -35,9 +37,10 @@ const RegistrationForm = () => {
     validate,
     onSubmit: (values: any) => {
       apis.createUser(values).then(() => {
-
+        formik.setSubmitting(false);
+        setNext(true)
       })
-    }
+    },
   });
 
   return (
@@ -135,6 +138,7 @@ const RegistrationForm = () => {
           </FormGroup>
         </Grid>
       </Grid>
+      {next ? <Redirect to="/dashboard" /> : false}
     </form>
   )
 }
