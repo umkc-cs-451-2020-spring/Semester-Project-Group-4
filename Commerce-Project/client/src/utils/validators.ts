@@ -22,12 +22,12 @@ export const validate = (values: any) => {
   }
   if (!values.phone) {
     errors.phone = 'Required';
-  } else if (!/\/^\D?(\d{3})\D?\D?(\d{3})\D?(\d{10})$/i.test(values.phone)) {
+  } else if (!/^\d{10}$/i.test(values.phone)) {
     errors.phone = 'Invalid phone number';
   }
   if (!values.password) {
     errors.password = 'Required';
-  } else if (!/\/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/i.test(values.password)) {
+  } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/i.test(values.password)) {
     errors.password = 'Invalid password. Must contain at least 8 characters, a special character, a number, one uppercase and lowercase letter';
   }
   if (!values.confirmPassword) {

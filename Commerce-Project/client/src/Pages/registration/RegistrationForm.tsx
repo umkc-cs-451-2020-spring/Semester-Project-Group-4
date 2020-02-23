@@ -3,6 +3,7 @@ import { TextField, Button, FormGroup, Grid, Typography } from '@material-ui/cor
 import { useFormik } from 'formik';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import { validate } from '../../utils/validators'
+import apis from '../../api';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -17,8 +18,6 @@ const useStyles = makeStyles(() =>
     }
   }),
 );
-
-
 
 const RegistrationForm = () => {
   const { textFieldMargin, buttonMargin, gridMargin } = useStyles();
@@ -35,8 +34,10 @@ const RegistrationForm = () => {
     },
     validate,
     onSubmit: (values: any) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+      apis.createUser(values).then(() => {
+
+      })
+    }
   });
 
   return (
@@ -111,7 +112,7 @@ const RegistrationForm = () => {
               label="Password"
               id="password"
               name="password"
-              type="text"
+              type="password"
               onChange={formik.handleChange}
               value={formik.values.password}
               helperText={formik.errors.password && formik.touched.password ? formik.errors.password : null}
@@ -123,14 +124,14 @@ const RegistrationForm = () => {
               label="Confirm Password"
               id="confirmPassword"
               name="confirmPassword"
-              type="text"
+              type="password"
               onChange={formik.handleChange}
               value={formik.values.confirmPassword}
               helperText={formik.errors.confirmPassword && formik.touched.confirmPassword ? formik.errors.confirmPassword : null}
               error={formik.touched.confirmPassword && formik.errors.confirmPassword ? true : false}
               onBlur={formik.handleBlur}
             />
-            <Button className={buttonMargin} type="submit" variant="contained" color="primary">Register</Button>
+            <Button className={buttonMargin} disabled={formik.isSubmitting ? true : false} type="submit" variant="contained" color="primary" onClick={formik.submitForm}>Register</Button>
           </FormGroup>
         </Grid>
       </Grid>
