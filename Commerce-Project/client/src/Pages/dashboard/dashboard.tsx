@@ -5,7 +5,7 @@ const DashBoard = () => {
 
   return (
     <Typography>
-      DashBoard Here.
+      Dashboard Here.
     </Typography>
   )
 }

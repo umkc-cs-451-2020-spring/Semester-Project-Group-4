@@ -5,13 +5,13 @@ import LoginForm from '../Pages/login/login';
 import RegistrationForm from '../Pages/registration/RegistrationForm';
 import DashBoard from '../Pages/dashboard/dashboard';
 import { ThemeProvider } from '@material-ui/core';
-import { theme } from '../components/theme';
+import { Theme } from '../components/Theme';
 
 const App = () => {
 
   return (
     <Router>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Theme}>
         <NavBar />
         <Switch>
           <Route path="/" exact component={LoginForm} />

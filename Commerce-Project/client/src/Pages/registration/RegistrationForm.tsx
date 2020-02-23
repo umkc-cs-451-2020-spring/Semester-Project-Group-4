@@ -2,7 +2,6 @@ import React from 'react'
 import { TextField, Button, FormGroup, Grid, Typography } from '@material-ui/core'
 import { useFormik } from 'formik';
 import { makeStyles, createStyles } from '@material-ui/styles';
-import { validate } from '../../utils/validators'
 import apis from '../../api';
 import { Redirect } from 'react-router-dom';
 
@@ -16,12 +15,55 @@ const useStyles = makeStyles(() =>
     },
     gridMargin: {
       margin: 'unset'
-    }
+    },
+    title: {
+      marginBottom: '1rem',
+    },
   }),
 );
 
+const validate = (values: any) => {
+  const errors = {} as any;
+  if (!values.firstName) {
+    errors.firstName = 'Required';
+  } else if (values.firstName.length > 50) {
+    errors.firstName = 'Must be 50 characters or less';
+  }
+  if (!values.lastName) {
+    errors.lastName = 'Required';
+  } else if (values.lastName.length > 50) {
+    errors.lastName = 'Must be 50 characters or less';
+  }
+  if (!values.username) {
+    errors.username = 'Required';
+  } else if (values.username.length > 20) {
+    errors.username = 'Must be 20 characters or less';
+  }
+  if (!values.email) {
+    errors.email = 'Required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+  if (!values.phone) {
+    errors.phone = 'Required';
+  } else if (!/^\d{10}$/i.test(values.phone)) {
+    errors.phone = 'Invalid phone number';
+  }
+  if (!values.password) {
+    errors.password = 'Required';
+  } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/i.test(values.password)) {
+    errors.password = 'Invalid password. Must contain at least 8 characters, a special character, a number, one uppercase and lowercase letter';
+  }
+  if (!values.confirmPassword) {
+    errors.confirmPassword = 'Required';
+  } else if (values.confirmPassword !== values.password) {
+    errors.confirmPassword = 'Passwords must match';
+  }
+  return errors;
+};
+
 const RegistrationForm = () => {
-  const { textFieldMargin, buttonMargin, gridMargin } = useStyles();
+  const { textFieldMargin, buttonMargin, gridMargin, title } = useStyles();
   const [next, setNext] = React.useState(false)
 
   const formik = useFormik({
@@ -49,7 +91,7 @@ const RegistrationForm = () => {
         <Grid item xs={4} />
         <Grid item xs={4}>
           <FormGroup>
-            <Typography align='center' variant="h5">Create An Account</Typography>
+            <Typography className={title} align='center' variant="h5">Create An Account</Typography>
             <TextField
               className={textFieldMargin}
               label="First Name"
