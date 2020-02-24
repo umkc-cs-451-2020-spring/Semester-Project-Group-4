@@ -23,7 +23,7 @@ A web application that pulls in transaction details and allows the user to set t
       This allows us to test the applications queries manually.
 
 ## Running Environment for Development
-  1. cd/commerce_project/client
+  1. cd/commerce-project/client
   2. npm i
   3. npm start
       This will allow you develop at http://localhost:8000  
