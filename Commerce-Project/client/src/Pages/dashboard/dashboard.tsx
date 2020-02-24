@@ -5,11 +5,9 @@ const DashBoard = () => {
 
   return (
     <Typography>
-      DashBoard Here.
-      Add formik form here!
+      Dashboard Here.
     </Typography>
   )
 }
-
 
 export default DashBoard
