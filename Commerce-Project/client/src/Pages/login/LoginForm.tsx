@@ -20,7 +20,8 @@ const useStyles = makeStyles(() =>
       marginTop: '1rem'
     },
     gridMargin: {
-      margin: 'unset'
+      margin: 'unset',
+      width: '100%'
     }
   }),
 );
@@ -40,7 +41,7 @@ const validate = (values: any) => {
   return errors;
 };
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const { textFieldMargin, buttonMargin, gridMargin, button, title } = useStyles();
   const [next, setNext] = React.useState(false)
 
@@ -99,4 +100,4 @@ const RegistrationForm = () => {
   )
 }
 
-export default RegistrationForm
+export default LoginForm

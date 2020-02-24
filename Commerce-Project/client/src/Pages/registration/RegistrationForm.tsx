@@ -14,7 +14,8 @@ const useStyles = makeStyles(() =>
       marginTop: '2.5rem'
     },
     gridMargin: {
-      margin: 'unset'
+      margin: 'unset',
+      width: '100%'
     },
     title: {
       marginBottom: '1rem',
