@@ -78,12 +78,19 @@ const RegistrationForm = () => {
       confirmPassword: ''
     },
     validate,
-    onSubmit: (values: any) => {
-      apis.createUser(values).then(() => {
-        formik.setSubmitting(false);
-        setNext(true)
-      })
-    },
+    onSubmit: (values: any, actions: any) => {
+      setTimeout(() => {
+        actions.setSubmitting(false);
+      }, 100)
+      try {
+        apis.createUser(values).then(() => {
+          formik.setSubmitting(false);
+          setNext(true)
+        })
+      } catch {
+        actions.setStatus(validate)
+      }
+    }
   });
 
   return (
@@ -177,7 +184,7 @@ const RegistrationForm = () => {
               error={formik.touched.confirmPassword && formik.errors.confirmPassword ? true : false}
               onBlur={formik.handleBlur}
             />
-            <Button className={buttonMargin} disabled={formik.isSubmitting ? true : false} type="submit" variant="contained" color="primary" onClick={formik.submitForm}>Register</Button>
+            <Button className={buttonMargin} disabled={formik.isSubmitting} type="submit" variant="contained" color="primary" onClick={formik.submitForm}>Register</Button>
           </FormGroup>
         </Grid>
       </Grid>
