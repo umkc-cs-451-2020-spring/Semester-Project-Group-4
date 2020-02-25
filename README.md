@@ -49,7 +49,7 @@ A web application that pulls in transaction details and allows the user to set t
   1. Open Postman and select POST
   2. Example: lets create a user
   3. Enter http://localhost:3000/api/user
-  4. Under the body tab, select RAW, change type to JSON and enter: 
+  4. Under the body tab, select RAW, change type to JSON and enter:  
     {
       "username": "test",
       "firstName": "harrison",
@@ -58,14 +58,14 @@ A web application that pulls in transaction details and allows the user to set t
       "email": "test@gmail.com",
       "password": "testPassword",
       "confirmPassword": "testPassword"
-    }
-    5. Send the request and see that it returns a 200 and the changes were saved to the DB.
+    }  
+    5. Send the request and see that it returns a 200 and the changes were saved to the DB.  
       {
         "success": true,
         "id": "5e5173b3a41d040b58c00f45",
         "message": "User created!"
-      }
-    6. Look at the routes file to see other api's you can call (POST, GET, DELETE, PUT).
+      }  
+    6. Look at the routes file to see other api's you can call (POST, GET, DELETE, PUT).  
     7. Open Mongo Compass, click connect (leave connection blank) and you will see collections created
 
 ## Running Tests (Jest)
