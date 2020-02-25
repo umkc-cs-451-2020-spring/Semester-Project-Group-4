@@ -82,14 +82,10 @@ const RegistrationForm = () => {
       setTimeout(() => {
         actions.setSubmitting(false);
       }, 100)
-      try {
-        apis.createUser(values).then(() => {
-          formik.setSubmitting(false);
-          setNext(true)
-        })
-      } catch {
-        actions.setStatus(validate)
-      }
+      apis.createUser(values).then(() => {
+        formik.setSubmitting(false);
+        setNext(true)
+      })
     }
   });
 
