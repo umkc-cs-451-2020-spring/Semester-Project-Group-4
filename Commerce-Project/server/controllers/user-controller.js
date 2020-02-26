@@ -15,21 +15,23 @@ createUser = (req, res) => {
     return res.status(400).json({ success: false, error: err })
   }
 
-  user
-    .save()
-    .then(() => {
-      return res.status(200).json({
-        success: true,
-        id: user._id,
-        message: 'User created!',
+  user.save((err, data) => {
+    if (data) {
+      return (
+        res.status(200).json({
+          success: true,
+          id: user._id,
+          message: 'User created!',
+        })
+      )
+    }
+    else {
+      res.status(400).json({
+        error: err,
+        message: 'Must having unique username and email',
       })
-    })
-    .catch(error => {
-      return res.status(400).json({
-        error,
-        message: 'User not created!',
-      })
-    })
+    }
+  })
 }
 
 updateUser = async (req, res) => {
@@ -83,7 +85,7 @@ deleteUser = async (req, res) => {
     }
 
     return res.status(200).json({ success: true, data: user })
-  }).catch(err => console.log(err))
+  }).catch(err => err)
 }
 
 getUserById = async (req, res) => {
@@ -98,12 +100,11 @@ getUserById = async (req, res) => {
         .json({ success: false, error: `User not found` })
     }
     return res.status(200).json({ success: true, data: user })
-  }).catch(err => console.log(err))
+  }).catch(err => err)
 }
 
 getUser = async (req, res) => {
   const body = req.body
-  console.log(body)
   if (!body) {
     return res.status(400).json({
       success: false,
@@ -126,7 +127,7 @@ getUser = async (req, res) => {
         .json({ success: false, error: `User not found` })
     }
     return res.status(200).json({ success: true, data: user })
-  }).catch(err => console.log(err))
+  }).catch(err => err)
 }
 
 module.exports = {
