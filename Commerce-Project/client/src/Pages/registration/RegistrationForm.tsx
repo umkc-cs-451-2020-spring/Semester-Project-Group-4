@@ -14,7 +14,8 @@ const useStyles = makeStyles(() =>
       marginTop: '2.5rem'
     },
     gridMargin: {
-      margin: 'unset'
+      margin: 'unset',
+      width: '100%'
     },
     title: {
       marginBottom: '1rem',
@@ -77,12 +78,15 @@ const RegistrationForm = () => {
       confirmPassword: ''
     },
     validate,
-    onSubmit: (values: any) => {
+    onSubmit: (values: any, actions: any) => {
+      setTimeout(() => {
+        actions.setSubmitting(false);
+      }, 100)
       apis.createUser(values).then(() => {
         formik.setSubmitting(false);
         setNext(true)
       })
-    },
+    }
   });
 
   return (
@@ -176,7 +180,7 @@ const RegistrationForm = () => {
               error={formik.touched.confirmPassword && formik.errors.confirmPassword ? true : false}
               onBlur={formik.handleBlur}
             />
-            <Button className={buttonMargin} disabled={formik.isSubmitting ? true : false} type="submit" variant="contained" color="primary" onClick={formik.submitForm}>Register</Button>
+            <Button className={buttonMargin} disabled={formik.isSubmitting} type="submit" variant="contained" color="primary" onClick={formik.submitForm}>Register</Button>
           </FormGroup>
         </Grid>
       </Grid>

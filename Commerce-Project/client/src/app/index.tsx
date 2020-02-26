@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LoginForm from '../Pages/login/login';
+import LoginForm from '../Pages/login/LoginForm';
 import RegistrationForm from '../Pages/registration/RegistrationForm';
 import DashBoard from '../Pages/dashboard/dashboard';
 import { ThemeProvider } from '@material-ui/core';
