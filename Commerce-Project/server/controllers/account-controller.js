@@ -79,7 +79,7 @@ getCheckingBalance = async (req, res) => {
     return res.status(400).json({ success: false, error: err })
   }
 
-  const balance = MoneyMarketModel.aggregate([
+  MoneyMarketModel.aggregate([
     {
       $group:
       {
@@ -166,7 +166,7 @@ getSavingsBalance = async (req, res) => {
     return res.status(400).json({ success: false, error: err })
   }
 
-  const balance = MoneyMarketModel.aggregate([
+  MoneyMarketModel.aggregate([
     {
       $group:
       {
@@ -253,7 +253,7 @@ getMoneyMarketBalance = async (req, res) => {
     return res.status(400).json({ success: false, error: err })
   }
 
-  const balance = MoneyMarketModel.aggregate([
+  MoneyMarketModel.aggregate([
     {
       $group:
       {
