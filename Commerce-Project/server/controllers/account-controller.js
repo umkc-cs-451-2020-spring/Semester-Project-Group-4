@@ -64,6 +64,32 @@ getChecking = async (req, res) => {
   }).catch(err => err)
 }
 
+
+getCheckingBalance = async (req, res) => {
+  const body = req.body
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: 'You must provide a account',
+    })
+  }
+
+  const account = new MoneyMarketModel(body)
+  if (!account) {
+    return res.status(400).json({ success: false, error: err })
+  }
+
+  const balance = MoneyMarketModel.aggregate([
+    {
+      $group:
+      {
+        _id: null,
+        amount: { $sum: "$amount" }
+      }
+    }
+  ]).then(sum => res.status(200).json({ success: false, data: sum }));
+}
+
 // savings account
 createSavingsTransaction = (req, res) => {
   const body = req.body
@@ -124,6 +150,31 @@ getSavings = async (req, res) => {
     }
     return res.status(200).json({ success: true, data: account })
   }).catch(err => err)
+}
+
+getSavingsBalance = async (req, res) => {
+  const body = req.body
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: 'You must provide a account',
+    })
+  }
+
+  const account = new MoneyMarketModel(body)
+  if (!account) {
+    return res.status(400).json({ success: false, error: err })
+  }
+
+  const balance = MoneyMarketModel.aggregate([
+    {
+      $group:
+      {
+        _id: null,
+        amount: { $sum: "$amount" }
+      }
+    }
+  ]).then(sum => res.status(200).json({ success: false, data: sum }));
 }
 
 // money market account
@@ -188,11 +239,39 @@ getMoneyMarket = async (req, res) => {
   }).catch(err => err)
 }
 
+getMoneyMarketBalance = async (req, res) => {
+  const body = req.body
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: 'You must provide a account',
+    })
+  }
+
+  const account = new MoneyMarketModel(body)
+  if (!account) {
+    return res.status(400).json({ success: false, error: err })
+  }
+
+  const balance = MoneyMarketModel.aggregate([
+    {
+      $group:
+      {
+        _id: null,
+        amount: { $sum: "$amount" }
+      }
+    }
+  ]).then(sum => res.status(200).json({ success: false, data: sum }));
+}
+
 module.exports = {
   createCheckingTransaction,
   getChecking,
+  getCheckingBalance,
   createSavingsTransaction,
   getSavings,
+  getSavingsBalance,
   createMoneyMarketTransaction,
-  getMoneyMarket
+  getMoneyMarket,
+  getMoneyMarketBalance
 }

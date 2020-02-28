@@ -13,9 +13,12 @@ router.post('/users', userController.getUser)
 // accounts
 router.post('/checking', accountController.createCheckingTransaction)
 router.get('/checkings', accountController.getChecking)
+router.get('/checkingtotal', accountController.getCheckingBalance)
 router.post('/saving', accountController.createSavingsTransaction)
 router.get('/savings', accountController.getSavings)
+router.get('/savingstotal', accountController.getSavingsBalance)
 router.post('/moneymarket', accountController.createMoneyMarketTransaction)
 router.get('/moneymarkets', accountController.getMoneyMarket)
+router.get('/moneymarkettotal', accountController.getMoneyMarketBalance)
 
 module.exports = router
