@@ -89,7 +89,7 @@ deleteUser = async (req, res) => {
 }
 
 getUserById = async (req, res) => {
-  await UserModel.findOne({ _id: req.params.id }, (err, user) => {
+  await UserModel.findOne({ username: req.params.username }, (err, user) => {
     if (err) {
       return res.status(400).json({ success: false, error: err })
     }
@@ -135,5 +135,5 @@ module.exports = {
   updateUser,
   deleteUser,
   getUser,
-  getUserById,
+  getUserById
 }
