@@ -74,12 +74,12 @@ getCheckingBalance = async (req, res) => {
     })
   }
 
-  const account = new MoneyMarketModel(body)
+  const account = new CheckingModel(body)
   if (!account) {
     return res.status(400).json({ success: false, error: err })
   }
 
-  MoneyMarketModel.aggregate([
+  CheckingModel.aggregate([
     {
       $group:
       {
@@ -161,12 +161,12 @@ getSavingsBalance = async (req, res) => {
     })
   }
 
-  const account = new MoneyMarketModel(body)
+  const account = new SavingsModel(body)
   if (!account) {
     return res.status(400).json({ success: false, error: err })
   }
 
-  MoneyMarketModel.aggregate([
+  SavingsModel.aggregate([
     {
       $group:
       {
@@ -178,7 +178,7 @@ getSavingsBalance = async (req, res) => {
 }
 
 // money market account
-createMoneyMarketTransaction = (req, res) => {
+createMoneyMarketTransaction = async (req, res) => {
   const body = req.body
 
   if (!body) {

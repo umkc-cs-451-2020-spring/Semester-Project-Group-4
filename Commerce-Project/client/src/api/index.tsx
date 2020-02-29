@@ -12,12 +12,17 @@ export const deleteUser = (id: string) => api.delete(`/user/${id}`)
 export const getUserById = (id: string) => api.get(`/user/${id}`)
 
 //accounts 
-export const createChecking = (payload: any) => api.post(`/user`, payload)
-export const getChecking = () => api.post(`/user`)
-export const createSavings = (payload: any) => api.post(`/user`, payload)
-export const getSavings = () => api.post(`/user`)
-export const createMoneyMarket = (payload: any) => api.post(`/user`, payload)
-export const getMoneyMarket = () => api.post(`/user`)
+export const createChecking = (payload: any) => api.post(`/checking`, payload)
+export const getChecking = () => api.get(`/checkings`)
+export const getCheckingBalance = () => api.get(`/checkingtotal`)
+
+export const createSavings = (payload: any) => api.post(`/saving`, payload)
+export const getSavings = () => api.get(`/savings`)
+export const getSavingsBalance = () => api.get(`/savingstotal`)
+
+export const createMoneyMarket = (payload: any) => api.post(`/moneymarket`, payload)
+export const getMoneyMarket = () => api.get(`/moneymarkets`)
+export const getMoneyMarketBalance = () => api.get(`/moneymarkettotal`)
 
 const apis = {
   createUser,
@@ -27,10 +32,13 @@ const apis = {
   getUserById,
   createChecking,
   getChecking,
+  getCheckingBalance,
   createSavings,
   getSavings,
+  getSavingsBalance,
   createMoneyMarket,
-  getMoneyMarket
+  getMoneyMarket,
+  getMoneyMarketBalance
 }
 
 export default apis
