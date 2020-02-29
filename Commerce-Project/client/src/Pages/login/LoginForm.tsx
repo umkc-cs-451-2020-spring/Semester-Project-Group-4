@@ -60,8 +60,6 @@ const LoginForm = () => {
       apis.getUser(values).then(() => {
         setName(formik.values.username);
         formik.setSubmitting(false);
-
-      }).finally(() => {
         setNext(true)
       })
     }
