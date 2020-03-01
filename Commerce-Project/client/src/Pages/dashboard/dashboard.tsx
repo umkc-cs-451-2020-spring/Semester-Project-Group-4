@@ -45,10 +45,12 @@ const DashBoard = () => {
   const [savings, setSavings] = React.useState(0);
   const [username, setUsername] = React.useState('');
 
+  const storage = store.get('username');
+
   const getBalances = async () => {
-    let check = await apis.getCheckingBalance();
-    let save = await apis.getSavingsBalance();
-    let money = await apis.getMoneyMarketBalance();
+    let check = await apis.getCheckingBalance(storage);
+    let save = await apis.getSavingsBalance(storage);
+    let money = await apis.getMoneyMarketBalance(storage);
     let name = await apis.getUserById(store.get('username'));
 
     setChecking(check.data.data[0].amount);
