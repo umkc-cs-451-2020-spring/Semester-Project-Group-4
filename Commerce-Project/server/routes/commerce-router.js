@@ -10,18 +10,17 @@ router.delete('/user/:id', userController.deleteUser);
 router.get('/user/:username', userController.getUserById);
 router.post('/users', userController.getUser);
 
-
-router.post('/addchecking/:username', accountController.createCheckingTransaction)
-
 // accounts
-// router.post('/checking', accountController.createCheckingTransaction)
-// router.get('/checkings', accountController.getChecking)
-// router.get('/checkingtotal', accountController.getCheckingBalance)
-// router.post('/saving', accountController.createSavingsTransaction)
-// router.get('/savings', accountController.getSavings)
-// router.get('/savingstotal', accountController.getSavingsBalance)
-// router.post('/moneymarket', accountController.createMoneyMarketTransaction)
-// router.get('/moneymarkets', accountController.getMoneyMarket)
-// router.get('/moneymarkettotal', accountController.getMoneyMarketBalance)
+router.post('/addchecking/:username', accountController.createCheckingTransaction)
+router.get('/getchecking/:username', accountController.getCheckingAccount)
+router.get('/checkingbalance/:username', accountController.getCheckingBalance)
+
+router.post('/addsavings/:username', accountController.createSavingsTransaction)
+router.get('/getsavings/:username', accountController.getSavingsAccount)
+router.get('/savingsbalance/:username', accountController.getSavingsBalance)
+
+router.post('/addmoneymarket/:username', accountController.createMoneyMarketTransaction)
+router.get('/getmoneymarket/:username', accountController.getMoneyMarketAccount)
+router.get('/moneymarketbalance/:username', accountController.getMoneyMarketBalance)
 
 module.exports = router
