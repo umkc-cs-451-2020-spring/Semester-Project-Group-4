@@ -56,7 +56,7 @@ const DashBoard = () => {
     setChecking(check.data.data[0].amount);
     setSavings(save.data.data[0].amount);
     setMoneyMarket(money.data.data[0].amount);
-    setUsername(name.data.data.username);
+    setUsername(name.data.data.firstName);
   }
 
   React.useEffect(() => {
