@@ -45,7 +45,7 @@ A web application that pulls in transaction details and allows the user to set t
   3. run `node index.js`
       This has the server(and Mongo) is running at http://localhost:3000
 
-  ## Sending a GET/POST request with POSTMAN
+  ## Using API's with POSTMAN  
   1. Open Postman
   2. In the URL enter the desired route.
   3. Select the API type (POST, GET, Delete, PUT).
