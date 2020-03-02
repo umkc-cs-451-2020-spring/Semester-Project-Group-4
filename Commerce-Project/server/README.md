@@ -2,9 +2,9 @@
 
 ## Users  
 
-  1. Register/ Create User (POST, http://localhost:3000/api/user) 
+ ### 1. Register/ Create User (POST, http://localhost:3000/api/user) 
     
-    ### Request 
+    -- Request --     
     {  
       "username": "myUsername",  
       "firstName": "Name",  
@@ -25,18 +25,18 @@
       "savings": []  
     }  
   
-  2. Update User (PUT, http://localhost:3000/api/user/id)
+ ### 2. Update User (PUT, http://localhost:3000/api/user/id)
    
-    ### Request 
+    -- Request --   
     {  
 	    "firstName": "UpdatedName"  
     }  
 
-  3. Delete User (DELETE, http://localhost:3000/api/user/id)  
+  ### 3. Delete User (DELETE, http://localhost:3000/api/user/id)  
 
-  4. Get Specific User (GET, http://localhost:3000/api/user/username)  
+  ### 4. Get Specific User (GET, http://localhost:3000/api/user/username)  
    
-    ### Returns 
+    -- Response --   
     {  
       "username": "myUsername",  
       "firstName": "Name",  
@@ -57,9 +57,9 @@
       "savings": []  
     }  
   
-  5. Login/ User Exists (POST, http://localhost:3000/api/getchecking/username)
+ ### 5. Login/ User Exists (POST, http://localhost:3000/api/getchecking/username)
     
-    ### Request 
+    -- Request --   
     {  
 	  "username": "myUsername",  
 	  "password": "myPassword!"  
@@ -67,9 +67,9 @@
 
 ## Accounts
 
-  1. Get Specific Account (GET, http://localhost:3000/api/getchecking/username OR http://localhost:3000/api/getsavings/username OR http://localhost:3000/api/getmoneymarket/username)  
+ ### 1. Get Specific Account (GET, http://localhost:3000/api/getchecking/username OR http://localhost:3000/api/getsavings/username OR http://localhost:3000/api/getmoneymarket/username)  
 
-    ### Returns 
+    -- Response --   
     {  
       "success": true,  
       "data": [  
@@ -87,9 +87,9 @@
         ]  
     }  
 
-  2. Add Transaction (POST, http://localhost:3000/api/addchecking/username OR http://localhost:3000/api/addsavings/username OR http://localhost:3000/api/addmoneymarket/username)    
+  ### 2. Add Transaction (POST, http://localhost:3000/api/addchecking/username OR http://localhost:3000/api/addsavings/username OR http://localhost:3000/api/addmoneymarket/username)    
    
-    ### Request  
+    -- Request --     
     {  
       "accountType": "money market",  
       "accountNumber": 1,  
@@ -99,9 +99,9 @@
       "description": "Open checking account"  
     }
 
-  3. Get Balance (GET, http://localhost:3000/api/checkingbalance/username OR http://localhost:3000/api/savingsbalance/username OR http://localhost:3000/api/moneymarketbalance/username)  
+ ### 3. Get Balance (GET, http://localhost:3000/api/checkingbalance/username OR http://localhost:3000/api/savingsbalance/username OR http://localhost:3000/api/moneymarketbalance/username)  
 
-  ### Returns 
+    -- Response --   
     {  
       "success": false,  
       "data": [  
