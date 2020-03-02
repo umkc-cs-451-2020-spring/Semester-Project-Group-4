@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import apis from '../../api';
 import { Redirect } from 'react-router-dom';
+import { useLocalStorageSetState } from '../../utils/local-storage';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -20,6 +21,9 @@ const useStyles = makeStyles(() =>
     title: {
       marginBottom: '1rem',
     },
+    font: {
+      fontSize: 0
+    }
   }),
 );
 
@@ -64,8 +68,9 @@ const validate = (values: any) => {
 };
 
 const RegistrationForm = () => {
-  const { textFieldMargin, buttonMargin, gridMargin, title } = useStyles();
+  const { textFieldMargin, buttonMargin, gridMargin, title, font } = useStyles();
   const [next, setNext] = React.useState(false)
+  const [name, setName] = useLocalStorageSetState('', 'username')
 
   const formik = useFormik({
     initialValues: {
@@ -83,6 +88,7 @@ const RegistrationForm = () => {
         actions.setSubmitting(false);
       }, 100)
       apis.createUser(values).then(() => {
+        setName(formik.values.username);
         formik.setSubmitting(false);
         setNext(true)
       })
@@ -183,6 +189,7 @@ const RegistrationForm = () => {
             <Button className={buttonMargin} disabled={formik.isSubmitting} type="submit" variant="contained" color="primary" onClick={formik.submitForm}>Register</Button>
           </FormGroup>
         </Grid>
+        <Typography className={font}>{name}</Typography>
       </Grid>
       {next ? <Redirect to="/dashboard" /> : false}
     </form>
