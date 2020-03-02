@@ -70,6 +70,11 @@ A web application that pulls in transaction details and allows the user to set t
 
 ## Running Tests (Jest)
   1. npm test
+  
+## Material UI  
+Our source of components comes directly from Material UI.  
+Examples of how to use components and their API's can be found at: https://material-ui.com/  
+The API for a component defines the properties that are available to use. 
 
 ## Versioning/ Releases
  1. Create a new branch from master
