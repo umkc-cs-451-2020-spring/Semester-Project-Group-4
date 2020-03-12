@@ -5,6 +5,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Drawer from './Drawer';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -22,8 +23,13 @@ const NavBar = () => {
       <Toolbar>
         <img alt='commerce bank' src='https://www.commercebank.com/-/media/cb/images/masthead/site-logo/commerce-bank-logo-2x.png?sc=0.5&hash=54EC619B6CADAD3482F8E513AFC8F14010659DEE' />
         <div className={title}></div>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
+        <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            href="./Drawer"
+        >
+        <MenuIcon />
         </IconButton>
         <IconButton
           aria-label="home"
