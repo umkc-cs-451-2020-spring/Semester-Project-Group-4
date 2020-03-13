@@ -45,28 +45,15 @@ A web application that pulls in transaction details and allows the user to set t
   3. run `node index.js`
       This has the server(and Mongo) is running at http://localhost:3000
 
-  ## Sending a GET/POST request with POSTMAN
-  1. Open Postman and select POST
-  2. Example: lets create a user
-  3. Enter http://localhost:3000/api/user
+  ## Using API's with POSTMAN  
+  1. Open Postman
+  2. In the URL enter the desired route.
+  3. Select the API type (POST, GET, Delete, PUT).
   4. Under the body tab, select RAW, change type to JSON and enter:  
-    {
-      "username": "test",
-      "firstName": "harrison",
-      "lastName": "lara",
-      "phone": "555555555",
-      "email": "test@gmail.com",
-      "password": "testPassword",
-      "confirmPassword": "testPassword"
-    }  
-    5. Send the request and see that it returns a 200 and the changes were saved to the DB.  
-      {
-        "success": true,
-        "id": "5e5173b3a41d040b58c00f45",
-        "message": "User created!"
-      }  
-    6. Look at the routes file to see other api's you can call (POST, GET, DELETE, PUT).  
-    7. Open Mongo Compass, click connect (leave connection blank) and you will see collections created
+  5. Open Mongo Compass, click connect (leave connection blank) and you will see collections created
+  
+  Navigate to API README to see available APIS and their associated requests, payloads and responses. 
+  https://github.com/umkc-cs-451-2020-spring/semester-project-group-4/tree/master/Commerce-Project/server
 
 ## Running Tests (Jest)
   1. npm test
