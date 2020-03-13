@@ -9,6 +9,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AccountBalance from '@material-ui/icons/AccountBalance';
 import { Theme as commerceTheme } from './Theme';
+import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -72,6 +73,54 @@ const NavBar = () => {
     setOpen(false);
   };
 
+  const dashboardLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+      )),
+    []
+  );
+
+  const profileLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+      )),
+    []
+  );
+
+  const checkingLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+      )),
+    []
+  );
+
+  const savingsLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+      )),
+    []
+  );
+
+  const moneyMarketLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+      )),
+    []
+  );
+
+  const logoutLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/' ref={ref} {...itemProps} />
+      )),
+    []
+  );
+
   return (
     <>
       <AppBar position="fixed" color='secondary' className={clsx(appBar, {
@@ -93,7 +142,7 @@ const NavBar = () => {
             aria-label="home"
             aria-controls="menu-appbar"
             aria-haspopup="true"
-            href="/dashboard"
+            component={dashboardLink}
             color="inherit"
           >
             <HomeIcon />
@@ -102,7 +151,7 @@ const NavBar = () => {
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
-            href="/profile"
+            component={profileLink}
             color="inherit"
           >
             <AccountCircle />
@@ -111,7 +160,7 @@ const NavBar = () => {
             aria-label="Logout"
             aria-controls="menu-appbar"
             aria-haspopup="true"
-            href="/"
+            component={logoutLink}
             color="inherit"
           >
             <ExitToAppIcon />
@@ -134,13 +183,13 @@ const NavBar = () => {
         </div>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button component={dashboardLink}>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
             <ListItemText primary='Dashboard' />
           </ListItem>
-          <ListItem button>
+          <ListItem button component={profileLink}>
             <ListItemIcon>
               <AccountCircle />
             </ListItemIcon>
@@ -149,19 +198,19 @@ const NavBar = () => {
         </List>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button component={checkingLink}>
             <ListItemIcon>
               <AccountBalance />
             </ListItemIcon>
             <ListItemText primary='Checking Account' />
           </ListItem>
-          <ListItem button>
+          <ListItem button component={savingsLink}>
             <ListItemIcon>
               <AccountBalance />
             </ListItemIcon>
             <ListItemText primary='Savings Account' />
           </ListItem>
-          <ListItem button>
+          <ListItem button component={moneyMarketLink}>
             <ListItemIcon>
               <AccountBalance />
             </ListItemIcon>
@@ -170,7 +219,7 @@ const NavBar = () => {
         </List>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button component={logoutLink}>
             <ListItemIcon>
               <ExitToAppIcon />
             </ListItemIcon>
