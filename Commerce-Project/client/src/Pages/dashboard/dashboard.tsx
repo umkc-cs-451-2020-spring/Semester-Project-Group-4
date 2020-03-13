@@ -61,7 +61,7 @@ const DashBoard = () => {
 
   React.useEffect(() => {
     getBalances();
-  }, [])
+  })
 
   return (
     <Paper elevation={0} className={paper}>
