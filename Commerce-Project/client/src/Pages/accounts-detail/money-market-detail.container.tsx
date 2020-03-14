@@ -1,7 +1,8 @@
 import React from 'react'
 import { Grid, Table, TableHeaderRow, TableColumnResizing, TableFilterRow, PagingPanel } from '@devexpress/dx-react-grid-material-ui';
 import { IntegratedSorting, SortingState, IntegratedFiltering, FilteringState, PagingState, IntegratedPaging } from '@devexpress/dx-react-grid';
-import { Divider, Paper, Typography } from '@material-ui/core'
+import { AddCircle } from '@material-ui/icons';
+import { Divider, Paper, Typography, Button, IconButton, Toolbar, Tooltip } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/styles';
 import store from "store";
 import apis from '../../api';
@@ -23,6 +24,12 @@ const useStyles = makeStyles(() =>
       marginLeft: '.25rem',
       paddingTop: '0.1875rem',
       paddingBottom: '1rem'
+    },
+    addNewToolbar: {
+      flexDirection: 'row-reverse'
+    },
+    addNewButton: {
+      color: Theme.palette.primary.main
     }
   })
 );
@@ -38,7 +45,7 @@ export interface accountDetails {
 
 const MoneyMarketDetail = () => {
   // styles
-  const { paper, divider, balance } = useStyles()
+  const { paper, divider, balance, addNewButton, addNewToolbar } = useStyles()
 
   // Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
@@ -106,6 +113,13 @@ const MoneyMarketDetail = () => {
           <TableHeaderRow showSortingControls />
           <TableFilterRow />
           <PagingPanel pageSizes={pageSizes} />
+          <Toolbar variant='dense' className={addNewToolbar}>
+            <Tooltip title='Add New'>
+              <IconButton className={addNewButton}>
+                <AddCircle />
+              </IconButton>
+            </Tooltip>
+          </Toolbar>
         </Grid>
       </Paper>
     </Paper >

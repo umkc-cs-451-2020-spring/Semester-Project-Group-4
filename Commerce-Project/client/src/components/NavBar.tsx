@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Tooltip } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -22,36 +22,44 @@ const NavBar = () => {
       <Toolbar>
         <img alt='commerce bank' src='https://www.commercebank.com/-/media/cb/images/masthead/site-logo/commerce-bank-logo-2x.png?sc=0.5&hash=54EC619B6CADAD3482F8E513AFC8F14010659DEE' />
         <div className={title}></div>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
-        <IconButton
-          aria-label="home"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          href="/dashboard"
-          color="inherit"
-        >
-          <HomeIcon />
-        </IconButton>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          href="/profile"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <IconButton
-          aria-label="Logout"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          href="/"
-          color="inherit"
-        >
-          <ExitToAppIcon />
-        </IconButton>
+        <Tooltip title='Menu'>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title='Dashboard'>
+          <IconButton
+            aria-label="home"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            href="/dashboard"
+            color="inherit"
+          >
+            <HomeIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title='User Profile'>
+          <IconButton
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            href="/profile"
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title='Logout'>
+          <IconButton
+            aria-label="Logout"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            href="/"
+            color="inherit"
+          >
+            <ExitToAppIcon />
+          </IconButton>
+        </Tooltip>
       </Toolbar>
     </AppBar >
   )
