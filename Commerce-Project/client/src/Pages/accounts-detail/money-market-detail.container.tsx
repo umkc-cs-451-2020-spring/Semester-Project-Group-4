@@ -2,7 +2,9 @@ import React from 'react'
 import { Grid, Table, TableHeaderRow, TableColumnResizing, TableFilterRow, PagingPanel } from '@devexpress/dx-react-grid-material-ui';
 import { IntegratedSorting, SortingState, IntegratedFiltering, FilteringState, PagingState, IntegratedPaging } from '@devexpress/dx-react-grid';
 import { AddCircle } from '@material-ui/icons';
-import { Divider, Paper, Typography, Button, IconButton, Toolbar, Tooltip } from '@material-ui/core'
+import DateFnsUtils from '@date-io/date-fns';
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { Divider, Paper, Grid as Layout, Typography, Button, IconButton, FormControl, Toolbar, MenuItem, Tooltip, TextField, Select, Dialog, DialogTitle, DialogContent, DialogActions, InputLabel } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/styles';
 import store from "store";
 import apis from '../../api';
@@ -26,6 +28,15 @@ const useStyles = makeStyles(() =>
     addNewButton: {
       marginTop: '.5rem',
       color: Theme.palette.primary.main
+    },
+    combobox: {
+      width: '40%'
+    },
+    layoutMargin: {
+      marginTop: '1.5rem'
+    },
+    actionMargin: {
+      margin: '1rem'
     }
   })
 );
@@ -41,21 +52,23 @@ export interface accountDetails {
 
 const MoneyMarketDetail = () => {
   // styles
-  const { paper, divider, balance, addNewButton } = useStyles()
+  const { paper, divider, balance, addNewButton, combobox, layoutMargin, actionMargin } = useStyles()
 
   // Hooks
+  const [open, setOpen] = React.useState(false);
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [rows, setRows] = React.useState([]);
+  const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date('2020-01-02'));
+  const [action, setAction] = React.useState<string>('');
   const [sorting, setSorting] = React.useState<any>([])
   const [filters, setFilters] = React.useState<any>([]);
   const [pageSizes] = React.useState<number[]>([5, 10, 15, 25]);
   const [columnWidths, setColumnWidths] = React.useState<any>([
-    { columnName: 'accountNumber', width: 180 },
     { columnName: 'processDate', width: 180 },
     { columnName: 'createdAt', width: 240 },
     { columnName: 'actionType', width: 180 },
     { columnName: 'amount', width: 180 },
-    { columnName: 'description', width: 240 }
+    { columnName: 'description', width: 300 }
   ]);
 
   const storage = store.get('username');
@@ -77,13 +90,28 @@ const MoneyMarketDetail = () => {
   }, [])
 
   const columns = [
-    { name: 'accountNumber', title: 'Account Number' },
     { name: 'processDate', title: 'Process Date' },
-    { name: 'createdAt', title: 'Created At' },
+    { name: 'createdAt', title: 'Created On' },
     { name: 'actionType', title: 'Action' },
     { name: 'amount', title: 'Amount' },
     { name: 'description', title: 'Description' }
   ];
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleActionChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setAction(event.target.value as string);
+  };
+
+  const handleDateChange = (date: Date | null) => {
+    setSelectedDate(date);
+  };
 
   return (
     <Paper elevation={0} className={paper}>
@@ -112,13 +140,51 @@ const MoneyMarketDetail = () => {
             <Typography variant='subtitle1'>Available Balance: $</Typography>
             <Typography className={balance}>{moneyMarket}</Typography>
             <Tooltip title='Add New'>
-              <IconButton className={addNewButton}>
+              <IconButton className={addNewButton} onClick={handleOpen}>
                 <AddCircle />
               </IconButton>
             </Tooltip>
           </Toolbar>
         </Grid>
       </Paper>
+      {/* Add New Form */}
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Add New Transaction</DialogTitle>
+        <DialogContent>
+          <Layout container justify='center' className={layoutMargin}>
+            <Layout container justify='space-around'>
+              <TextField label='Account' value='Money Market' disabled />
+              <TextField label='Amount' />
+            </Layout>
+            <Layout container justify='space-around' className={layoutMargin}>
+              <FormControl className={combobox}>
+                <InputLabel id='action'>Action</InputLabel>
+                <Select labelId='action' value={action} onChange={handleActionChange}>
+                  <MenuItem value={'Withdrawal'}>Withdrawal</MenuItem>
+                  <MenuItem value={'Deposit'}>Deposit</MenuItem>
+                </Select>
+              </FormControl>
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardDatePicker
+                  disableToolbar
+                  variant="inline"
+                  format="MM/dd/yyyy"
+                  margin="normal"
+                  id="date-picker-inline"
+                  placeholder="Date picker inline"
+                  value={selectedDate}
+                  onChange={handleDateChange}
+                />
+              </MuiPickersUtilsProvider>
+            </Layout>
+            <TextField label="Description" fullWidth className={layoutMargin} />
+          </Layout>
+        </DialogContent>
+        <DialogActions className={actionMargin}>
+          <Button onClick={handleClose} variant='outlined'> Cancel</Button>
+          <Button variant='contained' color='primary'>Add</Button>
+        </DialogActions>
+      </Dialog >
     </Paper >
   )
 }
