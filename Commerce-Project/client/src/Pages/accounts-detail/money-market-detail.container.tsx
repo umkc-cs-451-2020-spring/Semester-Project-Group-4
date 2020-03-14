@@ -1,10 +1,11 @@
 import React from 'react'
+import { Grid, Table, TableHeaderRow, TableColumnResizing, TableFilterRow, PagingPanel } from '@devexpress/dx-react-grid-material-ui';
+import { IntegratedSorting, SortingState, IntegratedFiltering, FilteringState, PagingState, IntegratedPaging } from '@devexpress/dx-react-grid';
 import { Divider, Paper, Typography } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/styles';
-import { Grid, Table, TableHeaderRow, TableColumnResizing } from '@devexpress/dx-react-grid-material-ui';
 import store from "store";
 import apis from '../../api';
-import { IntegratedSorting, SortingState } from '@devexpress/dx-react-grid';
+import { Theme } from '../../components';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -15,6 +16,13 @@ const useStyles = makeStyles(() =>
     divider: {
       marginTop: '1rem',
       marginBottom: '2rem'
+    },
+    balance: {
+      color: Theme.palette.primary.main,
+      fontWeight: 700,
+      marginLeft: '.25rem',
+      paddingTop: '0.1875rem',
+      paddingBottom: '1rem'
     }
   })
 );
@@ -30,11 +38,14 @@ export interface accountDetails {
 
 const MoneyMarketDetail = () => {
   // styles
-  const { paper, divider } = useStyles()
+  const { paper, divider, balance } = useStyles()
 
   // Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [rows, setRows] = React.useState([]);
+  const [sorting, setSorting] = React.useState<any>([])
+  const [filters, setFilters] = React.useState<any>([]);
+  const [pageSizes] = React.useState<number[]>([5, 10, 15, 25]);
   const [columnWidths, setColumnWidths] = React.useState<any>([
     { columnName: 'accountNumber', width: 180 },
     { columnName: 'processDate', width: 180 },
@@ -43,7 +54,6 @@ const MoneyMarketDetail = () => {
     { columnName: 'amount', width: 180 },
     { columnName: 'description', width: 240 }
   ]);
-  const [sorting, setSorting] = React.useState<any>([])
 
   const storage = store.get('username');
 
@@ -74,21 +84,28 @@ const MoneyMarketDetail = () => {
 
   return (
     <Paper elevation={0} className={paper}>
-      <Typography variant='h5'>Money Market Account -- {moneyMarket}</Typography>
+      <Typography variant='h5'>Money Market Account</Typography>
       <Divider className={divider} />
+      <Typography className={balance}>Available Balance: ${moneyMarket}</Typography>
       <Paper style={{ position: 'relative' }}>
         <Grid rows={rows} columns={columns}>
+          <FilteringState filters={filters} onFiltersChange={setFilters} />
+          <PagingState />
+          <IntegratedFiltering />
           <SortingState
             sorting={sorting}
             onSortingChange={setSorting}
           />
           <IntegratedSorting />
+          <IntegratedPaging />
           <Table />
           <TableColumnResizing
             columnWidths={columnWidths}
             onColumnWidthsChange={setColumnWidths}
           />
           <TableHeaderRow showSortingControls />
+          <TableFilterRow />
+          <PagingPanel pageSizes={pageSizes} />
         </Grid>
       </Paper>
     </Paper >
