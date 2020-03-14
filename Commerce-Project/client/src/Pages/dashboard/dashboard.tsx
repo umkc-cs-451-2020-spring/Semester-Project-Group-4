@@ -14,7 +14,7 @@ const useStyles = makeStyles(() =>
       height: '100%'
     },
     divider: {
-      marginTop: '2rem',
+      marginTop: '1rem',
       marginBottom: '2rem'
     },
     expansion: {
@@ -61,7 +61,7 @@ const DashBoard = () => {
 
   React.useEffect(() => {
     getBalances();
-  }, [])
+  })
 
   return (
     <Paper elevation={0} className={paper}>
