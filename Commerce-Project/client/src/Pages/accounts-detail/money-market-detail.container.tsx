@@ -21,14 +21,10 @@ const useStyles = makeStyles(() =>
     balance: {
       color: Theme.palette.primary.main,
       fontWeight: 700,
-      marginLeft: '.25rem',
-      paddingTop: '0.1875rem',
-      paddingBottom: '1rem'
-    },
-    addNewToolbar: {
-      flexDirection: 'row-reverse'
+      flexGrow: 1
     },
     addNewButton: {
+      marginTop: '.5rem',
       color: Theme.palette.primary.main
     }
   })
@@ -45,7 +41,7 @@ export interface accountDetails {
 
 const MoneyMarketDetail = () => {
   // styles
-  const { paper, divider, balance, addNewButton, addNewToolbar } = useStyles()
+  const { paper, divider, balance, addNewButton } = useStyles()
 
   // Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
@@ -93,8 +89,7 @@ const MoneyMarketDetail = () => {
     <Paper elevation={0} className={paper}>
       <Typography variant='h5'>Money Market Account</Typography>
       <Divider className={divider} />
-      <Typography className={balance}>Available Balance: ${moneyMarket}</Typography>
-      <Paper style={{ position: 'relative' }}>
+      <Paper elevation={5} style={{ position: 'relative' }}>
         <Grid rows={rows} columns={columns}>
           <FilteringState filters={filters} onFiltersChange={setFilters} />
           <PagingState />
@@ -113,7 +108,9 @@ const MoneyMarketDetail = () => {
           <TableHeaderRow showSortingControls />
           <TableFilterRow />
           <PagingPanel pageSizes={pageSizes} />
-          <Toolbar variant='dense' className={addNewToolbar}>
+          <Toolbar variant='dense'>
+            <Typography variant='subtitle1'>Available Balance: $</Typography>
+            <Typography className={balance}>{moneyMarket}</Typography>
             <Tooltip title='Add New'>
               <IconButton className={addNewButton}>
                 <AddCircle />
