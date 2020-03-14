@@ -16,7 +16,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={LoginForm} />
           <Route path="/register" exact component={RegistrationForm} />
-          <Route path="/dashboard" exact component={DashBoard} />
+          <Route path="/" exact component={DashBoard} />
         </Switch>
       </ThemeProvider>
     </Router>
