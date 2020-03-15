@@ -42,14 +42,14 @@ const DashBoard = () => {
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [checking, setChecking] = React.useState(0);
   const [savings, setSavings] = React.useState(0);
-  const [username, setUsername] = React.useState('');
+  const [user, setUsername] = React.useState('');
 
-  const storage = store.get('username');
+  const username = store.get('username');
 
   const getBalances = async () => {
-    let check = await apis.getCheckingBalance(storage);
-    let save = await apis.getSavingsBalance(storage);
-    let money = await apis.getMoneyMarketBalance(storage);
+    let check = await apis.getCheckingBalance(username);
+    let save = await apis.getSavingsBalance(username);
+    let money = await apis.getMoneyMarketBalance(username);
     let name = await apis.getUserById(store.get('username'));
 
     setChecking(check.data.data[0].amount);
@@ -64,7 +64,7 @@ const DashBoard = () => {
 
   return (
     <Paper elevation={0} className={paper}>
-      <Typography variant='h5'>Welcome back, {username}</Typography>
+      <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
       <ExpansionPanel className={expansion}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>

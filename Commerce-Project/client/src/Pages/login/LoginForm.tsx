@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 import { TextField, Button, FormGroup, Grid, Typography } from '@material-ui/core'
 import { useFormik } from 'formik';
 import { makeStyles, createStyles } from '@material-ui/styles';
@@ -12,6 +13,7 @@ const useStyles = makeStyles(() =>
       margin: '.5rem'
     },
     title: {
+      marginTop: '3.125rem',
       marginBottom: '1rem',
     },
     buttonMargin: {
@@ -49,6 +51,14 @@ const LoginForm = () => {
   const { textFieldMargin, buttonMargin, gridMargin, button, title, font } = useStyles();
   const [next, setNext] = React.useState(false)
   const [name, setName] = useLocalStorageSetState('', 'username')
+
+  const registerLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/register' ref={ref} {...itemProps} />
+      )),
+    []
+  );
 
   const formik = useFormik({
     initialValues: {
@@ -98,7 +108,7 @@ const LoginForm = () => {
               onBlur={formik.handleBlur}
             />
             <Button className={buttonMargin} type="button" variant="contained" color="primary" onClick={formik.submitForm}>Login</Button>
-            <Button className={button} type="button" variant="contained" color="secondary" href='/register' >Register</Button>
+            <Button className={button} type="button" variant="contained" color="secondary" component={registerLink}>Register</Button>
           </FormGroup>
         </Grid>
         <Typography className={font}>{name}</Typography>

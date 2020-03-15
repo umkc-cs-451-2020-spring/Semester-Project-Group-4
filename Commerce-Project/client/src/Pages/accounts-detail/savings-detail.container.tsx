@@ -80,7 +80,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-export interface FormProps {
+interface FormProps {
   amount: any,
   description: any,
   processDate: any,

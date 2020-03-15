@@ -8,6 +8,7 @@ import { ThemeProvider } from '@material-ui/core';
 import { Theme } from '../components/Theme';
 import SavingsDetail from '../Pages/accounts-detail/savings-detail.container';
 import CheckingDetail from '../Pages/accounts-detail/checking-detail.container';
+import MoneyMarketDetail from '../Pages/accounts-detail/money-market-detail.container';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/dashboard" exact component={DashBoard} />
           <Route path="/savings" exact component={SavingsDetail} />
           <Route path="/checking" exact component={CheckingDetail} />
+          <Route path="/moneyMarket" exact component={MoneyMarketDetail} />
         </Switch>
       </ThemeProvider>
     </Router>
