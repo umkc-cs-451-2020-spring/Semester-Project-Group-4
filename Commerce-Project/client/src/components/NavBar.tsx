@@ -1,8 +1,20 @@
 import React from 'react';
-import clsx from 'clsx';
-import { AppBar, Toolbar, IconButton, List, Divider, Drawer, ListItemText, ListItemIcon, ListItem, Theme } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import clsx from 'clsx';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  List,
+  Divider,
+  Drawer,
+  Tooltip,
+  ListItemText,
+  ListItemIcon,
+  ListItem,
+  Theme
+} from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -18,8 +30,8 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
-    menu: {
-      marginRight: '1rem'
+    image: {
+      marginLeft: '1rem'
     },
     root: {
       display: 'flex',
@@ -62,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const NavBar = () => {
-  const { title, hide, drawer, drawerHeader, drawerPaper, menu, appBar, appBarShift, collapseIcon } = useStyles();
+  const { title, hide, drawer, drawerHeader, drawerPaper, image, appBar, appBarShift, collapseIcon } = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -127,44 +139,52 @@ const NavBar = () => {
         [appBarShift]: open,
       })}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            className={clsx(open && hide)}
-          >
-            <MenuIcon className={menu} />
-          </IconButton>
-          <img alt='commerce bank' src='https://www.commercebank.com/-/media/cb/images/masthead/site-logo/commerce-bank-logo-2x.png?sc=0.5&hash=54EC619B6CADAD3482F8E513AFC8F14010659DEE' />
+          <Tooltip title='Menu'>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerOpen}
+              className={clsx(open && hide)}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Tooltip>
+          <img alt='commerce bank' className={image} src='https://www.commercebank.com/-/media/cb/images/masthead/site-logo/commerce-bank-logo-2x.png?sc=0.5&hash=54EC619B6CADAD3482F8E513AFC8F14010659DEE' />
           <div className={title}></div>
-          <IconButton
-            aria-label="home"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            component={dashboardLink}
-            color="inherit"
-          >
-            <HomeIcon />
-          </IconButton>
-          <IconButton
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            component={profileLink}
-            color="inherit"
-          >
-            <AccountCircle />
-          </IconButton>
-          <IconButton
-            aria-label="Logout"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            component={logoutLink}
-            color="inherit"
-          >
-            <ExitToAppIcon />
-          </IconButton>
+          <Tooltip title='Dashboard'>
+            <IconButton
+              aria-label="home"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              component={dashboardLink}
+              color="inherit"
+            >
+              <HomeIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title='Manage Profile'>
+            <IconButton
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              component={profileLink}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title='Logout'>
+            <IconButton
+              aria-label="Logout"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              component={logoutLink}
+              color="inherit"
+            >
+              <ExitToAppIcon />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar >
       <Drawer
@@ -176,6 +196,7 @@ const NavBar = () => {
           paper: drawerPaper,
         }}
       >
+        {/* Drawer */}
         <div className={drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon className={collapseIcon} />

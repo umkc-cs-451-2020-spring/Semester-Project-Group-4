@@ -25,10 +25,10 @@ const SavingsDetail = () => {
   // Hooks
   const [savings, setSavings] = React.useState(0);
 
-  const storage = store.get('username');
+  const username = store.get('username');
 
   const getBalances = async () => {
-    let save = await apis.getSavingsBalance(storage);
+    let save = await apis.getSavingsBalance(username);
     setSavings(save.data.data[0].amount);
   }
 
