@@ -16,7 +16,7 @@ createCheckingTransaction = async (req, res) => {
       accountNumber: body.accountNumber,
       processDate: body.processDate,
       balance: body.balance,
-      actionType: body.accountType, // withDrawal (DR) or Deposit (CR)
+      actionType: body.actionType, // withDrawal (DR) or Deposit (CR)
       amount: body.amount,
       description: body.description
     })
@@ -97,7 +97,7 @@ createSavingsTransaction = async (req, res) => {
       accountNumber: body.accountNumber,
       processDate: body.processDate,
       balance: body.balance,
-      actionType: body.accountType, // withDrawal (DR) or Deposit (CR)
+      actionType: body.actionType, // withDrawal (DR) or Deposit (CR)
       amount: body.amount,
       description: body.description
     })
@@ -178,7 +178,7 @@ createMoneyMarketTransaction = async (req, res) => {
       accountNumber: body.accountNumber,
       processDate: body.processDate,
       balance: body.balance,
-      actionType: body.accountType, // withDrawal (DR) or Deposit (CR)
+      actionType: body.actionType, // withDrawal (DR) or Deposit (CR)
       amount: body.amount,
       description: body.description
     })
