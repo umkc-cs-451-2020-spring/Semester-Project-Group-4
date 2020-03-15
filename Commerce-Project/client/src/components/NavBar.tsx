@@ -5,6 +5,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import store from "store";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -17,6 +18,8 @@ const useStyles = makeStyles(() =>
 const NavBar = () => {
   const { title } = useStyles();
 
+  const username = store.get('username');
+
   return (
     <AppBar position="relative" color='secondary'>
       <Toolbar>
@@ -25,33 +28,42 @@ const NavBar = () => {
         <IconButton edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
-        <IconButton
-          aria-label="home"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          href="/dashboard"
-          color="inherit"
-        >
-          <HomeIcon />
-        </IconButton>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          href="/profile"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <IconButton
-          aria-label="Logout"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          href="/"
-          color="inherit"
-        >
-          <ExitToAppIcon />
-        </IconButton>
+        {
+          username !== undefined ?
+            <>
+              <IconButton
+                aria-label="home"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                href="/dashboard"
+                color="inherit"
+              >
+                <HomeIcon />
+              </IconButton>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                href="/profile"
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <IconButton
+                aria-label="Logout"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                href="/"
+                onClick={() => {
+                  store.remove('username');
+                }}
+                color="inherit"
+              >
+                <ExitToAppIcon />
+              </IconButton>
+            </>
+            : null
+        }
       </Toolbar>
     </AppBar >
   )

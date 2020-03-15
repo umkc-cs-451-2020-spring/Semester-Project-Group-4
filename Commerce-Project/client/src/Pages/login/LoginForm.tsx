@@ -5,6 +5,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import apis from '../../api';
 import { Redirect } from 'react-router-dom';
 import { useLocalStorageSetState } from '../../utils/local-storage';
+import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -61,6 +62,7 @@ const LoginForm = () => {
         setName(formik.values.username);
         formik.setSubmitting(false);
         setNext(true)
+        window.location.reload()
       })
     }
   });
@@ -97,7 +99,7 @@ const LoginForm = () => {
               onBlur={formik.handleBlur}
             />
             <Button className={buttonMargin} type="button" variant="contained" color="primary" onClick={formik.submitForm}>Login</Button>
-            <Button className={button} type="button" variant="contained" color="secondary" href="/register">Register</Button>
+            <Button className={button} type="button" variant="contained" color="secondary" href='/register' >Register</Button>
           </FormGroup>
         </Grid>
         <Typography className={font}>{name}</Typography>
