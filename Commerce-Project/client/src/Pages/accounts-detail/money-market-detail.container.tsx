@@ -34,8 +34,9 @@ import {
   PagingState,
   IntegratedPaging
 } from '@devexpress/dx-react-grid';
+import { CSVLink } from "react-csv";
 import DateFnsUtils from '@date-io/date-fns';
-import { AddCircle, TheatersRounded } from '@material-ui/icons';
+import { AddCircle, GetApp } from '@material-ui/icons';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import store from "store";
@@ -72,7 +73,10 @@ const useStyles = makeStyles(() =>
     },
     actionMargin: {
       margin: '1rem'
-    }
+    },
+    downloadButton: {
+      color: Theme.palette.primary.main
+    },
   })
 );
 
@@ -85,7 +89,7 @@ export interface FormProps {
 
 const MoneyMarketDetail = () => {
   // styles
-  const { paper, divider, balance, addNewButton, combobox, layoutMargin, actionMargin, gridMargin } = useStyles()
+  const { paper, divider, balance, addNewButton, combobox, downloadButton, layoutMargin, actionMargin, gridMargin } = useStyles()
 
   const username = store.get('username');
 
@@ -217,11 +221,27 @@ const MoneyMarketDetail = () => {
                 <AddCircle />
               </IconButton>
             </Tooltip>
+            {rows.length > 0 ?
+              <CSVLink
+                className={downloadButton}
+                data={rows}
+                filename={"Money-Market-Transactions.csv"}
+                uFEFF={false}
+                target='_blank'
+              >
+                <Tooltip title='Download Transactions'>
+                  <IconButton className={addNewButton}>
+                    <GetApp />
+                  </IconButton>
+                </Tooltip>
+              </CSVLink>
+              : null
+            }
           </Toolbar>
         </Grid>
-      </Paper>
+      </Paper >
       {/* Add New Form */}
-      <Dialog open={open} onClose={handleClose}>
+      < Dialog open={open} onClose={handleClose} >
         <DialogTitle>Add New Transaction</DialogTitle>
         <DialogContent>
           <Layout container justify='center' className={layoutMargin}>
