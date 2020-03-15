@@ -6,6 +6,7 @@ import RegistrationForm from '../Pages/registration/RegistrationForm';
 import DashBoard from '../Pages/dashboard/dashboard';
 import { ThemeProvider } from '@material-ui/core';
 import { Theme } from '../components/Theme';
+import MoneyMarketDetail from '../Pages/accounts-detail/money-market-detail.container';
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" exact component={LoginForm} />
           <Route path="/register" exact component={RegistrationForm} />
           <Route path="/dashboard" exact component={DashBoard} />
+          <Route path="/moneyMarket" exact component={MoneyMarketDetail} />
         </Switch>
       </ThemeProvider>
     </Router>
