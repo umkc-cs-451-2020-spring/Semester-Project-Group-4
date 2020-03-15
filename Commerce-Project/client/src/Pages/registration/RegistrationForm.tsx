@@ -19,6 +19,7 @@ const useStyles = makeStyles(() =>
       width: '100%'
     },
     title: {
+      marginTop: '3.125rem',
       marginBottom: '1rem',
     },
     font: {
