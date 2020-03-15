@@ -48,6 +48,9 @@ const useStyles = makeStyles(() =>
       padding: '1rem',
       height: '100%'
     },
+    gridMargin: {
+      margin: '0 1rem 1rem 1rem'
+    },
     divider: {
       marginTop: '1rem',
       marginBottom: '2rem'
@@ -82,7 +85,7 @@ export interface FormProps {
 
 const MoneyMarketDetail = () => {
   // styles
-  const { paper, divider, balance, addNewButton, combobox, layoutMargin, actionMargin } = useStyles()
+  const { paper, divider, balance, addNewButton, combobox, layoutMargin, actionMargin, gridMargin } = useStyles()
 
   const username = store.get('username');
 
@@ -184,7 +187,7 @@ const MoneyMarketDetail = () => {
     <Paper elevation={0} className={paper}>
       <Typography variant='h5'>Money Market Account</Typography>
       <Divider className={divider} />
-      <Paper elevation={5} style={{ position: 'relative' }}>
+      <Paper elevation={5} className={gridMargin}>
         <Grid rows={rows} columns={columns}>
           <FilteringState filters={filters} onFiltersChange={setFilters} />
           <PagingState
