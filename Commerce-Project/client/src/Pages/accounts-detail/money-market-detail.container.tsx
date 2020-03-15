@@ -1,10 +1,42 @@
 import React from 'react'
-import { Grid, Table, TableHeaderRow, TableColumnResizing, TableFilterRow, PagingPanel } from '@devexpress/dx-react-grid-material-ui';
-import { IntegratedSorting, SortingState, IntegratedFiltering, FilteringState, PagingState, IntegratedPaging } from '@devexpress/dx-react-grid';
-import { AddCircle } from '@material-ui/icons';
+import {
+  Divider,
+  Paper,
+  Grid as Layout,
+  Typography,
+  Button,
+  IconButton,
+  FormControl,
+  Toolbar,
+  MenuItem,
+  Tooltip,
+  TextField,
+  Select,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  InputLabel
+} from '@material-ui/core'
+import {
+  Grid,
+  Table,
+  TableHeaderRow,
+  TableColumnResizing,
+  TableFilterRow,
+  PagingPanel
+} from '@devexpress/dx-react-grid-material-ui';
+import {
+  IntegratedSorting,
+  SortingState,
+  IntegratedFiltering,
+  FilteringState,
+  PagingState,
+  IntegratedPaging
+} from '@devexpress/dx-react-grid';
 import DateFnsUtils from '@date-io/date-fns';
+import { AddCircle, TheatersRounded } from '@material-ui/icons';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { Divider, Paper, Grid as Layout, Typography, Button, IconButton, FormControl, Toolbar, MenuItem, Tooltip, TextField, Select, Dialog, DialogTitle, DialogContent, DialogActions, InputLabel } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/styles';
 import store from "store";
 import apis from '../../api';
@@ -41,28 +73,27 @@ const useStyles = makeStyles(() =>
   })
 );
 
-export interface accountDetails {
-  accountNumber: number,
-  processDate: string,
-  createdAt: string,
-  actionType: string,
-  amount: number,
-  description: string
+export interface FormProps {
+  amount: any,
+  description: any,
+  processDate: any,
+  actionType: any
 }
 
 const MoneyMarketDetail = () => {
   // styles
   const { paper, divider, balance, addNewButton, combobox, layoutMargin, actionMargin } = useStyles()
 
-  // Hooks
-  const [open, setOpen] = React.useState(false);
+  const username = store.get('username');
+
+  // Grid Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [rows, setRows] = React.useState([]);
-  const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date('2020-01-02'));
-  const [action, setAction] = React.useState<string>('');
   const [sorting, setSorting] = React.useState<any>([])
   const [filters, setFilters] = React.useState<any>([]);
   const [pageSizes] = React.useState<number[]>([5, 10, 15, 25]);
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const [pageSize, setPageSize] = React.useState(10);
   const [columnWidths, setColumnWidths] = React.useState<any>([
     { columnName: 'processDate', width: 180 },
     { columnName: 'createdAt', width: 240 },
@@ -71,23 +102,23 @@ const MoneyMarketDetail = () => {
     { columnName: 'description', width: 300 }
   ]);
 
-  const storage = store.get('username');
+  // Add New Hooks
+  const [open, setOpen] = React.useState(false);
+  const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date('2020-01-02'));
+  const [action, setAction] = React.useState<string>('');
+  const [amount, setAmount] = React.useState<string>('');
+  const [description, setDescription] = React.useState<string>('');
 
   const getBalances = async () => {
-    let money = await apis.getMoneyMarketBalance(storage);
+    let money = await apis.getMoneyMarketBalance(username);
     setMoneyMarket(money.data.data[0].amount);
   }
 
   const getRows = async () => {
-    let moneyRows = await apis.getMoneyMarket(storage);
+    let moneyRows = await apis.getMoneyMarket(username);
     const row = moneyRows.data.data;
     return setRows(row);
   }
-
-  React.useEffect(() => {
-    getBalances();
-    getRows();
-  }, [])
 
   const columns = [
     { name: 'processDate', title: 'Process Date' },
@@ -113,6 +144,42 @@ const MoneyMarketDetail = () => {
     setSelectedDate(date);
   };
 
+  const handleAmountChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setAmount(event.target.value as string);
+  };
+
+  const handleDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setDescription(event.target.value as string);
+  };
+
+  const negativeValue = (value: any) => {
+    const minus = '-';
+    if (action === "Withdrawal") {
+      const newValue = minus.concat(value);
+      console.log(newValue)
+      return newValue;
+    }
+    else {
+      return value
+    }
+  }
+
+  const addNewTransaction = () => {
+    const form: FormProps = {
+      amount: negativeValue(amount),
+      description: description,
+      processDate: selectedDate,
+      actionType: action
+    }
+    apis.createMoneyMarket(form, username)
+    window.location.reload();
+  }
+
+  React.useEffect(() => {
+    getBalances();
+    getRows();
+  }, [])
+
   return (
     <Paper elevation={0} className={paper}>
       <Typography variant='h5'>Money Market Account</Typography>
@@ -120,7 +187,11 @@ const MoneyMarketDetail = () => {
       <Paper elevation={5} style={{ position: 'relative' }}>
         <Grid rows={rows} columns={columns}>
           <FilteringState filters={filters} onFiltersChange={setFilters} />
-          <PagingState />
+          <PagingState
+            currentPage={currentPage}
+            onCurrentPageChange={setCurrentPage}
+            pageSize={pageSize}
+            onPageSizeChange={setPageSize} />
           <IntegratedFiltering />
           <SortingState
             sorting={sorting}
@@ -154,7 +225,7 @@ const MoneyMarketDetail = () => {
           <Layout container justify='center' className={layoutMargin}>
             <Layout container justify='space-around'>
               <TextField label='Account' value='Money Market' disabled />
-              <TextField label='Amount' />
+              <TextField label='Amount' type='number' value={amount} onChange={handleAmountChange} />
             </Layout>
             <Layout container justify='space-around' className={layoutMargin}>
               <FormControl className={combobox}>
@@ -177,12 +248,17 @@ const MoneyMarketDetail = () => {
                 />
               </MuiPickersUtilsProvider>
             </Layout>
-            <TextField label="Description" fullWidth className={layoutMargin} />
+            <TextField
+              label="Description"
+              fullWidth
+              className={layoutMargin}
+              value={description}
+              onChange={handleDescriptionChange} />
           </Layout>
         </DialogContent>
         <DialogActions className={actionMargin}>
           <Button onClick={handleClose} variant='outlined'> Cancel</Button>
-          <Button variant='contained' color='primary'>Add</Button>
+          <Button variant='contained' color='primary' onClick={addNewTransaction}>Add</Button>
         </DialogActions>
       </Dialog >
     </Paper >

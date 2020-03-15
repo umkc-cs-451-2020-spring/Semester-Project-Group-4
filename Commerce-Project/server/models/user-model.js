@@ -10,7 +10,7 @@ const AccountSchema = new Schema(
     processDate: String,
     balance: Number,
     actionType: String, // withDrawal (DR) or Deposit (CR)
-    amount: Number,
+    amount: Number || String,
     description: String
   },
   { timestamps: true }
