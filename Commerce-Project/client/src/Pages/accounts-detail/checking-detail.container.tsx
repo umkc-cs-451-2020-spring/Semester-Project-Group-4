@@ -25,10 +25,10 @@ const CheckingDetail = () => {
   // Hooks
   const [checking, setChecking] = React.useState(0);
 
-  const storage = store.get('username');
+  const username = store.get('username');
 
   const getBalances = async () => {
-    let check = await apis.getMoneyMarketBalance(storage);
+    let check = await apis.getMoneyMarketBalance(username);
     setChecking(check.data.data[0].amount);
   }
 

@@ -159,7 +159,6 @@ const MoneyMarketDetail = () => {
     const minus = '-';
     if (action === "Withdrawal") {
       const newValue = minus.concat(value);
-      console.log(newValue)
       return newValue;
     }
     else {
