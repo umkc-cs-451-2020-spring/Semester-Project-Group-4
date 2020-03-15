@@ -71,6 +71,7 @@ const LoginForm = () => {
         setName(formik.values.username);
         formik.setSubmitting(false);
         setNext(true)
+        window.location.reload()
       })
     }
   });
