@@ -43,7 +43,7 @@ const DashBoard = () => {
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [checking, setChecking] = React.useState(0);
   const [savings, setSavings] = React.useState(0);
-  const [username, setUsername] = React.useState('');
+  const [user, setUsername] = React.useState('');
 
   const username = store.get('username');
 
@@ -65,7 +65,7 @@ const DashBoard = () => {
 
   return (
     <Paper elevation={0} className={paper}>
-      <Typography variant='h5'>Welcome back, {username}</Typography>
+      <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
       <ExpansionPanel className={expansion}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
