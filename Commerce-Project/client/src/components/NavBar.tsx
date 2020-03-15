@@ -29,7 +29,7 @@ const NavBar = () => {
           <MenuIcon />
         </IconButton>
         {
-          username !== undefined ?
+          (username !== undefined && username !== "") ?
             <>
               <IconButton
                 aria-label="home"

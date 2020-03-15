@@ -5,7 +5,6 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import apis from '../../api';
 import { Redirect } from 'react-router-dom';
 import { useLocalStorageSetState } from '../../utils/local-storage';
-import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 
 const useStyles = makeStyles(() =>
   createStyles({
