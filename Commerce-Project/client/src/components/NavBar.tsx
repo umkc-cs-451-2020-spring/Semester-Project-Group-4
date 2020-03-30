@@ -18,6 +18,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import store from "store";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AccountBalance from '@material-ui/icons/AccountBalance';
 import { Theme as commerceTheme } from './Theme';
@@ -133,6 +134,8 @@ const NavBar = () => {
     []
   );
 
+  const username = store.get('username');
+
   return (
     <>
       <AppBar position="fixed" color='secondary' className={clsx(appBar, {
@@ -152,39 +155,45 @@ const NavBar = () => {
           </Tooltip>
           <img alt='commerce bank' className={image} src='https://www.commercebank.com/-/media/cb/images/masthead/site-logo/commerce-bank-logo-2x.png?sc=0.5&hash=54EC619B6CADAD3482F8E513AFC8F14010659DEE' />
           <div className={title}></div>
-          <Tooltip title='Dashboard'>
-            <IconButton
-              aria-label="home"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              component={dashboardLink}
-              color="inherit"
-            >
-              <HomeIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title='Manage Profile'>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              component={profileLink}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title='Logout'>
-            <IconButton
-              aria-label="Logout"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              component={logoutLink}
-              color="inherit"
-            >
-              <ExitToAppIcon />
-            </IconButton>
-          </Tooltip>
+          {
+            (username !== undefined && username !== "") ?
+              <>
+                <Tooltip title='Dashboard'>
+                  <IconButton
+                    aria-label="home"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    component={dashboardLink}
+                    color="inherit"
+                  >
+                    <HomeIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title='Manage Profile'>
+                  <IconButton
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    component={profileLink}
+                    color="inherit"
+                  >
+                    <AccountCircle />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title='Logout'>
+                  <IconButton
+                    aria-label="Logout"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    component={logoutLink}
+                    color="inherit"
+                  >
+                    <ExitToAppIcon />
+                  </IconButton>
+                </Tooltip>
+              </>
+              : null
+          }
         </Toolbar>
       </AppBar >
       <Drawer
