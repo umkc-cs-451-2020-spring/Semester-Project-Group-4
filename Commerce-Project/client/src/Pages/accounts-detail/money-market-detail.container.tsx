@@ -184,6 +184,7 @@ const MoneyMarketDetail = () => {
   React.useEffect(() => {
     getBalances();
     getRows();
+    // eslint-disable-next-line
   }, [])
 
   return (

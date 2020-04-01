@@ -184,6 +184,7 @@ const SavingsDetail = () => {
   React.useEffect(() => {
     getBalances();
     getRows();
+    // eslint-disable-next-line
   }, [])
 
   return (
