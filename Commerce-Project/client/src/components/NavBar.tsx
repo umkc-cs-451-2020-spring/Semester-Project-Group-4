@@ -12,7 +12,8 @@ import {
   ListItemText,
   ListItemIcon,
   ListItem,
-  Theme
+  Theme,
+  Typography
 } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -23,6 +24,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AccountBalance from '@material-ui/icons/AccountBalance';
 import { Theme as commerceTheme } from './Theme';
 import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
+import { AttachMoney, CreditCard, Security, HelpOutline } from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -146,7 +148,6 @@ const NavBar = () => {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              edge="end"
               onClick={handleDrawerOpen}
               className={clsx(open && hide)}
             >
@@ -164,7 +165,7 @@ const NavBar = () => {
                     aria-controls="menu-appbar"
                     aria-haspopup="true"
                     component={dashboardLink}
-                    color="inherit"
+                    color="primary"
                   >
                     <HomeIcon />
                   </IconButton>
@@ -175,7 +176,7 @@ const NavBar = () => {
                     aria-controls="menu-appbar"
                     aria-haspopup="true"
                     component={profileLink}
-                    color="inherit"
+                    color="primary"
                   >
                     <AccountCircle />
                   </IconButton>
@@ -186,7 +187,7 @@ const NavBar = () => {
                     aria-controls="menu-appbar"
                     aria-haspopup="true"
                     component={logoutLink}
-                    color="inherit"
+                    color="primary"
                   >
                     <ExitToAppIcon />
                   </IconButton>
@@ -210,52 +211,96 @@ const NavBar = () => {
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon className={collapseIcon} />
           </IconButton>
+          <Typography>
+            Collapse Menu
+          </Typography>
         </div>
-        <Divider />
+        {
+          (username !== undefined && username !== "") ?
+            <>
+              <Divider />
+              <List>
+                <ListItem button component={dashboardLink}>
+                  <ListItemIcon>
+                    <HomeIcon />
+                  </ListItemIcon>
+                  <ListItemText primary='Dashboard' />
+                </ListItem>
+                <ListItem button component={profileLink}>
+                  <ListItemIcon>
+                    <AccountCircle />
+                  </ListItemIcon>
+                  <ListItemText primary='Account Profile' />
+                </ListItem>
+              </List>
+              <Divider />
+              <List>
+                <ListItem button component={checkingLink}>
+                  <ListItemIcon>
+                    <AccountBalance />
+                  </ListItemIcon>
+                  <ListItemText primary='Checking Account' />
+                </ListItem>
+                <ListItem button component={savingsLink}>
+                  <ListItemIcon>
+                    <AccountBalance />
+                  </ListItemIcon>
+                  <ListItemText primary='Savings Account' />
+                </ListItem>
+                <ListItem button component={moneyMarketLink}>
+                  <ListItemIcon>
+                    <AccountBalance />
+                  </ListItemIcon>
+                  <ListItemText primary='Money Market Account' />
+                </ListItem>
+              </List>
+              <Divider />
+            </>
+            : null
+        }
         <List>
-          <ListItem button component={dashboardLink}>
+          <ListItem button>
             <ListItemIcon>
-              <HomeIcon />
+              <AttachMoney />
             </ListItemIcon>
-            <ListItemText primary='Dashboard' />
+            <ListItemText primary='Borrow' />
           </ListItem>
-          <ListItem button component={profileLink}>
+          <ListItem button>
             <ListItemIcon>
-              <AccountCircle />
+              <CreditCard />
             </ListItemIcon>
-            <ListItemText primary='Account Profile' />
+            <ListItemText primary='Cards' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Security />
+            </ListItemIcon>
+            <ListItemText primary='Insurance' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <HelpOutline />
+            </ListItemIcon>
+            <ListItemText primary='Help' />
           </ListItem>
         </List>
-        <Divider />
-        <List>
-          <ListItem button component={checkingLink}>
-            <ListItemIcon>
-              <AccountBalance />
-            </ListItemIcon>
-            <ListItemText primary='Checking Account' />
-          </ListItem>
-          <ListItem button component={savingsLink}>
-            <ListItemIcon>
-              <AccountBalance />
-            </ListItemIcon>
-            <ListItemText primary='Savings Account' />
-          </ListItem>
-          <ListItem button component={moneyMarketLink}>
-            <ListItemIcon>
-              <AccountBalance />
-            </ListItemIcon>
-            <ListItemText primary='Money Market Account' />
-          </ListItem>
-        </List>
-        <Divider />
-        <List>
-          <ListItem button component={logoutLink}>
-            <ListItemIcon>
-              <ExitToAppIcon />
-            </ListItemIcon>
-            <ListItemText primary='Log Out' />
-          </ListItem>
-        </List>
+        {
+          (username !== undefined && username !== "") ?
+            <>
+              <List>
+                <Divider />
+                <List>
+                  <ListItem button component={logoutLink}>
+                    <ListItemIcon>
+                      <ExitToAppIcon />
+                    </ListItemIcon>
+                    <ListItemText primary='Log Out' />
+                  </ListItem>
+                </List>
+              </List>
+            </>
+            : null
+        }
       </Drawer>
     </>
   )
