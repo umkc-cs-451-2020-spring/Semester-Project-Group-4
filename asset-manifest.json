@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/Semester-Project-Group-4/static/js/main.4a014cbe.chunk.js",
+    "main.js.map": "/Semester-Project-Group-4/static/js/main.4a014cbe.chunk.js.map",
+    "runtime-main.js": "/Semester-Project-Group-4/static/js/runtime-main.52747ce8.js",
+    "runtime-main.js.map": "/Semester-Project-Group-4/static/js/runtime-main.52747ce8.js.map",
+    "static/js/2.25cb19ad.chunk.js": "/Semester-Project-Group-4/static/js/2.25cb19ad.chunk.js",
+    "static/js/2.25cb19ad.chunk.js.map": "/Semester-Project-Group-4/static/js/2.25cb19ad.chunk.js.map",
+    "index.html": "/Semester-Project-Group-4/index.html",
+    "precache-manifest.0b1a74e1f683defe76d3c40a56c580cc.js": "/Semester-Project-Group-4/precache-manifest.0b1a74e1f683defe76d3c40a56c580cc.js",
+    "service-worker.js": "/Semester-Project-Group-4/service-worker.js",
+    "static/js/2.25cb19ad.chunk.js.LICENSE.txt": "/Semester-Project-Group-4/static/js/2.25cb19ad.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52747ce8.js",
+    "static/js/2.25cb19ad.chunk.js",
+    "static/js/main.4a014cbe.chunk.js"
+  ]
+}
