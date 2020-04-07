@@ -56,7 +56,9 @@ A web application that pulls in transaction details and allows the user to set t
   https://github.com/umkc-cs-451-2020-spring/semester-project-group-4/tree/master/Commerce-Project/server
 
 ## Running Tests (Jest)
-  1. npm test
+  1. npm test -- runs tests, creates coverage report and updates snapshots  
+  2. Coverage Report -- Navigate to coverage/Icov-report/index.html(open in browser)  
+
   
 ## Material UI  
 Our source of components comes directly from Material UI.  
