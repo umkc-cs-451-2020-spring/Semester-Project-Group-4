@@ -47,7 +47,8 @@ const useStyles = makeStyles(() =>
   createStyles({
     paper: {
       padding: '1rem',
-      height: '100%'
+      height: '100%',
+      marginTop: '5rem'
     },
     gridMargin: {
       margin: '0 1rem 1rem 1rem'

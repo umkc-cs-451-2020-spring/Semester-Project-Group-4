@@ -24,7 +24,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AccountBalance from '@material-ui/icons/AccountBalance';
 import { Theme as commerceTheme } from './Theme';
 import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
-import { AttachMoney, CreditCard, Security, HelpOutline } from '@material-ui/icons';
+import { AttachMoney, CreditCard, Security, HelpOutline, Notifications } from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -136,6 +136,14 @@ const NavBar = () => {
     []
   );
 
+  const notificationLink = React.useMemo(
+    () =>
+      React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
+        <RouterLink to='/notifications' ref={ref} {...itemProps} />
+      )),
+    []
+  );
+
   const username = store.get('username');
 
   return (
@@ -159,6 +167,17 @@ const NavBar = () => {
           {
             (username !== undefined && username !== "") ?
               <>
+                <Tooltip title='Notifications'>
+                  <IconButton
+                    aria-label="notifications"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    component={notificationLink}
+                    color="primary"
+                  >
+                    <Notifications />
+                  </IconButton>
+                </Tooltip>
                 <Tooltip title='Dashboard'>
                   <IconButton
                     aria-label="home"
@@ -231,6 +250,12 @@ const NavBar = () => {
                     <AccountCircle />
                   </ListItemIcon>
                   <ListItemText primary='Account Profile' />
+                </ListItem>
+                <ListItem button component={notificationLink}>
+                  <ListItemIcon>
+                    <Notifications />
+                  </ListItemIcon>
+                  <ListItemText primary='Notifications' />
                 </ListItem>
               </List>
               <Divider />
