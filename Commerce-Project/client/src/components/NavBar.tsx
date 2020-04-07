@@ -99,7 +99,7 @@ const NavBar = () => {
   const profileLink = React.useMemo(
     () =>
       React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
-        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+        <RouterLink to='/profile' ref={ref} {...itemProps} />
       )),
     []
   );
@@ -107,7 +107,7 @@ const NavBar = () => {
   const checkingLink = React.useMemo(
     () =>
       React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
-        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+        <RouterLink to='/checking' ref={ref} {...itemProps} />
       )),
     []
   );
@@ -115,7 +115,7 @@ const NavBar = () => {
   const savingsLink = React.useMemo(
     () =>
       React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
-        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+        <RouterLink to='/savings' ref={ref} {...itemProps} />
       )),
     []
   );
@@ -123,7 +123,7 @@ const NavBar = () => {
   const moneyMarketLink = React.useMemo(
     () =>
       React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
-        <RouterLink to='/dashboard' ref={ref} {...itemProps} />
+        <RouterLink to='/moneyMarket' ref={ref} {...itemProps} />
       )),
     []
   );
