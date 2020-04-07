@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications Container Render the Notifications Container 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-paper-1"
+  elevation={0}
+>
+  <WithStyles(ForwardRef(Typography))
+    variant="h5"
+  >
+    Manage Notifications
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Divider))
+    className="makeStyles-divider-2"
+  />
+</WithStyles(ForwardRef(Paper))>
+`;

@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration Form Render the Registration Form 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-gridMargin-3"
+    container={true}
+    spacing={8}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      xs={4}
+    />
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      xs={4}
+    >
+      <WithStyles(ForwardRef(FormGroup))>
+        <WithStyles(ForwardRef(Typography))
+          align="center"
+          className="makeStyles-title-4"
+          variant="h5"
+        >
+          Create Account
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-1"
+          error={false}
+          helperText={null}
+          id="firstName"
+          label="First Name"
+          name="firstName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-1"
+          error={false}
+          helperText={null}
+          id="lastName"
+          label="Last Name"
+          name="lastName"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-1"
+          error={false}
+          helperText={null}
+          id="username"
+          label="Username"
+          name="username"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-1"
+          error={false}
+          helperText={null}
+          id="email"
+          label="Email"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-1"
+          error={false}
+          helperText={null}
+          id="phone"
+          label="Phone Number"
+          name="phone"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-1"
+          error={false}
+          helperText={null}
+          id="password"
+          label="Password"
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-1"
+          error={false}
+          helperText={null}
+          id="confirmPassword"
+          label="Confirm Password"
+          name="confirmPassword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-buttonMargin-2"
+          color="primary"
+          disabled={false}
+          onClick={[Function]}
+          type="submit"
+          variant="contained"
+        >
+          Register
+        </WithStyles(ForwardRef(Button))>
+      </WithStyles(ForwardRef(FormGroup))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-font-5"
+    />
+  </WithStyles(ForwardRef(Grid))>
+</form>
+`;
