@@ -28,7 +28,7 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const validate = (values: any) => {
+export const validate = (values: any) => {
   const errors = {} as any;
   if (!values.firstName) {
     errors.firstName = 'Required';

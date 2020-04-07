@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Money Market Detail Render the Money Market Detail 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-paper-1"
+  elevation={0}
+>
+  <WithStyles(ForwardRef(Typography))
+    variant="h5"
+  >
+    Money Market Account
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Divider))
+    className="makeStyles-divider-3"
+  />
+  <WithStyles(ForwardRef(Paper))
+    className="makeStyles-gridMargin-2"
+    elevation={5}
+  >
+    <Grid
+      columns={
+        Array [
+          Object {
+            "name": "processDate",
+            "title": "Process Date",
+          },
+          Object {
+            "name": "createdAt",
+            "title": "Created On",
+          },
+          Object {
+            "name": "actionType",
+            "title": "Action",
+          },
+          Object {
+            "name": "amount",
+            "title": "Amount",
+          },
+          Object {
+            "name": "description",
+            "title": "Description",
+          },
+        ]
+      }
+      rows={Array []}
+    >
+      <FilteringStateBase
+        columnFilteringEnabled={true}
+        defaultFilters={Array []}
+        filters={Array []}
+        onFiltersChange={[Function]}
+      />
+      <PagingStateBase
+        currentPage={0}
+        defaultCurrentPage={0}
+        defaultPageSize={10}
+        onCurrentPageChange={[Function]}
+        onPageSizeChange={[Function]}
+        pageSize={10}
+      />
+      <IntegratedFilteringBase />
+      <SortingStateBase
+        columnSortingEnabled={true}
+        defaultSorting={Array []}
+        onSortingChange={[Function]}
+        sorting={Array []}
+      />
+      <IntegratedSortingBase />
+      <IntegratedPagingBase />
+      <Component />
+      <TableColumnResizing
+        columnWidths={
+          Array [
+            Object {
+              "columnName": "processDate",
+              "width": 180,
+            },
+            Object {
+              "columnName": "createdAt",
+              "width": 240,
+            },
+            Object {
+              "columnName": "actionType",
+              "width": 180,
+            },
+            Object {
+              "columnName": "amount",
+              "width": 180,
+            },
+            Object {
+              "columnName": "description",
+              "width": 300,
+            },
+          ]
+        }
+        maxColumnWidth={Infinity}
+        minColumnWidth={40}
+        onColumnWidthsChange={[Function]}
+      />
+      <Component
+        showSortingControls={true}
+      />
+      <Component />
+      <Component
+        pageSizes={
+          Array [
+            5,
+            10,
+            15,
+            25,
+          ]
+        }
+      />
+      <WithStyles(ForwardRef(Toolbar))
+        variant="dense"
+      >
+        <WithStyles(ForwardRef(Typography))
+          variant="subtitle1"
+        >
+          Available Balance: $
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-balance-4"
+        >
+          0
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Tooltip))
+          title="Add New"
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="makeStyles-addNewButton-5"
+            onClick={[Function]}
+          >
+            <AddCircleIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </WithStyles(ForwardRef(Tooltip))>
+      </WithStyles(ForwardRef(Toolbar))>
+    </Grid>
+  </WithStyles(ForwardRef(Paper))>
+  <WithStyles(ForwardRef(Dialog))
+    onClose={[Function]}
+    open={false}
+  >
+    <WithStyles(ForwardRef(DialogTitle))>
+      Add New Transaction
+    </WithStyles(ForwardRef(DialogTitle))>
+    <WithStyles(ForwardRef(DialogContent))>
+      <WithStyles(ForwardRef(Grid))
+        className="makeStyles-layoutMargin-7"
+        container={true}
+        justify="center"
+      >
+        <WithStyles(ForwardRef(Grid))
+          container={true}
+          justify="space-around"
+        >
+          <WithStyles(ForwardRef(TextField))
+            disabled={true}
+            label="Account"
+            value="Money Market"
+          />
+          <WithStyles(ForwardRef(TextField))
+            label="Amount"
+            onChange={[Function]}
+            type="number"
+            value=""
+          />
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          className="makeStyles-layoutMargin-7"
+          container={true}
+          justify="space-around"
+        >
+          <WithStyles(ForwardRef(FormControl))
+            className="makeStyles-combobox-6"
+          >
+            <WithStyles(ForwardRef(InputLabel))
+              id="action"
+            >
+              Action
+            </WithStyles(ForwardRef(InputLabel))>
+            <WithStyles(ForwardRef(Select))
+              labelId="action"
+              onChange={[Function]}
+              value=""
+            >
+              <WithStyles(ForwardRef(MenuItem))
+                value="Withdrawal"
+              >
+                Withdrawal
+              </WithStyles(ForwardRef(MenuItem))>
+              <WithStyles(ForwardRef(MenuItem))
+                value="Deposit"
+              >
+                Deposit
+              </WithStyles(ForwardRef(MenuItem))>
+            </WithStyles(ForwardRef(Select))>
+          </WithStyles(ForwardRef(FormControl))>
+          <MuiPickersUtilsProvider
+            utils={[Function]}
+          >
+            <PickerWithState
+              allowKeyboardControl={true}
+              disableToolbar={true}
+              format="MM/dd/yyyy"
+              id="date-picker-inline"
+              invalidDateMessage="Invalid Date Format"
+              margin="normal"
+              maxDate={2100-01-01T00:00:00.000Z}
+              maxDateMessage="Date should not be after maximal date"
+              minDate={1900-01-01T00:00:00.000Z}
+              minDateMessage="Date should not be before minimal date"
+              onChange={[Function]}
+              openTo="date"
+              placeholder="Date picker inline"
+              value={2020-01-02T00:00:00.000Z}
+              variant="inline"
+              views={
+                Array [
+                  "year",
+                  "date",
+                ]
+              }
+            />
+          </MuiPickersUtilsProvider>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-layoutMargin-7"
+          fullWidth={true}
+          label="Description"
+          onChange={[Function]}
+          value=""
+        />
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(DialogActions))
+      className="makeStyles-actionMargin-8"
+    >
+      <WithStyles(ForwardRef(Button))
+        onClick={[Function]}
+        variant="outlined"
+      >
+         Cancel
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Add
+      </WithStyles(ForwardRef(Button))>
+    </WithStyles(ForwardRef(DialogActions))>
+  </WithStyles(ForwardRef(Dialog))>
+</WithStyles(ForwardRef(Paper))>
+`;

@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Render the Dashboard 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-paper-1"
+  elevation={0}
+>
+  <WithStyles(ForwardRef(Typography))
+    variant="h5"
+  >
+    Welcome back, 
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Divider))
+    className="makeStyles-divider-2"
+  />
+  <WithStyles(ForwardRef(ExpansionPanel))
+    className="makeStyles-expansion-3"
+  >
+    <WithStyles(ForwardRef(ExpansionPanelSummary))
+      expandIcon={<UNDEFINED />}
+      id="panel1"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-expansionHeader-4"
+        variant="h6"
+      >
+        Checking Account
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-balancePadding-6"
+        variant="subtitle1"
+      >
+        Balance: $ 
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-balance-5"
+        variant="subtitle1"
+      >
+        0
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Tooltip))
+        title="View Checking Account"
+      >
+        <WithStyles(ForwardRef(IconButton))
+          aria-controls="expansion-action"
+          aria-haspopup="true"
+          aria-label="View Checking Account"
+          className="makeStyles-EditIcon-7"
+          color="primary"
+          component={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            }
+          }
+        >
+          <EditIcon />
+        </WithStyles(ForwardRef(IconButton))>
+      </WithStyles(ForwardRef(Tooltip))>
+    </WithStyles(ForwardRef(ExpansionPanelSummary))>
+    <WithStyles(ForwardRef(ExpansionPanelDetails))>
+      Summary Details
+    </WithStyles(ForwardRef(ExpansionPanelDetails))>
+  </WithStyles(ForwardRef(ExpansionPanel))>
+  <WithStyles(ForwardRef(ExpansionPanel))
+    className="makeStyles-expansion-3"
+  >
+    <WithStyles(ForwardRef(ExpansionPanelSummary))
+      expandIcon={<UNDEFINED />}
+      id="panel2"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-expansionHeader-4"
+        variant="h6"
+      >
+        Savings Account
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-balancePadding-6"
+        variant="subtitle1"
+      >
+        Balance: $ 
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-balance-5"
+        variant="subtitle1"
+      >
+        0
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Tooltip))
+        title="View Savings Account"
+      >
+        <WithStyles(ForwardRef(IconButton))
+          aria-controls="expansion-action"
+          aria-haspopup="true"
+          aria-label="View Savings Account"
+          className="makeStyles-EditIcon-7"
+          color="primary"
+          component={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            }
+          }
+        >
+          <EditIcon />
+        </WithStyles(ForwardRef(IconButton))>
+      </WithStyles(ForwardRef(Tooltip))>
+    </WithStyles(ForwardRef(ExpansionPanelSummary))>
+    <WithStyles(ForwardRef(ExpansionPanelDetails))>
+      Summary Details
+    </WithStyles(ForwardRef(ExpansionPanelDetails))>
+  </WithStyles(ForwardRef(ExpansionPanel))>
+  <WithStyles(ForwardRef(ExpansionPanel))
+    className="makeStyles-expansion-3"
+  >
+    <WithStyles(ForwardRef(ExpansionPanelSummary))
+      expandIcon={<UNDEFINED />}
+      id="panel3"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-expansionHeader-4"
+        variant="h6"
+      >
+        Money Market Account
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-balancePadding-6"
+        variant="subtitle1"
+      >
+        Balance: $
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-balance-5"
+        variant="subtitle1"
+      >
+        0
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Tooltip))
+        title="View Money Market Account"
+      >
+        <WithStyles(ForwardRef(IconButton))
+          aria-controls="expansion-action"
+          aria-haspopup="true"
+          aria-label="View Money Market Account"
+          className="makeStyles-EditIcon-7"
+          color="primary"
+          component={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            }
+          }
+        >
+          <EditIcon />
+        </WithStyles(ForwardRef(IconButton))>
+      </WithStyles(ForwardRef(Tooltip))>
+    </WithStyles(ForwardRef(ExpansionPanelSummary))>
+    <WithStyles(ForwardRef(ExpansionPanelDetails))>
+      Summary Details
+    </WithStyles(ForwardRef(ExpansionPanelDetails))>
+  </WithStyles(ForwardRef(ExpansionPanel))>
+</WithStyles(ForwardRef(Paper))>
+`;
