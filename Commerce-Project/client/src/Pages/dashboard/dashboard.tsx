@@ -12,7 +12,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     paper: {
       padding: '1rem',
-      marginTop: '4rem',
+      margin: '5rem 1rem',
       height: '100%'
     },
     divider: {
@@ -113,6 +113,8 @@ const DashBoard = () => {
     <Paper elevation={0} className={paper}>
       <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
+
+      {/* Notification*/}
       {
         hideNotificationOne === false &&
         <NotificationCard message='Low Balance' onClick={removeNotificationOne} />
@@ -125,7 +127,9 @@ const DashBoard = () => {
         hideNotificationThree === false &&
         <NotificationCard message='Large Deposit' onClick={removeNotificationThree} />
       }
-      <ExpansionPanel className={expansion}>
+
+      {/* Checking Account*/}
+      <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Checking Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
@@ -148,7 +152,8 @@ const DashBoard = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel className={expansion}>
+      {/* Money Market Account*/}
+      <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel2" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Savings Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
@@ -171,7 +176,8 @@ const DashBoard = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel className={expansion}>
+      {/* Savings Account*/}
+      <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel3" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Money Market Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $</Typography>
