@@ -41,7 +41,7 @@ const useStyles = makeStyles(() =>
 
 export interface NotificationProps {
   message: string;
-  onClick?: any;
+  onClick: any;
 }
 
 export const NotificationCard = (props: NotificationProps) => {
