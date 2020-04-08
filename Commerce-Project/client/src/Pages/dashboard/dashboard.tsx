@@ -51,6 +51,10 @@ const DashBoard = () => {
   const [savings, setSavings] = React.useState(0);
   const [user, setUsername] = React.useState('');
 
+  const [hideNotificationOne, setRemoveNotificationOne] = React.useState(false);
+  const [hideNotificationTwo, setRemoveNotificationTwo] = React.useState(false);
+  const [hideNotificationThree, setRemoveNotificationThree] = React.useState(false);
+
   const username = store.get('username');
 
   const getBalances = async () => {
@@ -93,13 +97,43 @@ const DashBoard = () => {
     []
   );
 
+  const removeNotificationOne = () => {
+    return setRemoveNotificationOne(true)
+  }
+
+  const removeNotificationTwo = () => {
+    return setRemoveNotificationTwo(true)
+  }
+
+  const removeNotificationThree = () => {
+    return setRemoveNotificationThree(true)
+  }
+
   return (
     <Paper elevation={0} className={paper}>
       <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
-      <NotificationCard message='Low Balance' />
-      <NotificationCard message='Large Withdrawal' />
-      <NotificationCard message='Large Deposit' />
+      {
+        hideNotificationOne === false ?
+          <>
+            <NotificationCard message='Low Balance' onClick={removeNotificationOne} />
+          </>
+          : false
+      }
+      {
+        hideNotificationTwo === false ?
+          <>
+            <NotificationCard message='Large Withdrawal' onClick={removeNotificationTwo} />
+          </>
+          : false
+      }
+      {
+        hideNotificationThree === false ?
+          <>
+            <NotificationCard message='Large Deposit' onClick={removeNotificationThree} />
+          </>
+          : false
+      }
       <ExpansionPanel className={expansion}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Checking Account</Typography>

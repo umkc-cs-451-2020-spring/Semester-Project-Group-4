@@ -41,7 +41,7 @@ const useStyles = makeStyles(() =>
 
 export interface NotificationProps {
   message: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: any;
 }
 
 export const NotificationCard = (props: NotificationProps) => {
