@@ -5,13 +5,14 @@ import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-d
 import store from "store";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Edit } from '@material-ui/icons';
-import { Theme } from '../../components';
+import { Theme, NotificationCard } from '../../components';
 import apis from '../../api';
 
 const useStyles = makeStyles(() =>
   createStyles({
     paper: {
       padding: '1rem',
+      marginTop: '4rem',
       height: '100%'
     },
     divider: {
@@ -96,6 +97,9 @@ const DashBoard = () => {
     <Paper elevation={0} className={paper}>
       <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
+      <NotificationCard message='Low Balance' />
+      <NotificationCard message='Large Withdrawal' />
+      <NotificationCard message='Large Deposit' />
       <ExpansionPanel className={expansion}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Checking Account</Typography>

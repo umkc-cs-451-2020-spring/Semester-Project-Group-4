@@ -13,6 +13,15 @@ exports[`Dashboard Render the Dashboard 1`] = `
   <WithStyles(ForwardRef(Divider))
     className="makeStyles-divider-2"
   />
+  <NotificationCard
+    message="Low Balance"
+  />
+  <NotificationCard
+    message="Large Withdrawal"
+  />
+  <NotificationCard
+    message="Large Deposit"
+  />
   <WithStyles(ForwardRef(ExpansionPanel))
     className="makeStyles-expansion-3"
   >

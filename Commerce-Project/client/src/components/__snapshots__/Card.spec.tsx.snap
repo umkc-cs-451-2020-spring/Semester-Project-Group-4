@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification Card Render the Notification Card 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-row-7"
+  elevation={0}
+>
+  <WithStyles(ForwardRef(Card))
+    className="makeStyles-card-1"
+    variant="outlined"
+  >
+    <WithStyles(ForwardRef(CardContent))
+      className="makeStyles-contentArea-2"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-title-4"
+        component="h2"
+        variant="h5"
+      >
+        Warning
+        <WithStyles(ForwardRef(Tooltip))
+          title="Remove"
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="makeStyles-iconColor-3"
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </WithStyles(ForwardRef(Tooltip))>
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(CardContent))
+        className="makeStyles-description-6"
+      >
+        <WithStyles(ForwardRef(Typography))
+          component="p"
+          variant="body1"
+        >
+          test
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(CardContent))>
+    </WithStyles(ForwardRef(CardContent))>
+  </WithStyles(ForwardRef(Card))>
+</WithStyles(ForwardRef(Paper))>
+`;
