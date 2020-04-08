@@ -13,8 +13,21 @@ exports[`Dashboard Render the Dashboard 1`] = `
   <WithStyles(ForwardRef(Divider))
     className="makeStyles-divider-2"
   />
+  <NotificationCard
+    message="Low Balance"
+    onClick={[Function]}
+  />
+  <NotificationCard
+    message="Large Withdrawal"
+    onClick={[Function]}
+  />
+  <NotificationCard
+    message="Large Deposit"
+    onClick={[Function]}
+  />
   <WithStyles(ForwardRef(ExpansionPanel))
     className="makeStyles-expansion-3"
+    elevation={3}
   >
     <WithStyles(ForwardRef(ExpansionPanelSummary))
       expandIcon={<UNDEFINED />}
@@ -64,6 +77,7 @@ exports[`Dashboard Render the Dashboard 1`] = `
   </WithStyles(ForwardRef(ExpansionPanel))>
   <WithStyles(ForwardRef(ExpansionPanel))
     className="makeStyles-expansion-3"
+    elevation={3}
   >
     <WithStyles(ForwardRef(ExpansionPanelSummary))
       expandIcon={<UNDEFINED />}
@@ -113,6 +127,7 @@ exports[`Dashboard Render the Dashboard 1`] = `
   </WithStyles(ForwardRef(ExpansionPanel))>
   <WithStyles(ForwardRef(ExpansionPanel))
     className="makeStyles-expansion-3"
+    elevation={3}
   >
     <WithStyles(ForwardRef(ExpansionPanelSummary))
       expandIcon={<UNDEFINED />}

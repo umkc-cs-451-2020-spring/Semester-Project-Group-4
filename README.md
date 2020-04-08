@@ -19,8 +19,8 @@ A web application that pulls in transaction details and allows the user to set t
       Install for your appropriate OS. Leave all the default options selected.
       The command interpreter can be found at "C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe"
 
-  3. Install Postman -- https://www.postman.com/downloads/
-      This allows us to test the applications queries manually.
+  3. Install Postman -- https://www.postman.com/downloads/  (Optional)
+      This allows us to test the applications queries manually. 
 
 ## Running Environment for Development
   1. cd/commerce-project/client

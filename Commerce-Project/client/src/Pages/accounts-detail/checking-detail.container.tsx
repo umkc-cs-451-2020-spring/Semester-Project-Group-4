@@ -9,7 +9,7 @@ const useStyles = makeStyles(() =>
     paper: {
       padding: '1rem',
       height: '100%',
-      marginTop: '5rem'
+      margin: '5rem 1rem',
     },
     divider: {
       marginTop: '1rem',

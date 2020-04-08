@@ -5,13 +5,14 @@ import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-d
 import store from "store";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Edit } from '@material-ui/icons';
-import { Theme } from '../../components';
+import { Theme, NotificationCard } from '../../components';
 import apis from '../../api';
 
 const useStyles = makeStyles(() =>
   createStyles({
     paper: {
       padding: '1rem',
+      margin: '5rem 1rem',
       height: '100%'
     },
     divider: {
@@ -49,6 +50,10 @@ const DashBoard = () => {
   const [checking, setChecking] = React.useState(0);
   const [savings, setSavings] = React.useState(0);
   const [user, setUsername] = React.useState('');
+
+  const [hideNotificationOne, setRemoveNotificationOne] = React.useState(false);
+  const [hideNotificationTwo, setRemoveNotificationTwo] = React.useState(false);
+  const [hideNotificationThree, setRemoveNotificationThree] = React.useState(false);
 
   const username = store.get('username');
 
@@ -92,11 +97,39 @@ const DashBoard = () => {
     []
   );
 
+  const removeNotificationOne = () => {
+    return setRemoveNotificationOne(true)
+  }
+
+  const removeNotificationTwo = () => {
+    return setRemoveNotificationTwo(true)
+  }
+
+  const removeNotificationThree = () => {
+    return setRemoveNotificationThree(true)
+  }
+
   return (
     <Paper elevation={0} className={paper}>
       <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
-      <ExpansionPanel className={expansion}>
+
+      {/* Notification*/}
+      {
+        hideNotificationOne === false &&
+        <NotificationCard message='Low Balance' onClick={removeNotificationOne} />
+      }
+      {
+        hideNotificationTwo === false &&
+        <NotificationCard message='Large Withdrawal' onClick={removeNotificationTwo} />
+      }
+      {
+        hideNotificationThree === false &&
+        <NotificationCard message='Large Deposit' onClick={removeNotificationThree} />
+      }
+
+      {/* Checking Account*/}
+      <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Checking Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
@@ -119,7 +152,8 @@ const DashBoard = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel className={expansion}>
+      {/* Money Market Account*/}
+      <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel2" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Savings Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
@@ -142,7 +176,8 @@ const DashBoard = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel className={expansion}>
+      {/* Savings Account*/}
+      <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel3" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Money Market Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $</Typography>
