@@ -114,25 +114,16 @@ const DashBoard = () => {
       <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
       {
-        hideNotificationOne === false ?
-          <>
-            <NotificationCard message='Low Balance' onClick={removeNotificationOne} />
-          </>
-          : false
+        hideNotificationOne === false &&
+        <NotificationCard message='Low Balance' onClick={removeNotificationOne} />
       }
       {
-        hideNotificationTwo === false ?
-          <>
-            <NotificationCard message='Large Withdrawal' onClick={removeNotificationTwo} />
-          </>
-          : false
+        hideNotificationTwo === false &&
+        <NotificationCard message='Large Withdrawal' onClick={removeNotificationTwo} />
       }
       {
-        hideNotificationThree === false ?
-          <>
-            <NotificationCard message='Large Deposit' onClick={removeNotificationThree} />
-          </>
-          : false
+        hideNotificationThree === false &&
+        <NotificationCard message='Large Deposit' onClick={removeNotificationThree} />
       }
       <ExpansionPanel className={expansion}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
