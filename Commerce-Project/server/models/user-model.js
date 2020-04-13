@@ -8,6 +8,9 @@ const NotificationSchema = new Schema(
     largeDeposit: Number || String,
     largeWithDrawal: Number || String,
     overDraft: Number || String,
+    disableLargeDeposit: Boolean,
+    disablelargeWithDrawal: Boolean,
+    disableoverDraft: Boolean,
   },
   { timestamps: true }
 )

@@ -257,7 +257,10 @@ createNotifications = async (req, res) => {
     user.notifications.push({
       largeDeposit: body.largeDeposit,
       largeWithDrawal: body.largeWithDrawal,
-      overDraft: body.overDraft
+      overDraft: body.overDraft,
+      disableLargeDeposit: false,
+      disablelargeWithDrawal: false,
+      disableoverDraft: false,
     })
 
     const alert = user.notifications[0];
@@ -302,6 +305,9 @@ updateNotifications = async (req, res) => {
     user.notifications[0].overDraft = body.overDraft
     user.notifications[0].largeWithDrawal = body.largeWithDrawal
     user.notifications[0].largeDeposit = body.largeDeposit
+    user.notifications[0].disableLargeDeposit = body.disableLargeDeposit
+    user.notifications[0].disablelargeWithDrawal = body.disablelargeWithDrawal
+    user.notifications[0].disableoverDraft = body.disableoverDraft
     user
       .save()
       .then(() => {
