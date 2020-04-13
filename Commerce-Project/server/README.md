@@ -120,5 +120,85 @@
       ]  
     }  
 
+## Notifcations
 
-  
+ ### 1. Get Notifications (GET, http://localhost:3000/api/getnotifications/username)
+
+   -- Response --   
+   {
+    "success": true,
+    "data": [
+        {
+            "_id": "5e94b3dde01092328cb25158",
+            "largeDeposit": 2000,
+            "largeWithDrawal": 2000,
+            "overDraft": 1200,
+            "createdAt": "2020-04-13T18:47:57.555Z",
+            "updatedAt": "2020-04-13T23:35:42.703Z",
+            "disableLargeDeposit": false,
+            "disablelargeWithDrawal": false,
+            "disableoverDraft": false
+        }
+    ]
+  }  
+
+   ### 2. Create Notifications (POST, http://localhost:3000/api/addnotification/username)
+
+  -- Request --   
+   {
+    "largeDeposit": 2000,
+    "largeWithDrawal": 2000,
+    "overDraft": 1200,
+    "disableLargeDeposit": false,
+    "disablelargeWithDrawal": false,
+    "disableoverDraft": false
+  }
+
+   -- Response --   
+   {
+    "success": true,
+    "data": [
+        {
+          "_id": "5e94b3dde01092328cb25158",
+          "largeDeposit": 2000,
+          "largeWithDrawal": 1000,
+          "overDraft": 1200,
+          "disableLargeDeposit": false,
+          "disablelargeWithDrawal": false,
+          "disableoverDraft": false
+          "createdAt": "2020-04-13T18:47:57.555Z",
+          "updatedAt": "2020-04-13T23:35:42.703Z"
+        }
+    ]
+  }    
+
+
+   ### 3. Update Notifications (PUT, http://localhost:3000/api/updatenotifications/username)
+
+  -- Request --   
+   {
+    "largeDeposit": 100,
+    "largeWithDrawal": 100,
+    "overDraft": 300,
+    "disableLargeDeposit": true,
+    "disablelargeWithDrawal": false,
+    "disableoverDraft": true
+  }
+
+   -- Response --   
+   {
+    "success": true,
+    "data": [
+        {
+          "_id": "5e94b3dde01092328cb25158",
+          "largeDeposit": 100,
+          "largeWithDrawal": 100,
+          "overDraft": 300,
+          "disableLargeDeposit": true,
+          "disablelargeWithDrawal": false,
+          "disableoverDraft": true
+          "createdAt": "2020-04-13T18:47:57.555Z",
+          "updatedAt": "2020-04-13T23:35:42.703Z"
+        }
+    ]
+  }    
