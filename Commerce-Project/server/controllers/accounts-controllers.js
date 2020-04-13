@@ -326,6 +326,21 @@ updateNotifications = async (req, res) => {
   })
 }
 
+getNotifications = async (req, res) => {
+  UserModel.findOne({ username: req.params.username }, (err, user) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err })
+    }
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, error: `Notifications not found` })
+    }
+    return res.status(200).json({ success: true, data: user.notifications })
+  }).catch(err => err)
+}
+
 module.exports = {
   createCheckingTransaction,
   getCheckingAccount,
@@ -337,5 +352,6 @@ module.exports = {
   getMoneyMarketAccount,
   getMoneyMarketBalance,
   createNotifications,
-  updateNotifications
+  updateNotifications,
+  getNotifications
 }

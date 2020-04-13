@@ -26,5 +26,6 @@ router.get('/moneymarketbalance/:username', accountController.getMoneyMarketBala
 // notifications 
 router.post('/addnotifications/:username', accountController.createNotifications)
 router.put('/updatenotifications/:username', accountController.updateNotifications)
+router.get('/getnotifications/:username', accountController.getNotifications)
 
 module.exports = router
