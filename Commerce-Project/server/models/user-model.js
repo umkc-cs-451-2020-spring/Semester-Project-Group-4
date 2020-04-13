@@ -3,6 +3,15 @@ const uniqueValidator = require('mongoose-unique-validator')
 mongoose.set('useCreateIndex', true)
 const Schema = mongoose.Schema
 
+const NotificationSchema = new Schema(
+  {
+    largeDeposit: Number || String,
+    largeWithDrawal: Number || String,
+    overDraft: Number || String,
+  },
+  { timestamps: true }
+)
+
 const AccountSchema = new Schema(
   {
     accountType: String,
@@ -27,7 +36,8 @@ const UserSchema = new Schema(
     confirmPassword: String,
     checking: [AccountSchema],
     moneyMarket: [AccountSchema],
-    savings: [AccountSchema]
+    savings: [AccountSchema],
+    notifications: [NotificationSchema]
   },
   { timestamps: true }
 )

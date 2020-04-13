@@ -243,6 +243,88 @@ getMoneyMarketBalance = async (req, res) => {
   })
 }
 
+createNotifications = async (req, res) => {
+  const body = req.body
+
+  if (!body) {
+    return res.status(404).json({
+      success: false,
+      error: 'You must provide a user',
+    })
+  }
+
+  UserModel.findOne({ username: req.params.username }, (err, user) => {
+    user.notifications.push({
+      largeDeposit: body.largeDeposit,
+      largeWithDrawal: body.largeWithDrawal,
+      overDraft: body.overDraft
+    })
+
+    const alert = user.notifications[0];
+    alert.isNew;
+
+    user.save((err, data) => {
+      if (data) {
+        return (
+          res.status(201).json({
+            success: true,
+            id: user._id,
+            message: 'Notifications created!',
+          })
+        )
+      }
+      else {
+        res.status(400).json({
+          error: err,
+          message: 'Failed to save notifications'
+        })
+      }
+    })
+  })
+}
+
+
+createNotifications = async (req, res) => {
+  const body = req.body
+
+  if (!body) {
+    return res.status(404).json({
+      success: false,
+      error: 'You must provide a user',
+    })
+  }
+
+  UserModel.findOne({ username: req.params.username }, (err, user) => {
+    user.notifications.push({
+      largeDeposit: body.largeDeposit,
+      largeWithDrawal: body.largeWithDrawal,
+      overDraft: body.overDraft
+    })
+
+    const alert = user.notifications[0];
+    alert.isNew;
+
+    user.save((err, data) => {
+      if (data) {
+        return (
+          res.status(201).json({
+            success: true,
+            id: user._id,
+            message: 'Notifications created!',
+          })
+        )
+      }
+      else {
+        res.status(400).json({
+          error: err,
+          message: 'Failed to save notifications'
+        })
+      }
+    })
+  })
+}
+
+
 module.exports = {
   createCheckingTransaction,
   getCheckingAccount,
@@ -252,5 +334,6 @@ module.exports = {
   getSavingsBalance,
   createMoneyMarketTransaction,
   getMoneyMarketAccount,
-  getMoneyMarketBalance
+  getMoneyMarketBalance,
+  createNotifications
 }
