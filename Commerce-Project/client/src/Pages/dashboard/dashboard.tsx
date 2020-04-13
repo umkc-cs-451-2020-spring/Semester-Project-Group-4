@@ -50,10 +50,19 @@ const DashBoard = () => {
   const [checking, setChecking] = React.useState(0);
   const [savings, setSavings] = React.useState(0);
   const [user, setUsername] = React.useState('');
-
   const [hideNotificationOne, setRemoveNotificationOne] = React.useState(false);
   const [hideNotificationTwo, setRemoveNotificationTwo] = React.useState(false);
   const [hideNotificationThree, setRemoveNotificationThree] = React.useState(false);
+
+  const [notificationDeposit, setNotificationDeposit] = React.useState(Number) // compare to each account balance
+  const [notificationWithdrawal, setNotificationWithdrawal] = React.useState(Number) // check type and compare value to amounts
+  const [notificationOverdraft, setNotificationOverdraft] = React.useState(Number) // check type and compare value to amounts
+  const [notificationCheckingType, setNotificationCheckingType] = React.useState(String) // get checking type
+  const [notificationMoneyType, setNotificationMoneyType] = React.useState(String) // get MM type
+  const [notificationSavingsType, setNotificationSavingsType] = React.useState(String) // get savings type
+  const [notificationDisableDeposit, setNotificationDisableDeposit] = React.useState(Boolean) // disable
+  const [notificationDisableWithdrawal, setNotificationDisableWithdrawal] = React.useState(Boolean) // disable
+  const [notificationDisableOverDraft, setNotificationDisableOverDraft] = React.useState(Boolean) // disable
 
   const username = store.get('username');
 
@@ -69,8 +78,26 @@ const DashBoard = () => {
     setUsername(name.data.data.firstName);
   }
 
+  const getNotifications = async () => {
+    let notifications = await apis.getNotifications(username);
+    let checkingType = await apis.getLastCheckingTransaction(username);
+    let moneyType = await apis.getLastMoneyMarketTransaction(username);
+    let savingsType = await apis.getLastSavingsTransaction(username);
+
+    setNotificationCheckingType(checkingType.data.data);
+    setNotificationMoneyType(moneyType.data.data);
+    setNotificationSavingsType(savingsType.data.data);
+    setNotificationDeposit(notifications.data.data[0].largeDeposit);
+    setNotificationWithdrawal(notifications.data.data[0].largeWithDrawal);
+    setNotificationOverdraft(notifications.data.data[0].overDraft);
+    setNotificationDisableDeposit(notifications.data.data[0].disableLargeDeposit);
+    setNotificationDisableWithdrawal(notifications.data.data[0].disablelargeWithDrawal);
+    setNotificationDisableOverDraft(notifications.data.data[0].disableoverDraft);
+  }
+
   React.useEffect(() => {
     getBalances();
+    getNotifications();
   })
 
   const checkingDetail = React.useMemo(
@@ -117,7 +144,7 @@ const DashBoard = () => {
       {/* Notification*/}
       {
         hideNotificationOne === false &&
-        <NotificationCard message='Low Balance' onClick={removeNotificationOne} />
+        <NotificationCard message='Large Deposit' onClick={removeNotificationOne} />
       }
       {
         hideNotificationTwo === false &&

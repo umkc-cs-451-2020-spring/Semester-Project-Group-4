@@ -15,14 +15,17 @@ export const getUserById = (username: string) => api.get(`/user/${username}`)
 export const createChecking = (payload: any, username: string) => api.post(`/addchecking/${username}`, payload)
 export const getChecking = (username: string) => api.get(`/getchecking/${username}`)
 export const getCheckingBalance = (username: string) => api.get(`/checkingbalance/${username}`)
+export const getLastCheckingTransaction = (username: string) => api.get(`/getlastchecking/${username}`)
 
 export const createSavings = (payload: any, username: string) => api.post(`/addsavings/${username}`, payload)
 export const getSavings = (username: string) => api.get(`/getsavings/${username}`)
 export const getSavingsBalance = (username: string) => api.get(`/savingsbalance/${username}`)
+export const getLastSavingsTransaction = (username: string) => api.get(`/moneymarketbalance/${username}`)
 
 export const createMoneyMarket = (payload: any, username: string) => api.post(`/addmoneymarket/${username}`, payload)
 export const getMoneyMarket = (username: string) => api.get(`/getmoneymarket/${username}`)
 export const getMoneyMarketBalance = (username: string) => api.get(`/moneymarketbalance/${username}`)
+export const getLastMoneyMarketTransaction = (username: string) => api.get(`/getlastmoneymarket/${username}`)
 
 export const createNotifications = (payload: any, username: string) => api.post(`/addnotifications/${username}`, payload)
 export const updateNotifications = (payload: any, username: string) => api.put(`/updatenotifications/${username}`, payload)
@@ -45,7 +48,10 @@ const apis = {
   getMoneyMarketBalance,
   createNotifications,
   updateNotifications,
-  getNotifications
+  getNotifications,
+  getLastCheckingTransaction,
+  getLastSavingsTransaction,
+  getLastMoneyMarketTransaction
 }
 
 export default apis
