@@ -23,6 +23,8 @@ router.post('/addmoneymarket/:username', accountController.createMoneyMarketTran
 router.get('/getmoneymarket/:username', accountController.getMoneyMarketAccount)
 router.get('/moneymarketbalance/:username', accountController.getMoneyMarketBalance)
 
-router.post('/addnotification/:username', accountController.createNotifications)
+// notifications 
+router.post('/addnotifications/:username', accountController.createNotifications)
+router.put('/updatenotifications/:username', accountController.updateNotifications)
 
 module.exports = router

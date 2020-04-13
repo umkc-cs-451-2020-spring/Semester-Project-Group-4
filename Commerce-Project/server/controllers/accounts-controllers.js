@@ -283,47 +283,42 @@ createNotifications = async (req, res) => {
   })
 }
 
-
-createNotifications = async (req, res) => {
+updateNotifications = async (req, res) => {
   const body = req.body
-
   if (!body) {
-    return res.status(404).json({
+    return res.status(400).json({
       success: false,
-      error: 'You must provide a user',
+      error: 'You must provide a body to update',
     })
   }
 
   UserModel.findOne({ username: req.params.username }, (err, user) => {
-    user.notifications.push({
-      largeDeposit: body.largeDeposit,
-      largeWithDrawal: body.largeWithDrawal,
-      overDraft: body.overDraft
-    })
-
-    const alert = user.notifications[0];
-    alert.isNew;
-
-    user.save((err, data) => {
-      if (data) {
-        return (
-          res.status(201).json({
-            success: true,
-            id: user._id,
-            message: 'Notifications created!',
-          })
-        )
-      }
-      else {
-        res.status(400).json({
-          error: err,
-          message: 'Failed to save notifications'
+    if (err) {
+      return res.status(404).json({
+        err,
+        message: 'User not found!',
+      })
+    }
+    user.notifications[0].overDraft = body.overDraft
+    user.notifications[0].largeWithDrawal = body.largeWithDrawal
+    user.notifications[0].largeDeposit = body.largeDeposit
+    user
+      .save()
+      .then(() => {
+        return res.status(200).json({
+          success: true,
+          id: user._id,
+          message: 'Notifications updated!',
         })
-      }
-    })
+      })
+      .catch(error => {
+        return res.status(404).json({
+          error,
+          message: 'Notifications not updated!',
+        })
+      })
   })
 }
-
 
 module.exports = {
   createCheckingTransaction,
@@ -335,5 +330,6 @@ module.exports = {
   createMoneyMarketTransaction,
   getMoneyMarketAccount,
   getMoneyMarketBalance,
-  createNotifications
+  createNotifications,
+  updateNotifications
 }
