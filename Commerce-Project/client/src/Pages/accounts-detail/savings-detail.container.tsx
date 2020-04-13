@@ -178,7 +178,7 @@ const SavingsDetail = () => {
       processDate: selectedDate,
       actionType: action
     }
-    apis.createMoneyMarket(form, username)
+    apis.createSavings(form, username)
     window.location.reload();
   }
 
@@ -248,7 +248,7 @@ const SavingsDetail = () => {
         <DialogContent>
           <Layout container justify='center' className={layoutMargin}>
             <Layout container justify='space-around'>
-              <TextField label='Account' value='Money Market' disabled />
+              <TextField label='Account' value='Savings' disabled />
               <TextField label='Amount' type='number' value={amount} onChange={handleAmountChange} />
             </Layout>
             <Layout container justify='space-around' className={layoutMargin}>
