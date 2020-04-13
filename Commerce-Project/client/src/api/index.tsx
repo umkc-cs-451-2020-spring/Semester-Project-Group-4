@@ -24,6 +24,10 @@ export const createMoneyMarket = (payload: any, username: string) => api.post(`/
 export const getMoneyMarket = (username: string) => api.get(`/getmoneymarket/${username}`)
 export const getMoneyMarketBalance = (username: string) => api.get(`/moneymarketbalance/${username}`)
 
+export const createNotifications = (payload: any, username: string) => api.post(`/addnotifications/${username}`, payload)
+export const updateNotifications = (payload: any, username: string) => api.put(`/updatenotifications/${username}`, payload)
+export const getNotifications = (username: string) => api.get(`/getnotifications/${username}`)
+
 const apis = {
   createUser,
   getUser,
@@ -38,7 +42,10 @@ const apis = {
   getSavingsBalance,
   createMoneyMarket,
   getMoneyMarket,
-  getMoneyMarketBalance
+  getMoneyMarketBalance,
+  createNotifications,
+  updateNotifications,
+  getNotifications
 }
 
 export default apis
