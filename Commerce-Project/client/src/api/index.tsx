@@ -20,7 +20,7 @@ export const getLastCheckingTransaction = (username: string) => api.get(`/getlas
 export const createSavings = (payload: any, username: string) => api.post(`/addsavings/${username}`, payload)
 export const getSavings = (username: string) => api.get(`/getsavings/${username}`)
 export const getSavingsBalance = (username: string) => api.get(`/savingsbalance/${username}`)
-export const getLastSavingsTransaction = (username: string) => api.get(`/moneymarketbalance/${username}`)
+export const getLastSavingsTransaction = (username: string) => api.get(`/getlastsavings/${username}`)
 
 export const createMoneyMarket = (payload: any, username: string) => api.post(`/addmoneymarket/${username}`, payload)
 export const getMoneyMarket = (username: string) => api.get(`/getmoneymarket/${username}`)
