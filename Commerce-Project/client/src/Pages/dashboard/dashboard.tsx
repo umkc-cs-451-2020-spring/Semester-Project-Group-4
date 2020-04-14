@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Edit } from '@material-ui/icons';
 import { Theme, NotificationCard } from '../../components';
 import apis from '../../api';
+import { numberWithCommas } from '../../utils/numberFormatter';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -265,7 +266,7 @@ const DashBoard = () => {
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Checking Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
-          <Typography variant='subtitle1' className={balance}>{checking}</Typography>
+          <Typography variant='subtitle1' className={balance}>{numberWithCommas(checking)}</Typography>
           <Tooltip title='View Checking Account'>
             <IconButton
               className={EditIcon}
@@ -289,7 +290,7 @@ const DashBoard = () => {
         <ExpansionPanelSummary id="panel2" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Savings Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
-          <Typography variant='subtitle1' className={balance}>{savings}</Typography>
+          <Typography variant='subtitle1' className={balance}>{numberWithCommas(savings)}</Typography>
           <Tooltip title='View Savings Account'>
             <IconButton
               className={EditIcon}
@@ -313,7 +314,7 @@ const DashBoard = () => {
         <ExpansionPanelSummary id="panel3" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Money Market Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $</Typography>
-          <Typography variant='subtitle1' className={balance}>{moneyMarket}</Typography>
+          <Typography variant='subtitle1' className={balance}>{numberWithCommas(moneyMarket)}</Typography>
           <Tooltip title='View Money Market Account'>
             <IconButton
               className={EditIcon}

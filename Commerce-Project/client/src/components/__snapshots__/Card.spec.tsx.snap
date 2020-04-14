@@ -17,7 +17,7 @@ exports[`Notification Card Render the Notification Card 1`] = `
         component="h2"
         variant="h5"
       >
-        Warning
+        Alert
         <WithStyles(ForwardRef(Tooltip))
           title="Remove"
         >

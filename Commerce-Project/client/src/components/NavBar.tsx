@@ -167,17 +167,6 @@ const NavBar = () => {
           {
             (username !== undefined && username !== "") ?
               <>
-                <Tooltip title='Notifications'>
-                  <IconButton
-                    aria-label="notifications"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    component={notificationLink}
-                    color="primary"
-                  >
-                    <Notifications />
-                  </IconButton>
-                </Tooltip>
                 <Tooltip title='Dashboard'>
                   <IconButton
                     aria-label="home"
@@ -187,6 +176,17 @@ const NavBar = () => {
                     color="primary"
                   >
                     <HomeIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title='Notifications'>
+                  <IconButton
+                    aria-label="notifications"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    component={notificationLink}
+                    color="primary"
+                  >
+                    <Notifications />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title='Manage Profile'>
