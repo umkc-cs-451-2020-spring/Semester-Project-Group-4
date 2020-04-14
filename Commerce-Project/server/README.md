@@ -123,7 +123,7 @@
 ## Notifcations
 
  ### 1. Get Notifications (GET, http://localhost:3000/api/getnotifications/username)
-
+```
    -- Response --   
    {
     "success": true,
@@ -141,9 +141,10 @@
         }
     ]
   }  
+  ```
 
    ### 2. Create Notifications (POST, http://localhost:3000/api/addnotification/username)
-
+```
   -- Request --   
    {
     "largeDeposit": 2000,
@@ -170,13 +171,13 @@
           "updatedAt": "2020-04-13T23:35:42.703Z"
         }
     ]
-  }    
-
+  }
+  ```    
 
    ### 3. Update Notifications (PUT, http://localhost:3000/api/updatenotifications/username)
-
+```
   -- Request --   
-   {
+ {
     "largeDeposit": 100,
     "largeWithDrawal": 100,
     "overDraft": 300,
@@ -185,8 +186,8 @@
     "disableoverDraft": true
   }
 
-   -- Response --   
-   {
+  -- Response --   
+  {
     "success": true,
     "data": [
         {
@@ -202,3 +203,4 @@
         }
     ]
   }    
+  ```
