@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Edit } from '@material-ui/icons';
 import { Theme, NotificationCard } from '../../components';
 import apis from '../../api';
+import { numberWithCommas } from '../../utils/numberFormatter';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -20,6 +21,10 @@ const useStyles = makeStyles(() =>
       marginBottom: '2rem'
     },
     expansion: {
+      marginBottom: '2rem'
+    },
+    checkingExpansion: {
+      marginTop: '2rem',
       marginBottom: '2rem'
     },
     expansionHeader: {
@@ -43,17 +48,31 @@ const useStyles = makeStyles(() =>
 
 const DashBoard = () => {
   // styles
-  const { paper, divider, expansion, expansionHeader, balance, balancePadding, EditIcon } = useStyles()
+  const { paper, divider, expansion, expansionHeader, balance, balancePadding, EditIcon, checkingExpansion } = useStyles()
 
   // Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [checking, setChecking] = React.useState(0);
   const [savings, setSavings] = React.useState(0);
   const [user, setUsername] = React.useState('');
-
-  const [hideNotificationOne, setRemoveNotificationOne] = React.useState(false);
-  const [hideNotificationTwo, setRemoveNotificationTwo] = React.useState(false);
-  const [hideNotificationThree, setRemoveNotificationThree] = React.useState(false);
+  const [hideDeposit1, setHideDeposit1] = React.useState(false);
+  const [hideDeposit2, setHideDeposit2] = React.useState(false);
+  const [hideDeposit3, setHideDeposit3] = React.useState(false);
+  const [hideWithdrawal1, setHideWithdrawal1] = React.useState(false);
+  const [hideWithdrawal2, setHideWithdrawal2] = React.useState(false);
+  const [hideWithdrawal3, setHideWithdrawal3] = React.useState(false);
+  const [hideLowBalance1, setHideLowBalance1] = React.useState(false);
+  const [hideLowBalance2, setHideLowBalance2] = React.useState(false);
+  const [hideLowBalance3, setHideLowBalance3] = React.useState(false);
+  const [notificationDeposit, setNotificationDeposit] = React.useState(Number);
+  const [notificationWithdrawal, setNotificationWithdrawal] = React.useState(Number);
+  const [notificationOverdraft, setNotificationOverdraft] = React.useState(Number);
+  const [notificationCheckingType, setNotificationCheckingType] = React.useState<any>(String);
+  const [notificationMoneyType, setNotificationMoneyType] = React.useState<any>(String);
+  const [notificationSavingsType, setNotificationSavingsType] = React.useState<any>(String);
+  const [notificationDisableDeposit, setNotificationDisableDeposit] = React.useState(Boolean);
+  const [notificationDisableWithdrawal, setNotificationDisableWithdrawal] = React.useState(Boolean);
+  const [notificationDisableOverDraft, setNotificationDisableOverDraft] = React.useState(Boolean);
 
   const username = store.get('username');
 
@@ -69,9 +88,28 @@ const DashBoard = () => {
     setUsername(name.data.data.firstName);
   }
 
+  const getNotifications = async () => {
+    let notifications = await apis.getNotifications(username);
+    let checkingType = await apis.getLastCheckingTransaction(username);
+    let moneyType = await apis.getLastMoneyMarketTransaction(username);
+    let savingsType = await apis.getLastSavingsTransaction(username);
+
+    setNotificationCheckingType(checkingType.data.data);
+    setNotificationMoneyType(moneyType.data.data);
+    setNotificationSavingsType(savingsType.data.data);
+    setNotificationDeposit(notifications.data.data[0].largeDeposit);
+    setNotificationWithdrawal(notifications.data.data[0].largeWithDrawal);
+    setNotificationOverdraft(notifications.data.data[0].overDraft);
+    setNotificationDisableDeposit(notifications.data.data[0].disableLargeDeposit);
+    setNotificationDisableWithdrawal(notifications.data.data[0].disablelargeWithDrawal);
+    setNotificationDisableOverDraft(notifications.data.data[0].disableoverDraft);
+  }
+
   React.useEffect(() => {
     getBalances();
-  })
+    getNotifications();
+    // eslint-disable-next-line
+  }, [])
 
   const checkingDetail = React.useMemo(
     () =>
@@ -97,16 +135,114 @@ const DashBoard = () => {
     []
   );
 
+  const checkingTitle = 'Checking Account';
+  const moneyMarketTitle = 'Money Market Account';
+  const savingsTitle = 'Savings Account'
+
   const removeNotificationOne = () => {
-    return setRemoveNotificationOne(true)
+    return setHideDeposit1(true)
   }
 
   const removeNotificationTwo = () => {
-    return setRemoveNotificationTwo(true)
+    return setHideDeposit2(true)
   }
 
   const removeNotificationThree = () => {
-    return setRemoveNotificationThree(true)
+    return setHideDeposit3(true)
+  }
+
+  const removeNotificationFour = () => {
+    return setHideWithdrawal1(true)
+  }
+
+  const removeNotificationFive = () => {
+    return setHideWithdrawal2(true)
+  }
+
+  const removeNotificationSix = () => {
+    return setHideWithdrawal3(true)
+  }
+
+  const removeNotificationSeven = () => {
+    return setHideLowBalance1(true)
+  }
+
+  const removeNotificationEight = () => {
+    return setHideLowBalance2(true)
+  }
+
+  const removeNotificationNine = () => {
+    return setHideLowBalance3(true)
+  }
+
+  const depositNotification1 = () => {
+    if (!hideDeposit1) {
+      if (notificationDisableDeposit === false && notificationCheckingType.actionType === 'Deposit' && notificationCheckingType.amount >= notificationDeposit) {
+        return <NotificationCard message={`Large Deposit in ${checkingTitle}`} onClick={removeNotificationOne} />
+      }
+    }
+  }
+  const depositNotification2 = () => {
+    if (!hideDeposit2) {
+      if (!notificationDisableDeposit && notificationMoneyType.actionType === 'Deposit' && notificationMoneyType.amount >= notificationDeposit) {
+        return <NotificationCard message={`Large Deposit in ${moneyMarketTitle}`} onClick={removeNotificationTwo} />
+      }
+
+    }
+  }
+
+  const depositNotification3 = () => {
+    if (!hideDeposit3) {
+      if (!notificationDisableDeposit && notificationSavingsType.actionType === 'Deposit' && notificationSavingsType.amount >= notificationDeposit) {
+        return <NotificationCard message={`Large Deposit in ${savingsTitle}`} onClick={removeNotificationThree} />
+      }
+    }
+  }
+
+  const withdrawalNotification1 = () => {
+    if (!hideWithdrawal1) {
+      if (notificationDisableWithdrawal === false && notificationCheckingType.actionType === 'Withdrawal' && notificationCheckingType.amount >= notificationWithdrawal) {
+        return <NotificationCard message={`Large Withdrawal in ${checkingTitle}`} onClick={removeNotificationFour} />
+      }
+    }
+  }
+
+  const withdrawalNotification2 = () => {
+    if (!hideWithdrawal2) {
+      if (notificationDisableWithdrawal === false && notificationMoneyType.actionType === 'Withdrawal' && notificationMoneyType.amount >= notificationWithdrawal) {
+        return <NotificationCard message={`Large Withdrawal in ${moneyMarketTitle}`} onClick={removeNotificationFive} />
+      }
+    }
+  }
+
+  const withdrawalNotification3 = () => {
+    if (!hideWithdrawal3) {
+      if (notificationDisableWithdrawal === false && notificationSavingsType.actionType === 'Withdrawal' && notificationSavingsType.amount >= notificationWithdrawal) {
+        return <NotificationCard message={`Large Withdrawal in ${savingsTitle}`} onClick={removeNotificationSix} />
+      }
+    }
+  }
+
+  const lowBalanceNotification1 = () => {
+    if (!hideLowBalance1) {
+      if (notificationDisableOverDraft === false && savings <= notificationOverdraft) {
+        return <NotificationCard message={`Low Balance in ${savingsTitle}`} onClick={removeNotificationSeven} />
+      }
+    }
+  }
+  const lowBalanceNotification2 = () => {
+    if (!hideLowBalance2) {
+      if (notificationDisableOverDraft === false && checking <= notificationOverdraft) {
+        return <NotificationCard message={`Low Balance in ${checkingTitle}`} onClick={removeNotificationEight} />
+      }
+    }
+  }
+  const lowBalanceNotification3 = () => {
+    if (!hideLowBalance3) {
+      if (notificationDisableOverDraft === false && moneyMarket <= notificationOverdraft) {
+        return <NotificationCard message={`Low Balance in ${moneyMarketTitle}`} onClick={removeNotificationNine} />
+      }
+    }
   }
 
   return (
@@ -114,26 +250,23 @@ const DashBoard = () => {
       <Typography variant='h5'>Welcome back, {user}</Typography>
       <Divider className={divider} />
 
-      {/* Notification*/}
-      {
-        hideNotificationOne === false &&
-        <NotificationCard message='Low Balance' onClick={removeNotificationOne} />
-      }
-      {
-        hideNotificationTwo === false &&
-        <NotificationCard message='Large Withdrawal' onClick={removeNotificationTwo} />
-      }
-      {
-        hideNotificationThree === false &&
-        <NotificationCard message='Large Deposit' onClick={removeNotificationThree} />
-      }
+      {/* Notifications*/}
+      {depositNotification1() !== undefined && depositNotification1()}
+      {depositNotification2() !== undefined && depositNotification2()}
+      {depositNotification3() !== undefined && depositNotification3()}
+      {withdrawalNotification1() !== undefined && withdrawalNotification1()}
+      {withdrawalNotification2() !== undefined && withdrawalNotification2()}
+      {withdrawalNotification3() !== undefined && withdrawalNotification3()}
+      {lowBalanceNotification1() !== undefined && lowBalanceNotification1()}
+      {lowBalanceNotification2() !== undefined && lowBalanceNotification2()}
+      {lowBalanceNotification3() !== undefined && lowBalanceNotification3()}
 
       {/* Checking Account*/}
-      <ExpansionPanel className={expansion} elevation={3}>
+      <ExpansionPanel className={checkingExpansion} elevation={3}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Checking Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
-          <Typography variant='subtitle1' className={balance}>{checking}</Typography>
+          <Typography variant='subtitle1' className={balance}>{numberWithCommas(checking)}</Typography>
           <Tooltip title='View Checking Account'>
             <IconButton
               className={EditIcon}
@@ -157,7 +290,7 @@ const DashBoard = () => {
         <ExpansionPanelSummary id="panel2" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Savings Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
-          <Typography variant='subtitle1' className={balance}>{savings}</Typography>
+          <Typography variant='subtitle1' className={balance}>{numberWithCommas(savings)}</Typography>
           <Tooltip title='View Savings Account'>
             <IconButton
               className={EditIcon}
@@ -181,7 +314,7 @@ const DashBoard = () => {
         <ExpansionPanelSummary id="panel3" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Money Market Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $</Typography>
-          <Typography variant='subtitle1' className={balance}>{moneyMarket}</Typography>
+          <Typography variant='subtitle1' className={balance}>{numberWithCommas(moneyMarket)}</Typography>
           <Tooltip title='View Money Market Account'>
             <IconButton
               className={EditIcon}

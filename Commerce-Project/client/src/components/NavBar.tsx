@@ -70,14 +70,14 @@ const useStyles = makeStyles((theme: Theme) =>
       ...theme.mixins.toolbar,
       justifyContent: 'flex-start'
     },
-    collapseIcon: {
+    iconColor: {
       color: commerceTheme.palette.primary.main,
     }
   })
 );
 
 const NavBar = () => {
-  const { title, hide, drawer, drawerHeader, drawerPaper, image, appBar, appBarShift, collapseIcon } = useStyles();
+  const { title, hide, drawer, drawerHeader, drawerPaper, image, appBar, appBarShift, iconColor } = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -167,17 +167,6 @@ const NavBar = () => {
           {
             (username !== undefined && username !== "") ?
               <>
-                <Tooltip title='Notifications'>
-                  <IconButton
-                    aria-label="notifications"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    component={notificationLink}
-                    color="primary"
-                  >
-                    <Notifications />
-                  </IconButton>
-                </Tooltip>
                 <Tooltip title='Dashboard'>
                   <IconButton
                     aria-label="home"
@@ -187,6 +176,17 @@ const NavBar = () => {
                     color="primary"
                   >
                     <HomeIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title='Notifications'>
+                  <IconButton
+                    aria-label="notifications"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    component={notificationLink}
+                    color="primary"
+                  >
+                    <Notifications />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title='Manage Profile'>
@@ -228,7 +228,7 @@ const NavBar = () => {
         {/* Drawer */}
         <div className={drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon className={collapseIcon} />
+            <ChevronLeftIcon className={iconColor} />
           </IconButton>
           <Typography>
             Collapse Menu
@@ -240,19 +240,19 @@ const NavBar = () => {
               <Divider />
               <List>
                 <ListItem button component={dashboardLink}>
-                  <ListItemIcon>
+                  <ListItemIcon className={iconColor}>
                     <HomeIcon />
                   </ListItemIcon>
                   <ListItemText primary='Dashboard' />
                 </ListItem>
                 <ListItem button component={profileLink}>
-                  <ListItemIcon>
+                  <ListItemIcon className={iconColor}>
                     <AccountCircle />
                   </ListItemIcon>
                   <ListItemText primary='Account Profile' />
                 </ListItem>
                 <ListItem button component={notificationLink}>
-                  <ListItemIcon>
+                  <ListItemIcon className={iconColor}>
                     <Notifications />
                   </ListItemIcon>
                   <ListItemText primary='Notifications' />
@@ -261,19 +261,19 @@ const NavBar = () => {
               <Divider />
               <List>
                 <ListItem button component={checkingLink}>
-                  <ListItemIcon>
+                  <ListItemIcon className={iconColor}>
                     <AccountBalance />
                   </ListItemIcon>
                   <ListItemText primary='Checking Account' />
                 </ListItem>
                 <ListItem button component={savingsLink}>
-                  <ListItemIcon>
+                  <ListItemIcon className={iconColor}>
                     <AccountBalance />
                   </ListItemIcon>
                   <ListItemText primary='Savings Account' />
                 </ListItem>
                 <ListItem button component={moneyMarketLink}>
-                  <ListItemIcon>
+                  <ListItemIcon className={iconColor}>
                     <AccountBalance />
                   </ListItemIcon>
                   <ListItemText primary='Money Market Account' />
@@ -285,25 +285,25 @@ const NavBar = () => {
         }
         <List>
           <ListItem button>
-            <ListItemIcon>
+            <ListItemIcon className={iconColor}>
               <AttachMoney />
             </ListItemIcon>
             <ListItemText primary='Borrow' />
           </ListItem>
           <ListItem button>
-            <ListItemIcon>
+            <ListItemIcon className={iconColor}>
               <CreditCard />
             </ListItemIcon>
             <ListItemText primary='Cards' />
           </ListItem>
           <ListItem button>
-            <ListItemIcon>
+            <ListItemIcon className={iconColor}>
               <Security />
             </ListItemIcon>
             <ListItemText primary='Insurance' />
           </ListItem>
           <ListItem button>
-            <ListItemIcon>
+            <ListItemIcon className={iconColor}>
               <HelpOutline />
             </ListItemIcon>
             <ListItemText primary='Help' />
@@ -316,7 +316,7 @@ const NavBar = () => {
                 <Divider />
                 <List>
                   <ListItem button component={logoutLink}>
-                    <ListItemIcon>
+                    <ListItemIcon className={iconColor}>
                       <ExitToAppIcon />
                     </ListItemIcon>
                     <ListItemText primary='Log Out' />

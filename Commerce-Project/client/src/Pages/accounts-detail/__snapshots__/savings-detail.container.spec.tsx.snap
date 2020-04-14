@@ -25,10 +25,6 @@ exports[`Savings Detail Render the Savings Detail 1`] = `
             "title": "Process Date",
           },
           Object {
-            "name": "createdAt",
-            "title": "Created On",
-          },
-          Object {
             "name": "actionType",
             "title": "Action",
           },
@@ -73,19 +69,15 @@ exports[`Savings Detail Render the Savings Detail 1`] = `
           Array [
             Object {
               "columnName": "processDate",
-              "width": 180,
-            },
-            Object {
-              "columnName": "createdAt",
-              "width": 240,
+              "width": 250,
             },
             Object {
               "columnName": "actionType",
-              "width": 180,
+              "width": 200,
             },
             Object {
               "columnName": "amount",
-              "width": 180,
+              "width": 200,
             },
             Object {
               "columnName": "description",
@@ -157,7 +149,7 @@ exports[`Savings Detail Render the Savings Detail 1`] = `
           <WithStyles(ForwardRef(TextField))
             disabled={true}
             label="Account"
-            value="Money Market"
+            value="Savings"
           />
           <WithStyles(ForwardRef(TextField))
             label="Amount"

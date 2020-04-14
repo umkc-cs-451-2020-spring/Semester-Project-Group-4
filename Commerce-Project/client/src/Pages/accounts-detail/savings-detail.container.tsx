@@ -42,6 +42,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import store from "store";
 import apis from '../../api';
 import { Theme } from '../../components';
+import { numberWithCommas } from '../../utils/numberFormatter';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -103,10 +104,9 @@ const SavingsDetail = () => {
   const [currentPage, setCurrentPage] = React.useState(0);
   const [pageSize, setPageSize] = React.useState(10);
   const [columnWidths, setColumnWidths] = React.useState<any>([
-    { columnName: 'processDate', width: 180 },
-    { columnName: 'createdAt', width: 240 },
-    { columnName: 'actionType', width: 180 },
-    { columnName: 'amount', width: 180 },
+    { columnName: 'processDate', width: 250 },
+    { columnName: 'actionType', width: 200 },
+    { columnName: 'amount', width: 200 },
     { columnName: 'description', width: 300 }
   ]);
 
@@ -119,18 +119,27 @@ const SavingsDetail = () => {
 
   const getBalances = async () => {
     let save = await apis.getSavingsBalance(username);
-    setSavings(save.data.data[0].amount);
+    const format = save.data.data[0].amount;
+    setSavings(numberWithCommas(format));
   }
 
   const getRows = async () => {
     let savingRows = await apis.getSavings(username);
     const row = savingRows.data.data;
-    return setRows(row);
+    const formatData = row.map((format: any) => {
+      return {
+        processDate: format.processDate,
+        actionType: format.actionType,
+        amount: `$ ${format.amount}`,
+        description: format.description
+      }
+    })
+
+    return setRows(formatData);
   }
 
   const columns = [
     { name: 'processDate', title: 'Process Date' },
-    { name: 'createdAt', title: 'Created On' },
     { name: 'actionType', title: 'Action' },
     { name: 'amount', title: 'Amount' },
     { name: 'description', title: 'Description' }
@@ -178,7 +187,7 @@ const SavingsDetail = () => {
       processDate: selectedDate,
       actionType: action
     }
-    apis.createMoneyMarket(form, username)
+    apis.createSavings(form, username)
     window.location.reload();
   }
 
@@ -248,7 +257,7 @@ const SavingsDetail = () => {
         <DialogContent>
           <Layout container justify='center' className={layoutMargin}>
             <Layout container justify='space-around'>
-              <TextField label='Account' value='Money Market' disabled />
+              <TextField label='Account' value='Savings' disabled />
               <TextField label='Amount' type='number' value={amount} onChange={handleAmountChange} />
             </Layout>
             <Layout container justify='space-around' className={layoutMargin}>

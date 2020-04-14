@@ -42,6 +42,7 @@ import { makeStyles, createStyles } from '@material-ui/styles';
 import store from "store";
 import apis from '../../api';
 import { Theme } from '../../components';
+import { numberWithCommas } from '../../utils/numberFormatter';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -103,10 +104,9 @@ const MoneyMarketDetail = () => {
   const [currentPage, setCurrentPage] = React.useState(0);
   const [pageSize, setPageSize] = React.useState(10);
   const [columnWidths, setColumnWidths] = React.useState<any>([
-    { columnName: 'processDate', width: 180 },
-    { columnName: 'createdAt', width: 240 },
-    { columnName: 'actionType', width: 180 },
-    { columnName: 'amount', width: 180 },
+    { columnName: 'processDate', width: 250 },
+    { columnName: 'actionType', width: 200 },
+    { columnName: 'amount', width: 200 },
     { columnName: 'description', width: 300 }
   ]);
 
@@ -119,18 +119,29 @@ const MoneyMarketDetail = () => {
 
   const getBalances = async () => {
     let money = await apis.getMoneyMarketBalance(username);
-    setMoneyMarket(money.data.data[0].amount);
+    const format = money.data.data[0].amount;
+
+    setMoneyMarket(numberWithCommas(format));
   }
 
   const getRows = async () => {
     let moneyRows = await apis.getMoneyMarket(username);
     const row = moneyRows.data.data;
-    return setRows(row);
+    const formatData = row.map((format: any) => {
+      return {
+        processDate: format.processDate,
+        actionType: format.actionType,
+        amount: `$ ${format.amount}`,
+        createdAt: format.createdAt,
+        description: format.description
+      }
+    })
+
+    return setRows(formatData);
   }
 
   const columns = [
     { name: 'processDate', title: 'Process Date' },
-    { name: 'createdAt', title: 'Created On' },
     { name: 'actionType', title: 'Action' },
     { name: 'amount', title: 'Amount' },
     { name: 'description', title: 'Description' }

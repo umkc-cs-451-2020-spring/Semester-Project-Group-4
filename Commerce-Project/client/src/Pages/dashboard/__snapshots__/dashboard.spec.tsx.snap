@@ -14,19 +14,19 @@ exports[`Dashboard Render the Dashboard 1`] = `
     className="makeStyles-divider-2"
   />
   <NotificationCard
-    message="Low Balance"
+    message="Low Balance in Savings Account"
     onClick={[Function]}
   />
   <NotificationCard
-    message="Large Withdrawal"
+    message="Low Balance in Checking Account"
     onClick={[Function]}
   />
   <NotificationCard
-    message="Large Deposit"
+    message="Low Balance in Money Market Account"
     onClick={[Function]}
   />
   <WithStyles(ForwardRef(ExpansionPanel))
-    className="makeStyles-expansion-3"
+    className="makeStyles-checkingExpansion-4"
     elevation={3}
   >
     <WithStyles(ForwardRef(ExpansionPanelSummary))
@@ -34,19 +34,19 @@ exports[`Dashboard Render the Dashboard 1`] = `
       id="panel1"
     >
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-expansionHeader-4"
+        className="makeStyles-expansionHeader-5"
         variant="h6"
       >
         Checking Account
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-balancePadding-6"
+        className="makeStyles-balancePadding-7"
         variant="subtitle1"
       >
         Balance: $ 
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-balance-5"
+        className="makeStyles-balance-6"
         variant="subtitle1"
       >
         0
@@ -58,7 +58,7 @@ exports[`Dashboard Render the Dashboard 1`] = `
           aria-controls="expansion-action"
           aria-haspopup="true"
           aria-label="View Checking Account"
-          className="makeStyles-EditIcon-7"
+          className="makeStyles-EditIcon-8"
           color="primary"
           component={
             Object {
@@ -84,19 +84,19 @@ exports[`Dashboard Render the Dashboard 1`] = `
       id="panel2"
     >
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-expansionHeader-4"
+        className="makeStyles-expansionHeader-5"
         variant="h6"
       >
         Savings Account
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-balancePadding-6"
+        className="makeStyles-balancePadding-7"
         variant="subtitle1"
       >
         Balance: $ 
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-balance-5"
+        className="makeStyles-balance-6"
         variant="subtitle1"
       >
         0
@@ -108,7 +108,7 @@ exports[`Dashboard Render the Dashboard 1`] = `
           aria-controls="expansion-action"
           aria-haspopup="true"
           aria-label="View Savings Account"
-          className="makeStyles-EditIcon-7"
+          className="makeStyles-EditIcon-8"
           color="primary"
           component={
             Object {
@@ -134,19 +134,19 @@ exports[`Dashboard Render the Dashboard 1`] = `
       id="panel3"
     >
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-expansionHeader-4"
+        className="makeStyles-expansionHeader-5"
         variant="h6"
       >
         Money Market Account
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-balancePadding-6"
+        className="makeStyles-balancePadding-7"
         variant="subtitle1"
       >
         Balance: $
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(Typography))
-        className="makeStyles-balance-5"
+        className="makeStyles-balance-6"
         variant="subtitle1"
       >
         0
@@ -158,7 +158,7 @@ exports[`Dashboard Render the Dashboard 1`] = `
           aria-controls="expansion-action"
           aria-haspopup="true"
           aria-label="View Money Market Account"
-          className="makeStyles-EditIcon-7"
+          className="makeStyles-EditIcon-8"
           color="primary"
           component={
             Object {

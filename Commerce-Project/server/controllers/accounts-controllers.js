@@ -64,7 +64,7 @@ getCheckingBalance = async (req, res) => {
   if (!body) {
     return res.status(400).json({
       success: false,
-      error: 'You must provide a account',
+      error: 'You must provide an account',
     })
   }
 
@@ -79,6 +79,24 @@ getCheckingBalance = async (req, res) => {
       }
     ]).then(sum => res.status(200).json({ success: false, data: sum }));
   })
+}
+
+getLastCheckingTransaction = async (req, res) => {
+  UserModel.findOne({ username: req.params.username }, (err, user) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err })
+    }
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, error: `User not found` })
+    }
+
+    const lastValue = user.checking.slice(-1)[0];
+
+    return res.status(200).json({ success: true, data: lastValue })
+  }).catch(err => err)
 }
 
 createSavingsTransaction = async (req, res) => {
@@ -145,7 +163,7 @@ getSavingsBalance = async (req, res) => {
   if (!body) {
     return res.status(400).json({
       success: false,
-      error: 'You must provide a account',
+      error: 'You must provide an account',
     })
   }
 
@@ -160,6 +178,24 @@ getSavingsBalance = async (req, res) => {
       }
     ]).then(sum => res.status(200).json({ success: false, data: sum }));
   })
+}
+
+getLastSavingsTransaction = async (req, res) => {
+  UserModel.findOne({ username: req.params.username }, (err, user) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err })
+    }
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, error: `User not found` })
+    }
+
+    const lastValue = user.savings.slice(-1)[0];
+
+    return res.status(200).json({ success: true, data: lastValue })
+  }).catch(err => err)
 }
 
 createMoneyMarketTransaction = async (req, res) => {
@@ -226,7 +262,7 @@ getMoneyMarketBalance = async (req, res) => {
   if (!body) {
     return res.status(400).json({
       success: false,
-      error: 'You must provide a account',
+      error: 'You must provide an account',
     })
   }
 
@@ -243,6 +279,24 @@ getMoneyMarketBalance = async (req, res) => {
   })
 }
 
+getLastMoneyMarketTransaction = async (req, res) => {
+  UserModel.findOne({ username: req.params.username }, (err, user) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err })
+    }
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, error: `User not found` })
+    }
+
+    const lastValue = user.moneyMarket.slice(-1)[0];
+
+    return res.status(200).json({ success: true, data: lastValue })
+  }).catch(err => err)
+}
+
 module.exports = {
   createCheckingTransaction,
   getCheckingAccount,
@@ -252,5 +306,8 @@ module.exports = {
   getSavingsBalance,
   createMoneyMarketTransaction,
   getMoneyMarketAccount,
-  getMoneyMarketBalance
+  getMoneyMarketBalance,
+  getLastMoneyMarketTransaction,
+  getLastSavingsTransaction,
+  getLastCheckingTransaction
 }
