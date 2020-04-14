@@ -18,7 +18,7 @@ const useStyles = makeStyles(() =>
     iconColor: {
       color: Theme.palette.error.main,
       padding: 'unset',
-      marginLeft: '50%'
+      marginLeft: '67%'
     },
     title: {
       color: Theme.palette.error.main
@@ -28,7 +28,6 @@ const useStyles = makeStyles(() =>
       padding: 'unset'
     },
     description: {
-      marginTop: '.5rem',
       paddingLeft: 'unset'
     },
     row: {
@@ -53,7 +52,7 @@ export const NotificationCard = (props: NotificationProps) => {
       <Card className={card} variant="outlined">
         <CardContent className={contentArea}>
           <Typography variant="h5" component="h2" className={title}>
-            Warning
+            Alert
           <Tooltip title='Remove'>
               <IconButton className={iconColor} onClick={onClick}>
                 <Close />

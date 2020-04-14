@@ -22,6 +22,10 @@ const useStyles = makeStyles(() =>
     expansion: {
       marginBottom: '2rem'
     },
+    checkingExpansion: {
+      marginTop: '2rem',
+      marginBottom: '2rem'
+    },
     expansionHeader: {
       flexBasis: '33.33%'
     },
@@ -43,25 +47,31 @@ const useStyles = makeStyles(() =>
 
 const DashBoard = () => {
   // styles
-  const { paper, divider, expansion, expansionHeader, balance, balancePadding, EditIcon } = useStyles()
+  const { paper, divider, expansion, expansionHeader, balance, balancePadding, EditIcon, checkingExpansion } = useStyles()
 
   // Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [checking, setChecking] = React.useState(0);
   const [savings, setSavings] = React.useState(0);
   const [user, setUsername] = React.useState('');
-  const [hideNotificationOne, setRemoveNotificationOne] = React.useState(false);
-  const [hideNotificationTwo, setRemoveNotificationTwo] = React.useState(false);
-  const [hideNotificationThree, setRemoveNotificationThree] = React.useState(false);
+  const [hideDeposit1, setHideDeposit1] = React.useState(false);
+  const [hideDeposit2, setHideDeposit2] = React.useState(false);
+  const [hideDeposit3, setHideDeposit3] = React.useState(false);
+  const [hideWithdrawal1, setHideWithdrawal1] = React.useState(false);
+  const [hideWithdrawal2, setHideWithdrawal2] = React.useState(false);
+  const [hideWithdrawal3, setHideWithdrawal3] = React.useState(false);
+  const [hideLowBalance1, setHideLowBalance1] = React.useState(false);
+  const [hideLowBalance2, setHideLowBalance2] = React.useState(false);
+  const [hideLowBalance3, setHideLowBalance3] = React.useState(false);
   const [notificationDeposit, setNotificationDeposit] = React.useState(Number);
   const [notificationWithdrawal, setNotificationWithdrawal] = React.useState(Number);
   const [notificationOverdraft, setNotificationOverdraft] = React.useState(Number);
   const [notificationCheckingType, setNotificationCheckingType] = React.useState<any>(String);
   const [notificationMoneyType, setNotificationMoneyType] = React.useState<any>(String);
   const [notificationSavingsType, setNotificationSavingsType] = React.useState<any>(String);
-  const [notificationDisableDeposit, setNotificationDisableDeposit] = React.useState(false);
-  const [notificationDisableWithdrawal, setNotificationDisableWithdrawal] = React.useState(false);
-  const [notificationDisableOverDraft, setNotificationDisableOverDraft] = React.useState(false);
+  const [notificationDisableDeposit, setNotificationDisableDeposit] = React.useState(Boolean);
+  const [notificationDisableWithdrawal, setNotificationDisableWithdrawal] = React.useState(Boolean);
+  const [notificationDisableOverDraft, setNotificationDisableOverDraft] = React.useState(Boolean);
 
   const username = store.get('username');
 
@@ -124,56 +134,112 @@ const DashBoard = () => {
     []
   );
 
+  const checkingTitle = 'Checking Account';
+  const moneyMarketTitle = 'Money Market Account';
+  const savingsTitle = 'Savings Account'
+
   const removeNotificationOne = () => {
-    return setRemoveNotificationOne(true)
+    return setHideDeposit1(true)
   }
 
   const removeNotificationTwo = () => {
-    return setRemoveNotificationTwo(true)
+    return setHideDeposit2(true)
   }
 
   const removeNotificationThree = () => {
-    return setRemoveNotificationThree(true)
+    return setHideDeposit3(true)
   }
 
-  const depositNotification = () => {
-    if (hideNotificationOne === false) {
+  const removeNotificationFour = () => {
+    return setHideWithdrawal1(true)
+  }
+
+  const removeNotificationFive = () => {
+    return setHideWithdrawal2(true)
+  }
+
+  const removeNotificationSix = () => {
+    return setHideWithdrawal3(true)
+  }
+
+  const removeNotificationSeven = () => {
+    return setHideLowBalance1(true)
+  }
+
+  const removeNotificationEight = () => {
+    return setHideLowBalance2(true)
+  }
+
+  const removeNotificationNine = () => {
+    return setHideLowBalance3(true)
+  }
+
+  const depositNotification1 = () => {
+    if (!hideDeposit1) {
       if (notificationDisableDeposit === false && notificationCheckingType.actionType === 'Deposit' && notificationCheckingType.amount >= notificationDeposit) {
-        return true
+        return <NotificationCard message={`Large Deposit in ${checkingTitle}`} onClick={removeNotificationOne} />
       }
-      else if (notificationDisableDeposit === false && notificationMoneyType.actionType === 'Deposit' && notificationMoneyType.amount >= notificationDeposit) {
-        return true
+    }
+  }
+  const depositNotification2 = () => {
+    if (!hideDeposit2) {
+      if (!notificationDisableDeposit && notificationMoneyType.actionType === 'Deposit' && notificationMoneyType.amount >= notificationDeposit) {
+        return <NotificationCard message={`Large Deposit in ${moneyMarketTitle}`} onClick={removeNotificationTwo} />
       }
-      else if (notificationDisableDeposit === false && notificationSavingsType.actionType === 'Deposit' && notificationSavingsType.amount >= notificationDeposit) {
-        return true
+
+    }
+  }
+
+  const depositNotification3 = () => {
+    if (!hideDeposit3) {
+      if (!notificationDisableDeposit && notificationSavingsType.actionType === 'Deposit' && notificationSavingsType.amount >= notificationDeposit) {
+        return <NotificationCard message={`Large Deposit in ${savingsTitle}`} onClick={removeNotificationThree} />
       }
     }
   }
 
-  const withdrawalNotification = () => {
-    if (hideNotificationTwo === false) {
+  const withdrawalNotification1 = () => {
+    if (!hideWithdrawal1) {
       if (notificationDisableWithdrawal === false && notificationCheckingType.actionType === 'Withdrawal' && notificationCheckingType.amount >= notificationWithdrawal) {
-        return true
-      }
-      else if (notificationDisableWithdrawal === false && notificationMoneyType.actionType === 'Withdrawal' && notificationMoneyType.amount >= notificationWithdrawal) {
-        return true
-      }
-      else if (notificationDisableWithdrawal === false && notificationSavingsType.actionType === 'Withdrawal' && notificationSavingsType.amount >= notificationWithdrawal) {
-        return true
+        return <NotificationCard message={`Large Withdrawal in ${checkingTitle}`} onClick={removeNotificationFour} />
       }
     }
   }
 
-  const lowBalanceNotification = () => {
-    if (hideNotificationThree === false) {
-      if (notificationDisableOverDraft === false && notificationOverdraft >= savings) {
-        return '1'
+  const withdrawalNotification2 = () => {
+    if (!hideWithdrawal2) {
+      if (notificationDisableWithdrawal === false && notificationMoneyType.actionType === 'Withdrawal' && notificationMoneyType.amount >= notificationWithdrawal) {
+        return <NotificationCard message={`Large Withdrawal in ${moneyMarketTitle}`} onClick={removeNotificationFive} />
       }
-      else if (notificationDisableOverDraft === false && checking <= notificationOverdraft) {
-        return true
+    }
+  }
+
+  const withdrawalNotification3 = () => {
+    if (!hideWithdrawal3) {
+      if (notificationDisableWithdrawal === false && notificationSavingsType.actionType === 'Withdrawal' && notificationSavingsType.amount >= notificationWithdrawal) {
+        return <NotificationCard message={`Large Withdrawal in ${savingsTitle}`} onClick={removeNotificationSix} />
       }
-      else if (notificationDisableOverDraft === false && moneyMarket <= notificationOverdraft) {
-        return true
+    }
+  }
+
+  const lowBalanceNotification1 = () => {
+    if (!hideLowBalance1) {
+      if (notificationDisableOverDraft === false && savings <= notificationOverdraft) {
+        return <NotificationCard message={`Low Balance in ${savingsTitle}`} onClick={removeNotificationSeven} />
+      }
+    }
+  }
+  const lowBalanceNotification2 = () => {
+    if (!hideLowBalance2) {
+      if (notificationDisableOverDraft === false && checking <= notificationOverdraft) {
+        return <NotificationCard message={`Low Balance in ${checkingTitle}`} onClick={removeNotificationEight} />
+      }
+    }
+  }
+  const lowBalanceNotification3 = () => {
+    if (!hideLowBalance3) {
+      if (notificationDisableOverDraft === false && moneyMarket <= notificationOverdraft) {
+        return <NotificationCard message={`Low Balance in ${moneyMarketTitle}`} onClick={removeNotificationNine} />
       }
     }
   }
@@ -184,21 +250,18 @@ const DashBoard = () => {
       <Divider className={divider} />
 
       {/* Notifications*/}
-      {
-        depositNotification() !== undefined &&
-        <NotificationCard message='Large Deposit' onClick={removeNotificationOne} />
-      }
-      {
-        withdrawalNotification() !== undefined &&
-        <NotificationCard message='Large Withdrawal' onClick={removeNotificationTwo} />
-      }
-      {
-        lowBalanceNotification() !== undefined &&
-        <NotificationCard message='Low Balance' onClick={removeNotificationThree} />
-      }
+      {depositNotification1() !== undefined && depositNotification1()}
+      {depositNotification2() !== undefined && depositNotification2()}
+      {depositNotification3() !== undefined && depositNotification3()}
+      {withdrawalNotification1() !== undefined && withdrawalNotification1()}
+      {withdrawalNotification2() !== undefined && withdrawalNotification2()}
+      {withdrawalNotification3() !== undefined && withdrawalNotification3()}
+      {lowBalanceNotification1() !== undefined && lowBalanceNotification1()}
+      {lowBalanceNotification2() !== undefined && lowBalanceNotification2()}
+      {lowBalanceNotification3() !== undefined && lowBalanceNotification3()}
 
       {/* Checking Account*/}
-      <ExpansionPanel className={expansion} elevation={3}>
+      <ExpansionPanel className={checkingExpansion} elevation={3}>
         <ExpansionPanelSummary id="panel1" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Checking Account</Typography>
           <Typography variant='subtitle1' className={balancePadding}>Balance: $ </Typography>
