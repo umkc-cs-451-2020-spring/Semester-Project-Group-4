@@ -5,13 +5,152 @@ exports[`Notifications Container Render the Notifications Container 1`] = `
   className="makeStyles-paper-1"
   elevation={0}
 >
-  <WithStyles(ForwardRef(Typography))
-    variant="h5"
-  >
-    Manage Notifications
-  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h5"
+    >
+      Manage Notifications
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-save-5"
+      color="primary"
+      onClick={[Function]}
+      variant="contained"
+    >
+      Save
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Grid))>
   <WithStyles(ForwardRef(Divider))
     className="makeStyles-divider-2"
   />
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    Low Account Balance
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(FormControl))
+    className="makeStyles-formControl-3"
+    component="fieldset"
+  >
+    <WithStyles(ForwardRef(FormLabel))
+      component="legend"
+    >
+      Recieve notifications when an account goes below a set balance.
+    </WithStyles(ForwardRef(FormLabel))>
+    <WithStyles(ForwardRef(FormGroup))>
+      <WithStyles(ForwardRef(FormControlLabel))
+        control={
+          <ForwardRef(WithStyles)
+            checked={false}
+            className="makeStyles-checkbox-4"
+            color="primary"
+            name="lowCheck"
+            onChange={[Function]}
+          />
+        }
+        label="Enable"
+      />
+      <WithStyles(ForwardRef(Input))
+        id="lowBalance-adornment-amount"
+        onChange={[Function]}
+        startAdornment={
+          <ForwardRef(WithStyles)
+            position="start"
+          >
+            $
+          </ForwardRef(WithStyles)>
+        }
+        value=""
+      />
+    </WithStyles(ForwardRef(FormGroup))>
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(Divider))
+    className="makeStyles-divider-2"
+  />
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    Large Withdrawal
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(FormControl))
+    className="makeStyles-formControl-3"
+    component="fieldset"
+  >
+    <WithStyles(ForwardRef(FormLabel))
+      component="legend"
+    >
+      Recieve notifications when an account has a large withdrawal above a set amount.
+    </WithStyles(ForwardRef(FormLabel))>
+    <WithStyles(ForwardRef(FormGroup))>
+      <WithStyles(ForwardRef(FormControlLabel))
+        control={
+          <ForwardRef(WithStyles)
+            checked={false}
+            className="makeStyles-checkbox-4"
+            color="primary"
+            name="depositCheck"
+            onChange={[Function]}
+          />
+        }
+        label="Enable"
+      />
+      <WithStyles(ForwardRef(Input))
+        id="deposit-adornment-amount"
+        onChange={[Function]}
+        startAdornment={
+          <ForwardRef(WithStyles)
+            position="start"
+          >
+            $
+          </ForwardRef(WithStyles)>
+        }
+        value=""
+      />
+    </WithStyles(ForwardRef(FormGroup))>
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(Divider))
+    className="makeStyles-divider-2"
+  />
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    Large Deposit
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(FormControl))
+    className="makeStyles-formControl-3"
+    component="fieldset"
+  >
+    <WithStyles(ForwardRef(FormLabel))
+      component="legend"
+    >
+      Recieve notifications when an account has a large deposit above a set amount.
+    </WithStyles(ForwardRef(FormLabel))>
+    <WithStyles(ForwardRef(FormGroup))>
+      <WithStyles(ForwardRef(FormControlLabel))
+        control={
+          <ForwardRef(WithStyles)
+            checked={false}
+            className="makeStyles-checkbox-4"
+            color="primary"
+            name="withdrawalCheck"
+            onChange={[Function]}
+          />
+        }
+        label="Enable"
+      />
+      <WithStyles(ForwardRef(Input))
+        id="withdrawal-adornment-amount"
+        onChange={[Function]}
+        startAdornment={
+          <ForwardRef(WithStyles)
+            position="start"
+          >
+            $
+          </ForwardRef(WithStyles)>
+        }
+        value=""
+      />
+    </WithStyles(ForwardRef(FormGroup))>
+  </WithStyles(ForwardRef(FormControl))>
 </WithStyles(ForwardRef(Paper))>
 `;
