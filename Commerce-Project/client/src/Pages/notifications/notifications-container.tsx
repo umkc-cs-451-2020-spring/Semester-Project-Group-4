@@ -69,6 +69,24 @@ const NotificationsContainer = () => {
 
   const username = store.get('username');
 
+  const getNotifications = async () => {
+    let notifications = await apis.getNotifications(username);
+
+    setDeposit(notifications.data.data[0].largeDeposit);
+    setWithdrawal(notifications.data.data[0].largeWithDrawal);
+    setLowBalance(notifications.data.data[0].overDraft);
+    setState({
+      depositCheck: notifications.data.data[0].disableLargeDeposit,
+      lowCheck: notifications.data.data[0].disableoverDraft,
+      withdrawalCheck: notifications.data.data[0].disablelargeWithDrawal
+    });
+  }
+
+  React.useEffect(() => {
+    getNotifications();
+    // eslint-disable-next-line
+  }, [])
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
