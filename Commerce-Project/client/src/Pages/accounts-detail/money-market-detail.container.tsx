@@ -136,7 +136,6 @@ const MoneyMarketDetail = () => {
         description: format.description
       }
     })
-
     return setRows(formatData);
   }
 
