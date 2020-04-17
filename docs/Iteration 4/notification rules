@@ -1,0 +1,23 @@
+
+1.)
+Negative account balance. If account balance < 0, notify the account owner that they have an overdrawn account and that a fee will be put onto their account. The notification could say: 
+
+“Alert! Your account is overdrawn.”
+
+2.) 
+An amount has been put into your account. If money has been added to your account, then alert the owner of the amount that has been added to your account. The notification could say:
+
+“A direct deposit of X dollars has been added to your account as of 4/16/2020.”
+
+3.) 
+Low account balance. If your account has a balance below a preset amount, for example $500, then alert the account owner of this. The notification could say:
+
+“Alert! Your account is below your preset amount of X dollars.”
+
+4.)
+Payment notification. If a payment has been automatically taken from your account, for example a monthly recurring payment like a bill or a netflix account payment, then alert the owner of this activity. This notification could say:
+
+“Automatic payment in the amount of X dollars has been paid to Netflix.”
+
+
+
