@@ -16,7 +16,11 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  InputLabel
+  InputLabel,
+  Input,
+  InputAdornment,
+  FormLabel,
+  FormGroup
 } from '@material-ui/core'
 import {
   Grid,
@@ -258,7 +262,17 @@ const SavingsDetail = () => {
           <Layout container justify='center' className={layoutMargin}>
             <Layout container justify='space-around'>
               <TextField label='Account' value='Savings' disabled />
-              <TextField label='Amount' type='number' value={amount} onChange={handleAmountChange} />
+              <FormGroup>
+                <FormLabel>
+                  Amount
+                  </FormLabel>
+                <Input
+                  id="Amount"
+                  value={amount}
+                  onChange={handleAmountChange}
+                  startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                />
+              </FormGroup>
             </Layout>
             <Layout container justify='space-around' className={layoutMargin}>
               <FormControl className={combobox}>
