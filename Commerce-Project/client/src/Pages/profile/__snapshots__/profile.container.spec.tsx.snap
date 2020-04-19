@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Container Render the Profile Container 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-paper-1"
+  elevation={0}
+>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-gridMargin-7"
+    container={true}
+    spacing={8}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      xs={4}
+    />
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      xs={4}
+    >
+      <WithStyles(ForwardRef(FormGroup))>
+        <WithStyles(ForwardRef(Typography))
+          align="center"
+          className="makeStyles-title-8"
+          variant="h5"
+        >
+          Manage Profile
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-2"
+          id="first"
+          label="First Name"
+          onChange={[Function]}
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-2"
+          id="last"
+          label="Last Name"
+          onChange={[Function]}
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-2"
+          id="phone"
+          label="Phone Number"
+          onChange={[Function]}
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-2"
+          id="password"
+          label="Password"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+        <WithStyles(ForwardRef(TextField))
+          className="makeStyles-textFieldMargin-2"
+          id="confirm-password"
+          label="Confirm Password"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-save-6"
+          color="primary"
+          onClick={[Function]}
+          variant="contained"
+        >
+          Save
+        </WithStyles(ForwardRef(Button))>
+      </WithStyles(ForwardRef(FormGroup))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Paper))>
+`;
