@@ -29,8 +29,12 @@ exports[`Checking Detail Render the Checking Detail 1`] = `
             "title": "Action",
           },
           Object {
-            "name": "amount",
-            "title": "Amount",
+            "name": "credit",
+            "title": "Deposit",
+          },
+          Object {
+            "name": "debit",
+            "title": "Withdrawal",
           },
           Object {
             "name": "description",
@@ -76,7 +80,11 @@ exports[`Checking Detail Render the Checking Detail 1`] = `
               "width": 200,
             },
             Object {
-              "columnName": "amount",
+              "columnName": "credit",
+              "width": 200,
+            },
+            Object {
+              "columnName": "debit",
               "width": 200,
             },
             Object {

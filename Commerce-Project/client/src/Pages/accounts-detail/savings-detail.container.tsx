@@ -110,7 +110,8 @@ const SavingsDetail = () => {
   const [columnWidths, setColumnWidths] = React.useState<any>([
     { columnName: 'processDate', width: 250 },
     { columnName: 'actionType', width: 200 },
-    { columnName: 'amount', width: 200 },
+    { columnName: 'credit', width: 200 },
+    { columnName: 'debit', width: 200 },
     { columnName: 'description', width: 300 }
   ]);
 
@@ -131,10 +132,30 @@ const SavingsDetail = () => {
     let savingRows = await apis.getSavings(username);
     const row = savingRows.data.data;
     const formatData = row.map((format: any) => {
+      const credit = () => {
+        if (format.actionType === 'Deposit') {
+          return `$ ${format.amount}`
+        }
+        else {
+          return ''
+        }
+      }
+
+      const debit = () => {
+        if (format.actionType === 'Withdrawal') {
+          return `$ ${format.amount}`
+        }
+        else {
+          return ''
+        }
+      }
+
       return {
         processDate: format.processDate,
         actionType: format.actionType,
-        amount: `$ ${format.amount}`,
+        debit: debit(),
+        credit: credit(),
+        createdAt: format.createdAt,
         description: format.description
       }
     })
@@ -145,7 +166,8 @@ const SavingsDetail = () => {
   const columns = [
     { name: 'processDate', title: 'Process Date' },
     { name: 'actionType', title: 'Action' },
-    { name: 'amount', title: 'Amount' },
+    { name: 'credit', title: 'Deposit' },
+    { name: 'debit', title: 'Withdrawal' },
     { name: 'description', title: 'Description' }
   ];
 
