@@ -21,7 +21,7 @@ const AccountSchema = new Schema(
     accountNumber: Number,
     processDate: String,
     balance: Number,
-    actionType: String, // withDrawal (DR) or Deposit (CR)
+    actionType: String, // Withdrawal (DR) or Deposit (CR)
     amount: Number || String,
     description: String
   },

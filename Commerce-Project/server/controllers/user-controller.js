@@ -43,7 +43,7 @@ updateUser = async (req, res) => {
     })
   }
 
-  UserModel.findOne({ _id: req.params.id }, (err, user) => {
+  UserModel.findOne({ username: req.params.username }, (err, user) => {
     if (err) {
       return res.status(404).json({
         err,
@@ -53,7 +53,8 @@ updateUser = async (req, res) => {
     user.firstName = body.firstName
     user.lastName = body.lastName
     user.phone = body.phone
-    user.email = body.email
+    user.password = body.password
+    user.confirmPassword = body.confirmPassword
     user
       .save()
       .then(() => {

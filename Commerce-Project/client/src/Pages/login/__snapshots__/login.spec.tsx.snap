@@ -4,79 +4,84 @@ exports[`Login Form Render the Login Form 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <WithStyles(ForwardRef(Grid))
-    className="makeStyles-gridMargin-5"
-    container={true}
-    spacing={8}
+  <WithStyles(ForwardRef(Paper))
+    className="makeStyles-paper-1"
+    elevation={0}
   >
     <WithStyles(ForwardRef(Grid))
-      item={true}
-      xs={4}
-    />
-    <WithStyles(ForwardRef(Grid))
-      item={true}
-      xs={4}
+      className="makeStyles-gridMargin-6"
+      container={true}
+      spacing={8}
     >
-      <WithStyles(ForwardRef(FormGroup))>
-        <WithStyles(ForwardRef(Typography))
-          align="center"
-          className="makeStyles-title-2"
-          variant="h5"
-        >
-          Login Into Your Account
-        </WithStyles(ForwardRef(Typography))>
-        <WithStyles(ForwardRef(TextField))
-          className="makeStyles-textFieldMargin-1"
-          error={false}
-          helperText={null}
-          id="username"
-          label="Username"
-          name="username"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="text"
-          value=""
-        />
-        <WithStyles(ForwardRef(TextField))
-          className="makeStyles-textFieldMargin-1"
-          error={false}
-          helperText={null}
-          id="password"
-          label="Password"
-          name="password"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="password"
-          value=""
-        />
-        <WithStyles(ForwardRef(Button))
-          className="makeStyles-buttonMargin-3"
-          color="primary"
-          onClick={[Function]}
-          type="button"
-          variant="contained"
-        >
-          Login
-        </WithStyles(ForwardRef(Button))>
-        <WithStyles(ForwardRef(Button))
-          className="makeStyles-button-4"
-          color="secondary"
-          component={
-            Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "render": [Function],
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        xs={4}
+      />
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        xs={4}
+      >
+        <WithStyles(ForwardRef(FormGroup))>
+          <WithStyles(ForwardRef(Typography))
+            align="center"
+            className="makeStyles-title-3"
+            variant="h5"
+          >
+            Log in to Online Banking
+          </WithStyles(ForwardRef(Typography))>
+          <WithStyles(ForwardRef(TextField))
+            className="makeStyles-textFieldMargin-2"
+            error={false}
+            helperText={null}
+            id="username"
+            label="Username"
+            name="username"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <WithStyles(ForwardRef(TextField))
+            className="makeStyles-textFieldMargin-2"
+            error={false}
+            helperText={null}
+            id="password"
+            label="Password"
+            name="password"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="password"
+            value=""
+          />
+          <WithStyles(ForwardRef(Button))
+            className="makeStyles-buttonMargin-4"
+            color="primary"
+            onClick={[Function]}
+            type="button"
+            variant="contained"
+          >
+            Login
+          </WithStyles(ForwardRef(Button))>
+          <WithStyles(ForwardRef(Button))
+            className="makeStyles-button-5"
+            color="inherit"
+            component={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              }
             }
-          }
-          type="button"
-          variant="contained"
-        >
-          Register
-        </WithStyles(ForwardRef(Button))>
-      </WithStyles(ForwardRef(FormGroup))>
+            type="button"
+            variant="contained"
+          >
+            Register
+          </WithStyles(ForwardRef(Button))>
+        </WithStyles(ForwardRef(FormGroup))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-font-7"
+      />
     </WithStyles(ForwardRef(Grid))>
-    <WithStyles(ForwardRef(Typography))
-      className="makeStyles-font-6"
-    />
-  </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Paper))>
 </form>
 `;
