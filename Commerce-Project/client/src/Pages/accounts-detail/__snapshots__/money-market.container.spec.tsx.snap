@@ -151,12 +151,23 @@ exports[`Money Market Detail Render the Money Market Detail 1`] = `
             label="Account"
             value="Money Market"
           />
-          <WithStyles(ForwardRef(TextField))
-            label="Amount"
-            onChange={[Function]}
-            type="number"
-            value=""
-          />
+          <WithStyles(ForwardRef(FormGroup))>
+            <WithStyles(ForwardRef(FormLabel))>
+              Amount
+            </WithStyles(ForwardRef(FormLabel))>
+            <WithStyles(ForwardRef(Input))
+              id="Amount"
+              onChange={[Function]}
+              startAdornment={
+                <ForwardRef(WithStyles)
+                  position="start"
+                >
+                  $
+                </ForwardRef(WithStyles)>
+              }
+              value=""
+            />
+          </WithStyles(ForwardRef(FormGroup))>
         </WithStyles(ForwardRef(Grid))>
         <WithStyles(ForwardRef(Grid))
           className="makeStyles-layoutMargin-7"
