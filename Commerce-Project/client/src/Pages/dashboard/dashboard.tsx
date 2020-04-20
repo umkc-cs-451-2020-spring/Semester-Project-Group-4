@@ -42,13 +42,16 @@ const useStyles = makeStyles(() =>
     },
     EditIcon: {
       padding: 0
+    },
+    details: {
+      flexDirection: "column"
     }
   })
 );
 
 const DashBoard = () => {
   // styles
-  const { paper, divider, expansion, expansionHeader, balance, balancePadding, EditIcon, checkingExpansion } = useStyles()
+  const { paper, divider, expansion, expansionHeader, balance, details, balancePadding, EditIcon, checkingExpansion } = useStyles()
 
   // Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
@@ -280,12 +283,16 @@ const DashBoard = () => {
             </IconButton>
           </Tooltip>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          Summary Details
+        <ExpansionPanelDetails className={details}>
+          <Typography variant='overline'>Suffix: 80</Typography>
+          <Typography variant='overline'>ACH Number: 0011547957</Typography>
+          <Typography variant='overline'>Available: ${numberWithCommas(checking)}</Typography>
+          <Typography variant='overline'>MICR: 44587964234</Typography>
+          <Typography variant='overline'>YTD Interest: $5.25</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      {/* Money Market Account*/}
+      {/* Savings Account*/}
       <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel2" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Savings Account</Typography>
@@ -304,12 +311,14 @@ const DashBoard = () => {
             </IconButton>
           </Tooltip>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          Summary Details
+        <ExpansionPanelDetails className={details}>
+          <Typography variant='overline'>Suffix: 00</Typography>
+          <Typography variant='overline'>Available: ${numberWithCommas(savings)}</Typography>
+          <Typography variant='overline'>MICR: 79587967954</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      {/* Savings Account*/}
+      {/* Money Market Account*/}
       <ExpansionPanel className={expansion} elevation={3}>
         <ExpansionPanelSummary id="panel3" expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6' className={expansionHeader}>Money Market Account</Typography>
@@ -328,8 +337,11 @@ const DashBoard = () => {
             </IconButton>
           </Tooltip>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          Summary Details
+        <ExpansionPanelDetails className={details}>
+          <Typography variant='overline'>Suffix: 90</Typography>
+          <Typography variant='overline'>Available: ${numberWithCommas(moneyMarket)}</Typography>
+          <Typography variant='overline'>MICR: 85687967154</Typography>
+          <Typography variant='overline'>YTD Interest: $112.98</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </Paper >
