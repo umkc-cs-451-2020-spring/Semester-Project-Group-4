@@ -71,8 +71,35 @@ exports[`Dashboard Render the Dashboard 1`] = `
         </WithStyles(ForwardRef(IconButton))>
       </WithStyles(ForwardRef(Tooltip))>
     </WithStyles(ForwardRef(ExpansionPanelSummary))>
-    <WithStyles(ForwardRef(ExpansionPanelDetails))>
-      Summary Details
+    <WithStyles(ForwardRef(ExpansionPanelDetails))
+      className="makeStyles-details-9"
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        Suffix: 80
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        ACH Number: 0011547957
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        Available: $
+        0
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        MICR: 44587964234
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        YTD Interest: $5.25
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(ExpansionPanelDetails))>
   </WithStyles(ForwardRef(ExpansionPanel))>
   <WithStyles(ForwardRef(ExpansionPanel))
@@ -121,8 +148,25 @@ exports[`Dashboard Render the Dashboard 1`] = `
         </WithStyles(ForwardRef(IconButton))>
       </WithStyles(ForwardRef(Tooltip))>
     </WithStyles(ForwardRef(ExpansionPanelSummary))>
-    <WithStyles(ForwardRef(ExpansionPanelDetails))>
-      Summary Details
+    <WithStyles(ForwardRef(ExpansionPanelDetails))
+      className="makeStyles-details-9"
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        Suffix: 00
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        Available: $
+        0
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        MICR: 79587967954
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(ExpansionPanelDetails))>
   </WithStyles(ForwardRef(ExpansionPanel))>
   <WithStyles(ForwardRef(ExpansionPanel))
@@ -171,8 +215,30 @@ exports[`Dashboard Render the Dashboard 1`] = `
         </WithStyles(ForwardRef(IconButton))>
       </WithStyles(ForwardRef(Tooltip))>
     </WithStyles(ForwardRef(ExpansionPanelSummary))>
-    <WithStyles(ForwardRef(ExpansionPanelDetails))>
-      Summary Details
+    <WithStyles(ForwardRef(ExpansionPanelDetails))
+      className="makeStyles-details-9"
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        Suffix: 90
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        Available: $
+        0
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        MICR: 85687967154
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        variant="overline"
+      >
+        YTD Interest: $112.98
+      </WithStyles(ForwardRef(Typography))>
     </WithStyles(ForwardRef(ExpansionPanelDetails))>
   </WithStyles(ForwardRef(ExpansionPanel))>
 </WithStyles(ForwardRef(Paper))>
