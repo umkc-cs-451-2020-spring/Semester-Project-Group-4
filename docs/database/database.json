@@ -36,7 +36,11 @@
         "accountNumber": 1,
         "processDate": "2020-03-30",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 1400,
+=======
+        "amount": -1400,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay Mortgage",
         "createdAt": {
           "$date": "2020-05-03T17:17:19.047Z"
@@ -53,7 +57,11 @@
         "accountNumber": 1,
         "processDate": "2020-04-05",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 1001,
+=======
+        "amount": -1001,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay Visa",
         "createdAt": {
           "$date": "2020-05-03T17:17:23.853Z"
@@ -104,7 +112,11 @@
         "accountNumber": 1,
         "processDate": "2020-04-27",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 600,
+=======
+        "amount": -600,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Car Payment",
         "createdAt": {
           "$date": "2020-05-03T17:17:37.704Z"
@@ -121,7 +133,11 @@
         "accountNumber": 1,
         "processDate": "2020-05-04",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 600,
+=======
+        "amount": -200,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay for Vacation",
         "createdAt": {
           "$date": "2020-05-03T17:17:41.153Z"
@@ -153,7 +169,11 @@
         },
         "processDate": "2020-04-25",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 100,
+=======
+        "amount": -100,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Phone Bill",
         "createdAt": {
           "$date": "2020-05-03T16:57:58.728Z"
@@ -187,7 +207,11 @@
         "accountNumber": 1,
         "processDate": "2020-03-30",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 1400,
+=======
+        "amount": -1400,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay Mortgage",
         "createdAt": {
           "$date": "2020-05-03T17:07:27.952Z"
@@ -204,7 +228,11 @@
         "accountNumber": 1,
         "processDate": "2020-04-05",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 1001,
+=======
+        "amount": -1001,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay Visa",
         "createdAt": {
           "$date": "2020-05-03T17:07:39.068Z"
@@ -255,7 +283,11 @@
         "accountNumber": 1,
         "processDate": "2020-04-27",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 600,
+=======
+        "amount": -600,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Car Payment",
         "createdAt": {
           "$date": "2020-05-03T17:08:14.840Z"
@@ -272,7 +304,11 @@
         "accountNumber": 1,
         "processDate": "2020-05-04",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 10000,
+=======
+        "amount": -10000,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay for Vacation",
         "createdAt": {
           "$date": "2020-05-03T17:08:19.502Z"
@@ -308,7 +344,11 @@
         "accountNumber": 1,
         "processDate": "2020-03-30",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 1400,
+=======
+        "amount": -1400,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay Mortgage",
         "createdAt": {
           "$date": "2020-05-03T17:15:33.051Z"
@@ -325,7 +365,11 @@
         "accountNumber": 1,
         "processDate": "2020-04-05",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 1001,
+=======
+        "amount": -1001,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay Visa",
         "createdAt": {
           "$date": "2020-05-03T17:15:37.224Z"
@@ -376,7 +420,11 @@
         "accountNumber": 1,
         "processDate": "2020-04-27",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 600,
+=======
+        "amount": -600,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Car Payment",
         "createdAt": {
           "$date": "2020-05-03T17:15:52.765Z"
@@ -393,7 +441,11 @@
         "accountNumber": 1,
         "processDate": "2020-05-04",
         "actionType": "Withdrawal",
+<<<<<<< HEAD
         "amount": 200,
+=======
+        "amount": -200,
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         "description": "Pay for Vacation",
         "createdAt": {
           "$date": "2020-05-03T17:15:57.970Z"
@@ -407,7 +459,11 @@
       "$date": "2020-03-01T00:54:45.052Z"
     },
     "updatedAt": {
+<<<<<<< HEAD
       "$date": "2020-05-03T17:47:43.172Z"
+=======
+      "$date": "2020-05-03T17:17:41.153Z"
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
     },
     "__v": 63,
     "notifications": [
@@ -422,7 +478,11 @@
           "$date": "2020-04-13T18:47:57.555Z"
         },
         "updatedAt": {
+<<<<<<< HEAD
           "$date": "2020-05-03T17:47:43.172Z"
+=======
+          "$date": "2020-04-15T19:07:50.129Z"
+>>>>>>> 3f2b6e657bfc2dd30db4ee9bfbd5b4655c3f88ad
         },
         "disableLargeDeposit": true,
         "disablelargeWithDrawal": true,
