@@ -207,6 +207,7 @@ const NavBar = () => {
                     aria-haspopup="true"
                     component={logoutLink}
                     color="primary"
+                    onClick={() => store.remove('username')}
                   >
                     <ExitToAppIcon />
                   </IconButton>
@@ -315,7 +316,7 @@ const NavBar = () => {
               <List>
                 <Divider />
                 <List>
-                  <ListItem button component={logoutLink}>
+                  <ListItem button component={logoutLink} onClick={() => store.remove('username')}>
                     <ListItemIcon className={iconColor}>
                       <ExitToAppIcon />
                     </ListItemIcon>
