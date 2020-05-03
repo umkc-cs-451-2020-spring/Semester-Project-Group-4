@@ -233,6 +233,7 @@ const DashBoard = () => {
       }
     }
   }
+
   const lowBalanceNotification2 = () => {
     if (!hideLowBalance2) {
       if (notificationDisableOverDraft && checking <= notificationOverdraft) {
@@ -240,6 +241,7 @@ const DashBoard = () => {
       }
     }
   }
+
   const lowBalanceNotification3 = () => {
     if (!hideLowBalance3) {
       if (notificationDisableOverDraft && moneyMarket <= notificationOverdraft) {
