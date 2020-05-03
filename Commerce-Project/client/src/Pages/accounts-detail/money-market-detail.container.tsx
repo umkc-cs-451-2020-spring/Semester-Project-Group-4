@@ -47,6 +47,7 @@ import store from "store";
 import apis from '../../api';
 import { Theme } from '../../components';
 import { numberWithCommas } from '../../utils/numberFormatter';
+import { dateConverter } from '../../utils/dateTimeConversion';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -102,7 +103,7 @@ const MoneyMarketDetail = () => {
   // Grid Hooks
   const [moneyMarket, setMoneyMarket] = React.useState(0);
   const [rows, setRows] = React.useState([]);
-  const [sorting, setSorting] = React.useState<any>([])
+  const [sorting, setSorting] = React.useState<any>([{ columnName: 'processDate', direction: 'desc' }])
   const [filters, setFilters] = React.useState<any>([]);
   const [pageSizes] = React.useState<number[]>([5, 10, 15, 25]);
   const [currentPage, setCurrentPage] = React.useState(0);
@@ -210,7 +211,7 @@ const MoneyMarketDetail = () => {
     const form: FormProps = {
       amount: negativeValue(amount),
       description: description,
-      processDate: selectedDate,
+      processDate: dateConverter(selectedDate),
       actionType: action
     }
     apis.createMoneyMarket(form, username)
