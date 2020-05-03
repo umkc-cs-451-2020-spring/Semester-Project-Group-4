@@ -144,7 +144,7 @@ const NotificationsContainer = () => {
       <Divider className={divider} />
       <Typography variant='h6'>Large Deposit</Typography>
       <FormControl component="fieldset" className={formControl}>
-        <FormLabel component="legend">Recieve notifications when an account has a large withdrawal above a set amount.</FormLabel>
+        <FormLabel component="legend">Recieve notifications when an account has a large deposit above a set amount.</FormLabel>
         <FormGroup>
           <FormControlLabel
             control={<Checkbox checked={depositCheck} onChange={handleChange} name="depositCheck" className={checkbox} color='primary' />}
@@ -161,7 +161,7 @@ const NotificationsContainer = () => {
       <Divider className={divider} />
       <Typography variant='h6'>Large Withdrawal</Typography>
       <FormControl component="fieldset" className={formControl}>
-        <FormLabel component="legend">Recieve notifications when an account has a large deposit above a set amount.</FormLabel>
+        <FormLabel component="legend">Recieve notifications when an account has a large withdrawal above a set amount.</FormLabel>
         <FormGroup>
           <FormControlLabel
             control={<Checkbox checked={withdrawalCheck} onChange={handleChange} name="withdrawalCheck" className={checkbox} color='primary' />}

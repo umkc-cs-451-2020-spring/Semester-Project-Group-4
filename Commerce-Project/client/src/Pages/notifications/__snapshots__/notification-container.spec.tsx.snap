@@ -79,7 +79,7 @@ exports[`Notifications Container Render the Notifications Container 1`] = `
     <WithStyles(ForwardRef(FormLabel))
       component="legend"
     >
-      Recieve notifications when an account has a large withdrawal above a set amount.
+      Recieve notifications when an account has a large deposit above a set amount.
     </WithStyles(ForwardRef(FormLabel))>
     <WithStyles(ForwardRef(FormGroup))>
       <WithStyles(ForwardRef(FormControlLabel))
@@ -123,7 +123,7 @@ exports[`Notifications Container Render the Notifications Container 1`] = `
     <WithStyles(ForwardRef(FormLabel))
       component="legend"
     >
-      Recieve notifications when an account has a large deposit above a set amount.
+      Recieve notifications when an account has a large withdrawal above a set amount.
     </WithStyles(ForwardRef(FormLabel))>
     <WithStyles(ForwardRef(FormGroup))>
       <WithStyles(ForwardRef(FormControlLabel))
