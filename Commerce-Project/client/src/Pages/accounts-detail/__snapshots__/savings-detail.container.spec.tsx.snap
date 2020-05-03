@@ -63,7 +63,14 @@ exports[`Savings Detail Render the Savings Detail 1`] = `
         columnSortingEnabled={true}
         defaultSorting={Array []}
         onSortingChange={[Function]}
-        sorting={Array []}
+        sorting={
+          Array [
+            Object {
+              "columnName": "processDate",
+              "direction": "desc",
+            },
+          ]
+        }
       />
       <IntegratedSortingBase />
       <IntegratedPagingBase />

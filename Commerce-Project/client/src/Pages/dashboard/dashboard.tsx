@@ -204,7 +204,7 @@ const DashBoard = () => {
 
   const withdrawalNotification1 = () => {
     if (!hideWithdrawal1) {
-      if (notificationDisableWithdrawal === false && notificationCheckingType.actionType === 'Withdrawal' && notificationCheckingType.amount >= notificationWithdrawal) {
+      if (notificationDisableWithdrawal && notificationCheckingType.actionType === 'Withdrawal' && notificationCheckingType.amount >= notificationWithdrawal) {
         return <NotificationCard message={`Large Withdrawal in ${checkingTitle}`} onClick={removeNotificationFour} />
       }
     }
@@ -212,7 +212,7 @@ const DashBoard = () => {
 
   const withdrawalNotification2 = () => {
     if (!hideWithdrawal2) {
-      if (notificationDisableWithdrawal === false && notificationMoneyType.actionType === 'Withdrawal' && notificationMoneyType.amount >= notificationWithdrawal) {
+      if (notificationDisableWithdrawal && notificationMoneyType.actionType === 'Withdrawal' && notificationMoneyType.amount >= notificationWithdrawal) {
         return <NotificationCard message={`Large Withdrawal in ${moneyMarketTitle}`} onClick={removeNotificationFive} />
       }
     }
@@ -220,7 +220,7 @@ const DashBoard = () => {
 
   const withdrawalNotification3 = () => {
     if (!hideWithdrawal3) {
-      if (notificationDisableWithdrawal === false && notificationSavingsType.actionType === 'Withdrawal' && notificationSavingsType.amount >= notificationWithdrawal) {
+      if (notificationDisableWithdrawal && notificationSavingsType.actionType === 'Withdrawal' && notificationSavingsType.amount >= notificationWithdrawal) {
         return <NotificationCard message={`Large Withdrawal in ${savingsTitle}`} onClick={removeNotificationSix} />
       }
     }
@@ -228,21 +228,21 @@ const DashBoard = () => {
 
   const lowBalanceNotification1 = () => {
     if (!hideLowBalance1) {
-      if (notificationDisableOverDraft === false && savings <= notificationOverdraft) {
+      if (notificationDisableOverDraft && savings <= notificationOverdraft) {
         return <NotificationCard message={`Low Balance in ${savingsTitle}`} onClick={removeNotificationSeven} />
       }
     }
   }
   const lowBalanceNotification2 = () => {
     if (!hideLowBalance2) {
-      if (notificationDisableOverDraft === false && checking <= notificationOverdraft) {
+      if (notificationDisableOverDraft && checking <= notificationOverdraft) {
         return <NotificationCard message={`Low Balance in ${checkingTitle}`} onClick={removeNotificationEight} />
       }
     }
   }
   const lowBalanceNotification3 = () => {
     if (!hideLowBalance3) {
-      if (notificationDisableOverDraft === false && moneyMarket <= notificationOverdraft) {
+      if (notificationDisableOverDraft && moneyMarket <= notificationOverdraft) {
         return <NotificationCard message={`Low Balance in ${moneyMarketTitle}`} onClick={removeNotificationNine} />
       }
     }

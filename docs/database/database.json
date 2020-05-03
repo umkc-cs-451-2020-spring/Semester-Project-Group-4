@@ -1,0 +1,433 @@
+[
+  {
+    "_id": {
+      "$oid": "5e5b07d56554914de021f66d"
+    },
+    "username": "Harrison_Lara",
+    "firstName": "Harrison",
+    "lastName": "Lara",
+    "phoneNumber": "5555555555",
+    "email": "test@gmail.com",
+    "password": "testPassword2020!",
+    "confirmPassword": "testPassword2020!",
+    "checking": [
+      {
+        "_id": {
+          "$oid": "5eaefc9a8ac8d02080daed43"
+        },
+        "accountType": "checking",
+        "accountNumber": 1,
+        "processDate": "2020-03-26",
+        "actionType": "Deposit",
+        "amount": 50000,
+        "description": "Open checking Account",
+        "createdAt": {
+          "$date": "2020-05-03T17:17:14.281Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:17:14.281Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefc9f8ac8d02080daed44"
+        },
+        "accountType": "checking",
+        "accountNumber": 1,
+        "processDate": "2020-03-30",
+        "actionType": "Withdrawal",
+        "amount": 1400,
+        "description": "Pay Mortgage",
+        "createdAt": {
+          "$date": "2020-05-03T17:17:19.047Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:17:19.047Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefca38ac8d02080daed45"
+        },
+        "accountType": "checking",
+        "accountNumber": 1,
+        "processDate": "2020-04-05",
+        "actionType": "Withdrawal",
+        "amount": 1001,
+        "description": "Pay Visa",
+        "createdAt": {
+          "$date": "2020-05-03T17:17:23.853Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:17:23.853Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefca78ac8d02080daed46"
+        },
+        "accountType": "checking",
+        "accountNumber": 1,
+        "processDate": "2020-04-10",
+        "actionType": "Deposit",
+        "amount": 3500,
+        "description": "Paycheck",
+        "createdAt": {
+          "$date": "2020-05-03T17:17:27.887Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:17:27.887Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefcac8ac8d02080daed47"
+        },
+        "accountType": "checking",
+        "accountNumber": 1,
+        "processDate": "2020-04-18",
+        "actionType": "Deposit",
+        "amount": 1200,
+        "description": "Stimulus Check",
+        "createdAt": {
+          "$date": "2020-05-03T17:17:32.443Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:17:32.443Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefcb18ac8d02080daed48"
+        },
+        "accountType": "checking",
+        "accountNumber": 1,
+        "processDate": "2020-04-27",
+        "actionType": "Withdrawal",
+        "amount": 600,
+        "description": "Car Payment",
+        "createdAt": {
+          "$date": "2020-05-03T17:17:37.704Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:17:37.704Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefcb58ac8d02080daed49"
+        },
+        "accountType": "checking",
+        "accountNumber": 1,
+        "processDate": "2020-05-04",
+        "actionType": "Withdrawal",
+        "amount": 600,
+        "description": "Pay for Vacation",
+        "createdAt": {
+          "$date": "2020-05-03T17:17:41.153Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:17:41.153Z"
+        }
+      }
+    ],
+    "moneyMarket": [
+      {
+        "_id": {
+          "$oid": "5eaef7fe8ac8d02080daed32"
+        },
+        "processDate": "2020-04-15",
+        "actionType": "Deposit",
+        "amount": 1000,
+        "description": "Paycheck",
+        "createdAt": {
+          "$date": "2020-05-03T16:57:34.185Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T16:57:34.185Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaef8168ac8d02080daed33"
+        },
+        "processDate": "2020-04-25",
+        "actionType": "Withdrawal",
+        "amount": 100,
+        "description": "Phone Bill",
+        "createdAt": {
+          "$date": "2020-05-03T16:57:58.728Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T16:57:58.728Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefa348ac8d02080daed35"
+        },
+        "accountType": "money market",
+        "accountNumber": 1,
+        "processDate": "2020-03-26",
+        "actionType": "Deposit",
+        "amount": 100000,
+        "description": "Open Money Market Account",
+        "createdAt": {
+          "$date": "2020-05-03T17:07:00.687Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:07:00.687Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefa4f8ac8d02080daed36"
+        },
+        "accountType": "money market",
+        "accountNumber": 1,
+        "processDate": "2020-03-30",
+        "actionType": "Withdrawal",
+        "amount": 1400,
+        "description": "Pay Mortgage",
+        "createdAt": {
+          "$date": "2020-05-03T17:07:27.952Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:07:27.952Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefa5b8ac8d02080daed37"
+        },
+        "accountType": "money market",
+        "accountNumber": 1,
+        "processDate": "2020-04-05",
+        "actionType": "Withdrawal",
+        "amount": 1001,
+        "description": "Pay Visa",
+        "createdAt": {
+          "$date": "2020-05-03T17:07:39.068Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:07:39.068Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefa5f8ac8d02080daed38"
+        },
+        "accountType": "money market",
+        "accountNumber": 1,
+        "processDate": "2020-04-10",
+        "actionType": "Deposit",
+        "amount": 3500,
+        "description": "Paycheck",
+        "createdAt": {
+          "$date": "2020-05-03T17:07:43.068Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:07:43.068Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefa6d8ac8d02080daed39"
+        },
+        "accountType": "money market",
+        "accountNumber": 1,
+        "processDate": "2020-04-18",
+        "actionType": "Deposit",
+        "amount": 1200,
+        "description": "Stimulus Check",
+        "createdAt": {
+          "$date": "2020-05-03T17:07:57.166Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:07:57.166Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefa7e8ac8d02080daed3a"
+        },
+        "accountType": "money market",
+        "accountNumber": 1,
+        "processDate": "2020-04-27",
+        "actionType": "Withdrawal",
+        "amount": 600,
+        "description": "Car Payment",
+        "createdAt": {
+          "$date": "2020-05-03T17:08:14.840Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:08:14.840Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefa838ac8d02080daed3b"
+        },
+        "accountType": "money market",
+        "accountNumber": 1,
+        "processDate": "2020-05-04",
+        "actionType": "Withdrawal",
+        "amount": 10000,
+        "description": "Pay for Vacation",
+        "createdAt": {
+          "$date": "2020-05-03T17:08:19.502Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:08:19.502Z"
+        }
+      }
+    ],
+    "savings": [
+      {
+        "_id": {
+          "$oid": "5eaefc2f8ac8d02080daed3c"
+        },
+        "accountType": "savings",
+        "accountNumber": 1,
+        "processDate": "2020-03-26",
+        "actionType": "Deposit",
+        "amount": 20000,
+        "description": "Open savings Account",
+        "createdAt": {
+          "$date": "2020-05-03T17:15:27.761Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:15:27.761Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefc358ac8d02080daed3d"
+        },
+        "accountType": "savings",
+        "accountNumber": 1,
+        "processDate": "2020-03-30",
+        "actionType": "Withdrawal",
+        "amount": 1400,
+        "description": "Pay Mortgage",
+        "createdAt": {
+          "$date": "2020-05-03T17:15:33.051Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:15:33.051Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefc398ac8d02080daed3e"
+        },
+        "accountType": "savings",
+        "accountNumber": 1,
+        "processDate": "2020-04-05",
+        "actionType": "Withdrawal",
+        "amount": 1001,
+        "description": "Pay Visa",
+        "createdAt": {
+          "$date": "2020-05-03T17:15:37.224Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:15:37.224Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefc3d8ac8d02080daed3f"
+        },
+        "accountType": "savings",
+        "accountNumber": 1,
+        "processDate": "2020-04-10",
+        "actionType": "Deposit",
+        "amount": 3500,
+        "description": "Paycheck",
+        "createdAt": {
+          "$date": "2020-05-03T17:15:41.982Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:15:41.982Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefc428ac8d02080daed40"
+        },
+        "accountType": "savings",
+        "accountNumber": 1,
+        "processDate": "2020-04-18",
+        "actionType": "Deposit",
+        "amount": 1200,
+        "description": "Stimulus Check",
+        "createdAt": {
+          "$date": "2020-05-03T17:15:46.159Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:15:46.159Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefc488ac8d02080daed41"
+        },
+        "accountType": "savings",
+        "accountNumber": 1,
+        "processDate": "2020-04-27",
+        "actionType": "Withdrawal",
+        "amount": 600,
+        "description": "Car Payment",
+        "createdAt": {
+          "$date": "2020-05-03T17:15:52.765Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:15:52.765Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "5eaefc4d8ac8d02080daed42"
+        },
+        "accountType": "savings",
+        "accountNumber": 1,
+        "processDate": "2020-05-04",
+        "actionType": "Withdrawal",
+        "amount": 200,
+        "description": "Pay for Vacation",
+        "createdAt": {
+          "$date": "2020-05-03T17:15:57.970Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:15:57.970Z"
+        }
+      }
+    ],
+    "createdAt": {
+      "$date": "2020-03-01T00:54:45.052Z"
+    },
+    "updatedAt": {
+      "$date": "2020-05-03T17:47:43.172Z"
+    },
+    "__v": 63,
+    "notifications": [
+      {
+        "_id": {
+          "$oid": "5e94b3dde01092328cb25158"
+        },
+        "largeDeposit": 200,
+        "largeWithDrawal": 500,
+        "overDraft": 1000,
+        "createdAt": {
+          "$date": "2020-04-13T18:47:57.555Z"
+        },
+        "updatedAt": {
+          "$date": "2020-05-03T17:47:43.172Z"
+        },
+        "disableLargeDeposit": true,
+        "disablelargeWithDrawal": true,
+        "disableoverDraft": true
+      }
+    ]
+  }
+]
