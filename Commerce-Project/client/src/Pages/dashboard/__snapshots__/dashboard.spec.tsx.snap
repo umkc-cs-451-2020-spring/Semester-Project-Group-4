@@ -13,18 +13,6 @@ exports[`Dashboard Render the Dashboard 1`] = `
   <WithStyles(ForwardRef(Divider))
     className="makeStyles-divider-2"
   />
-  <NotificationCard
-    message="Low Balance in Savings Account"
-    onClick={[Function]}
-  />
-  <NotificationCard
-    message="Low Balance in Checking Account"
-    onClick={[Function]}
-  />
-  <NotificationCard
-    message="Low Balance in Money Market Account"
-    onClick={[Function]}
-  />
   <WithStyles(ForwardRef(ExpansionPanel))
     className="makeStyles-checkingExpansion-4"
     elevation={3}

@@ -142,7 +142,7 @@ const NotificationsContainer = () => {
         </FormGroup>
       </FormControl>
       <Divider className={divider} />
-      <Typography variant='h6'>Large Withdrawal</Typography>
+      <Typography variant='h6'>Large Deposit</Typography>
       <FormControl component="fieldset" className={formControl}>
         <FormLabel component="legend">Recieve notifications when an account has a large withdrawal above a set amount.</FormLabel>
         <FormGroup>
@@ -159,7 +159,7 @@ const NotificationsContainer = () => {
         </FormGroup>
       </FormControl>
       <Divider className={divider} />
-      <Typography variant='h6'>Large Deposit</Typography>
+      <Typography variant='h6'>Large Withdrawal</Typography>
       <FormControl component="fieldset" className={formControl}>
         <FormLabel component="legend">Recieve notifications when an account has a large deposit above a set amount.</FormLabel>
         <FormGroup>

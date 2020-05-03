@@ -70,7 +70,7 @@ exports[`Notifications Container Render the Notifications Container 1`] = `
   <WithStyles(ForwardRef(Typography))
     variant="h6"
   >
-    Large Withdrawal
+    Large Deposit
   </WithStyles(ForwardRef(Typography))>
   <WithStyles(ForwardRef(FormControl))
     className="makeStyles-formControl-3"
@@ -114,7 +114,7 @@ exports[`Notifications Container Render the Notifications Container 1`] = `
   <WithStyles(ForwardRef(Typography))
     variant="h6"
   >
-    Large Deposit
+    Large Withdrawal
   </WithStyles(ForwardRef(Typography))>
   <WithStyles(ForwardRef(FormControl))
     className="makeStyles-formControl-3"

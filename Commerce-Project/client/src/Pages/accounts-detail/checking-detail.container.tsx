@@ -196,20 +196,9 @@ const CheckingDetail = () => {
     setDescription(event.target.value as string);
   };
 
-  const negativeValue = (value: any) => {
-    const minus = '-';
-    if (action === "Withdrawal") {
-      const newValue = minus.concat(value);
-      return newValue;
-    }
-    else {
-      return value
-    }
-  }
-
   const addNewTransaction = () => {
     const form: FormProps = {
-      amount: negativeValue(amount),
+      amount: amount,
       description: description,
       processDate: dateConverter(selectedDate),
       actionType: action
